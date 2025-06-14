@@ -1,0 +1,4 @@
+import { PageOptionsDto } from "src/common/dtos/page-options.dto";
+export declare class FilterMemoriesDto extends PageOptionsDto {
+    folder_id?: any;
+}

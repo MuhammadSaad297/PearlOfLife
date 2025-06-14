@@ -1,0 +1,126 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var Credentials_1;
+Object.defineProperty(exports, "__esModule", { value: true });
+const sequelize_typescript_1 = require("sequelize-typescript");
+const constants_1 = require("../../../common/constants");
+const paginated_model_provider_1 = require("../../../common/providers/paginated-model.provider");
+const sequlize_utils_1 = require("../../../common/utils/sequlize.utils");
+let Credentials = Credentials_1 = class Credentials extends paginated_model_provider_1.PaginatedModel {
+    static scopes(scope = null) {
+        const scopes = {
+            list: {
+                attributes: Credentials_1.attributes()
+            }
+        };
+        if (scope) {
+            return scopes[scope] || {};
+        }
+        return scopes;
+    }
+    static attributes() {
+        return [
+            'id',
+            'user_id',
+            'domain_name',
+            'domain_url',
+            'username',
+            'password',
+            'created_on',
+            'updated_on'
+        ];
+    }
+};
+__decorate([
+    sequelize_typescript_1.PrimaryKey,
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.UUID,
+        defaultValue: sequelize_typescript_1.DataType.UUIDV4,
+        allowNull: false
+    }),
+    __metadata("design:type", String)
+], Credentials.prototype, "id", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.UUID,
+        allowNull: false
+    }),
+    __metadata("design:type", String)
+], Credentials.prototype, "user_id", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING
+    }),
+    __metadata("design:type", String)
+], Credentials.prototype, "domain_name", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+    }),
+    __metadata("design:type", Date)
+], Credentials.prototype, "domain_url", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+    }),
+    __metadata("design:type", Date)
+], Credentials.prototype, "username", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+    }),
+    __metadata("design:type", Date)
+], Credentials.prototype, "password", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.DATE,
+        allowNull: true
+    }),
+    __metadata("design:type", Date)
+], Credentials.prototype, "created_on", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.UUIDV4
+    }),
+    __metadata("design:type", String)
+], Credentials.prototype, "created_by", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.DATE,
+        allowNull: true
+    }),
+    __metadata("design:type", Date)
+], Credentials.prototype, "updated_on", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.UUIDV4
+    }),
+    __metadata("design:type", String)
+], Credentials.prototype, "updated_by", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.DATE,
+        allowNull: true
+    }),
+    __metadata("design:type", Date)
+], Credentials.prototype, "deleted_on", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.UUIDV4
+    }),
+    __metadata("design:type", String)
+], Credentials.prototype, "deleted_by", void 0);
+Credentials = Credentials_1 = __decorate([
+    (0, sequelize_typescript_1.Table)((0, sequlize_utils_1.TableOptions)(constants_1.TABLES.CREDENTIALS, { paranoid: true })),
+    (0, sequelize_typescript_1.Scopes)(() => Credentials.scopes())
+], Credentials);
+exports.default = Credentials;
+//# sourceMappingURL=credentials.entity.js.map

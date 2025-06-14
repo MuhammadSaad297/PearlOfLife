@@ -1,0 +1,1 @@
+{"version":3,"file":"paginate.dto.js","sourceRoot":"","sources":["../../../src/common/dtos/paginate.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qDAA0C;AAG1C,MAAa,WAAW;IACpB,YACI,IAAS,EACT,IAAiB;QAEjB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACjB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACrB,CAAC;CAMJ;AAbD,kCAaC;AADY;IADR,IAAA,yBAAO,GAAE;;yCACS"}
