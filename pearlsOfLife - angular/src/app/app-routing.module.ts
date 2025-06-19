@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SubscriptionPlansComponent } from './features/subscription-plans/subscription-plans.component';
 
 const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-  },
-  {
-    path: 'subscription-plans',
-    component: SubscriptionPlansComponent,
   },
   {
     path: '',

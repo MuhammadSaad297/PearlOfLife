@@ -13,8 +13,6 @@ export declare const TABLES: {
     MEMORY_FOLDERS: string;
     MEMORIES: string;
     OBITUARY_INFO: string;
-    SUBSCRIPTION_PLANS: string;
-    USER_SUBSCRIPTIONS: string;
 };
 export declare const MESSAGE: {
     DATA_NOT_FOUND: string;

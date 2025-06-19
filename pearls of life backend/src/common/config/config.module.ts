@@ -2,16 +2,16 @@ import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import app from './app.config';
 import database from './db.config';
+// import { validate } from '@common/config/env.validation';
 
 @Module({
   imports: [
     NestConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
-      cache: false,
-      load: [app, database],
-    }),
+    //   validate,
+      load: [app, database]
+    })
   ],
-  exports: [NestConfigModule],
+  exports: []
 })
 export class ConfigModule {}

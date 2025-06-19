@@ -7,8 +7,6 @@ export declare const config: {
         ACCESS_TOKEN_EXPIRY: number;
         ALGORITHM: string;
     };
-    PAYPAL_CLIENT_ID: string;
-    PAYPAL_CLIENT_SECRET: string;
 };
 declare const _default: () => {
     ENVIRONMENT: string;
@@ -19,7 +17,5 @@ declare const _default: () => {
         ACCESS_TOKEN_EXPIRY: number;
         ALGORITHM: string;
     };
-    PAYPAL_CLIENT_ID: string;
-    PAYPAL_CLIENT_SECRET: string;
 };
 export default _default;

@@ -72,13 +72,6 @@ const routes: Routes = [
         path: 'obituary-info/:year',
         component: ObituaryByYearComponent,
       },
-      {
-        path: 'subscriptions',
-        loadChildren: () =>
-          import('./subscriptions/subscriptions.module').then(
-            (m) => m.SubscriptionsModule
-          ),
-      },
     ],
   },
 ];

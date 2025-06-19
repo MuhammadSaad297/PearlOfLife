@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Interceptor } from './services/interceptor';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
-import { SubscriptionPlansComponent } from './features/subscription-plans/subscription-plans.component';
 
 @NgModule({
-  declarations: [AppComponent, SubscriptionPlansComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbToastModule],
   providers: [
     {

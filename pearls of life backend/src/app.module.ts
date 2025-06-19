@@ -5,7 +5,6 @@ import {
   forwardRef,
 } from '@nestjs/common';
 import { ConfigModule } from './common/config/config.module';
-import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { DataBaseModule } from './core/database/database.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
@@ -19,18 +18,26 @@ import { JwtStrategy } from './modules/auth/strategies/jwt.strategy';
 import { MemoriesModule } from './modules/memories/memories.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ObituaryInfoModule } from './modules/obituary-info/obituary-info.module';
-import { PaymentsModule } from './modules/payments/payments.module';
 
 @Module({
   imports: [
-    NestConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
-      cache: false,
-    }),
     ConfigModule,
     DataBaseModule,
-    forwardRef(() => PaymentsModule),
+    // TypeOrmModule.forRoot({
+    //   type: 'mssql',
+    //   host: 'SAAD',
+    //   username: 'sa',
+    //   password: 'bnmbnm',
+    //   database: 'PearlsOfLife', // replace this with your actual DB name
+    //   options: {
+    //     encrypt: false, // disable encryption for local dev
+    //     enableArithAbort: true,
+    //     instanceName: 'SQLEXPRESS', // this is essential!
+    //   },
+    //   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+    //   synchronize: false, // or true if you're still prototyping
+    // }),
+
     forwardRef(() => AuthModule),
     forwardRef(() => UsersModule),
     forwardRef(() => NotesModule),
@@ -41,6 +48,8 @@ import { PaymentsModule } from './modules/payments/payments.module';
     forwardRef(() => MemoriesModule),
     forwardRef(() => ObituaryInfoModule),
   ],
+  // controllers: [AppController],
+  // providers: [AppService],
 })
 export class AppModule {}
 
