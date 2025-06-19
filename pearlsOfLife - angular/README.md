@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## PayPal Integration
+
+1. Go to [PayPal Developer Dashboard](https://developer.paypal.com/) and create a REST API app to get your Client ID.
+2. Replace `YOUR_PAYPAL_CLIENT_ID` in `subscriptions.component.ts` with your actual PayPal Client ID.
+3. The Subscriptions page is available at `/subscriptions` and allows users to select and pay for $3, $10, or $20 plans.
+4. On payment success, you should implement backend verification and subscription activation.

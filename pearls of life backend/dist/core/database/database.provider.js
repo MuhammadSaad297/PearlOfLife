@@ -14,6 +14,8 @@ const image_details_entity_1 = require("../../modules/image-upload/entities/imag
 const image_categories_entity_1 = require("../../modules/image-upload/entities/image-categories.entity");
 const credentials_entity_1 = require("../../modules/credentials/entities/credentials.entity");
 const obituary_info_entity_1 = require("../../modules/obituary-info/entities/obituary-info.entity");
+const subscription_plan_model_1 = require("../../modules/payments/models/subscription-plan.model");
+const user_subscription_model_1 = require("../../modules/payments/models/user-subscription.model");
 exports.databaseProvider = [
     {
         provide: 'SEQUELIZE',
@@ -58,6 +60,8 @@ exports.databaseProvider = [
                 console.log('✓ Database connection established successfully');
                 sequelize.addModels([
                     users_entity_1.default,
+                    subscription_plan_model_1.SubscriptionPlan,
+                    user_subscription_model_1.UserSubscription,
                     user_plans_entity_1.default,
                     notes_entity_1.default,
                     memory_folders_entity_1.default,

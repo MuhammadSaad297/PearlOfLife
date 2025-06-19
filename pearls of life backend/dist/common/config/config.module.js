@@ -19,10 +19,12 @@ exports.ConfigModule = ConfigModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
-                load: [app_config_1.default, db_config_1.default]
-            })
+                envFilePath: '.env',
+                cache: false,
+                load: [app_config_1.default, db_config_1.default],
+            }),
         ],
-        exports: []
+        exports: [config_1.ConfigModule],
     })
 ], ConfigModule);
 //# sourceMappingURL=config.module.js.map

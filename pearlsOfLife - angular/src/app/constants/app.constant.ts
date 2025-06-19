@@ -26,11 +26,11 @@ export const SIDE_NAVIGATION = [
     component: 'assets',
     link: '/assets',
   },
-  // {
-  //   name: 'Passwords',
-  //   component: 'passwords',
-  //   link: '/passwords',
-  // },
+  {
+    name: 'Subscription Plans',
+    component: 'subscription-plans',
+    link: '/subscription-plans',
+  },
   {
     name: 'Obituary Info',
     component: 'obituary-info',

@@ -2,7 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
 const dotenv = require("dotenv");
+const common_1 = require("@nestjs/common");
+const logger = new common_1.Logger('AppConfig');
 dotenv.config();
+logger.debug('Loading PayPal configuration', {
+    clientIdExists: !!process.env.PAYPAL_CLIENT_ID,
+    clientSecretExists: !!process.env.PAYPAL_CLIENT_SECRET,
+    nodeEnv: process.env.NODE_ENV,
+});
 exports.config = {
     ENVIRONMENT: process.env.NODE_ENV || 'development',
     HOSTNAME: process.env.HOSTNAME || 'http://localhost',
@@ -10,8 +17,10 @@ exports.config = {
     JWT: {
         SECRET: process.env.JWT_SECRET || 'DA_TAFT',
         ACCESS_TOKEN_EXPIRY: (+process.env.ACCESS_TOKEN_EXPIRY_IN_MINS || 30) * 60,
-        ALGORITHM: process.env.JWT_ALGORITHM || 'HS256'
-    }
+        ALGORITHM: process.env.JWT_ALGORITHM || 'HS256',
+    },
+    PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
+    PAYPAL_CLIENT_SECRET: process.env.PAYPAL_CLIENT_SECRET,
 };
 exports.default = () => exports.config;
 //# sourceMappingURL=app.config.js.map

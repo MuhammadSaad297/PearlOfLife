@@ -48,6 +48,8 @@ import ImageDetails from '../../modules/image-upload/entities/image-details.enti
 import ImageCategories from '../../modules/image-upload/entities/image-categories.entity';
 import Credentials from '../../modules/credentials/entities/credentials.entity';
 import ObituaryInfo from 'src/modules/obituary-info/entities/obituary-info.entity';
+import { SubscriptionPlan } from 'src/modules/payments/models/subscription-plan.model';
+import { UserSubscription } from 'src/modules/payments/models/user-subscription.model';
 
 export const databaseProvider = [
   {
@@ -100,6 +102,8 @@ export const databaseProvider = [
         // Add models explicitly in the correct order
         sequelize.addModels([
           Users,
+          SubscriptionPlan,
+          UserSubscription,
           UserPlans,
           Notes,
           MemoryFolders,
