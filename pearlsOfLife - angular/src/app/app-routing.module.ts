@@ -7,8 +7,13 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./features/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
     path: '',
-    // canActivate: [AuthGuard],
+    // canActivate: [AuthGuards],
     loadChildren: () =>
       import('./features/features.module').then((m) => m.FeaturesModule),
   },

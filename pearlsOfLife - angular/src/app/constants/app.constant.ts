@@ -43,6 +43,14 @@ export const SIDE_NAVIGATION = [
   // }
 ];
 
+export const ADMIN_SIDE_NAVIGATION = [
+  {
+    name: 'user-management',
+    component: 'users',
+    link: '/users',
+  },
+];
+
 export const ADD_ITEMS_LIST = {
   MEMORIES: {
     text: 'Add Memories',

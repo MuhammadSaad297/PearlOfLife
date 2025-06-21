@@ -13,6 +13,7 @@ import { NotesByYearComponent } from './notes/notes-by-year/notes-by-year.compon
 import { KeyHolderDetailsComponent } from './key-holders/key-holder-details/key-holder-details.component';
 import { MemoryFolderDetailsComponent } from './memories/memory-folder-details/memory-folder-details.component';
 import { ObituaryByYearComponent } from './obituary-info/obituary-by-year/obituary-by-year.component';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
         path: 'obituary-info/:year',
         component: ObituaryByYearComponent,
       },
+      // {
+      //   path: 'users',
+      //   component: UserManagementComponent,
+      // },
     ],
   },
 ];

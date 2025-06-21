@@ -14,15 +14,21 @@ class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strate
                     return (request.headers?.[constants_1.X_ACCESS_TOKEN] ||
                         request.headers?.[constants_1.X_ACCESS_TOKEN.toLocaleLowerCase()] ||
                         request.query?.[constants_1.X_ACCESS_TOKEN.toLocaleLowerCase()])?.replace(`${constants_1.BEARER} `, '');
-                }
+                },
             ]),
             ignoreExpiration: false,
             algorithm: config.JWT.ALGORITHM,
-            secretOrKey: config.JWT.SECRET
+            secretOrKey: config.JWT.SECRET,
         });
     }
     async validate(payload) {
-        return { user_id: payload.user_id, session_id: payload.session_id, version: payload.version, is_keyholder: payload?.is_keyholder ?? false };
+        return {
+            user_id: payload.user_id,
+            session_id: payload.session_id,
+            version: payload.version,
+            is_keyholder: payload?.is_keyholder ?? false,
+            role: payload?.role ?? 'user',
+        };
     }
 }
 exports.JwtStrategy = JwtStrategy;

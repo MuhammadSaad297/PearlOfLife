@@ -20,6 +20,13 @@ export default class Users extends Model {
   id: string;
 
   @Column({
+    type: DataType.ENUM('user', 'admin', 'super_admin'),
+    defaultValue: 'user',
+    allowNull: false,
+  })
+  role: string;
+
+  @Column({
     type: DataType.STRING,
   })
   first_name: string;
@@ -123,10 +130,10 @@ export default class Users extends Model {
     }
     return scopes;
   }
-
   static attributes(): Array<keyof Users> {
     return [
       'id',
+      'role',
       'first_name',
       'last_name',
       'email',

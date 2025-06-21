@@ -15,4 +15,12 @@ export declare class UsersService {
     getPersonalInfo(id: string): Promise<Users>;
     findPlanByUser(user_id: string): Promise<UserPlans>;
     updateResetToken(userId: string, resetToken: string, resetTokenExpiry: Date): Promise<void>;
+    findAllUsers(page?: number, limit?: number): Promise<{
+        rows: Users[];
+        count: number;
+    }>;
+    updateUserRole(userId: string, role: 'user' | 'admin' | 'super_admin'): Promise<Users>;
+    deleteUser(userId: string, deletedBy: string): Promise<[affectedCount: number]>;
+    blockUser(userId: string): Promise<Users>;
+    unblockUser(userId: string): Promise<Users>;
 }

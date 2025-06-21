@@ -65,8 +65,7 @@ export class AuthController {
         HttpStatus.UNAUTHORIZED,
       );
     }
-
-    const token = this.jwtHelper.generateToken(user.id);
+    const token = this.jwtHelper.generateToken(user.id, false, user.role);
     request.res.setHeader(X_ACCESS_TOKEN, token.access_token);
     return user;
   }

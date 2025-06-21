@@ -110,4 +110,67 @@ export class UsersService {
       },
     );
   }
+
+  async findAllUsers(page: number = 1, limit: number = 10) {
+    return await this.usersRepository.findAndCountAll({
+      where: {
+        role: 'user',
+        deleted_on: null,
+      },
+      limit,
+      offset: (page - 1) * limit,
+      attributes: [...Users.attributes(), 'role'],
+    });
+  }
+
+  async updateUserRole(userId: string, role: 'user' | 'admin' | 'super_admin') {
+    const user = await this.usersRepository.findOne({
+      where: { id: userId },
+    });
+    if (!user) {
+      return null;
+    }
+    await this.usersRepository.update({ role }, { where: { id: userId } });
+    return this.findOne(userId);
+  }
+
+  async deleteUser(userId: string, deletedBy: string) {
+    return await this.usersRepository.update(
+      {
+        deleted_on: new Date(),
+        deleted_by: deletedBy,
+      },
+      {
+        where: { id: userId },
+      },
+    );
+  }
+
+  async blockUser(userId: string) {
+    const user = await this.usersRepository.findOne({
+      where: { id: userId },
+    });
+    if (!user) {
+      return null;
+    }
+    await this.usersRepository.update(
+      { is_active: false },
+      { where: { id: userId } },
+    );
+    return this.findOne(userId);
+  }
+
+  async unblockUser(userId: string) {
+    const user = await this.usersRepository.findOne({
+      where: { id: userId },
+    });
+    if (!user) {
+      return null;
+    }
+    await this.usersRepository.update(
+      { is_active: true },
+      { where: { id: userId } },
+    );
+    return this.findOne(userId);
+  }
 }

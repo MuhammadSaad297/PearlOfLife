@@ -1,6 +1,7 @@
 import { Model } from 'sequelize-typescript';
 export default class Users extends Model {
     id: string;
+    role: string;
     first_name: string;
     last_name: string;
     email: string;

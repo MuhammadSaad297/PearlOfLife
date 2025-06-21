@@ -31,6 +31,7 @@ let Users = Users_1 = class Users extends sequelize_typescript_1.Model {
     static attributes() {
         return [
             'id',
+            'role',
             'first_name',
             'last_name',
             'email',
@@ -54,6 +55,14 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], Users.prototype, "id", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.ENUM('user', 'admin', 'super_admin'),
+        defaultValue: 'user',
+        allowNull: false,
+    }),
+    __metadata("design:type", String)
+], Users.prototype, "role", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,

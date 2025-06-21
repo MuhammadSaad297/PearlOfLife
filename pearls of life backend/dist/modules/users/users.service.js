@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const constants_1 = require("../../common/constants");
 const common_1 = require("@nestjs/common");
+const users_entity_1 = require("./entities/users.entity");
 const constants_2 = require("../../common/constants");
 let UsersService = class UsersService {
     constructor(usersRepository, userPlansRepository) {
@@ -93,6 +94,55 @@ let UsersService = class UsersService {
         }, {
             where: { id: userId },
         });
+    }
+    async findAllUsers(page = 1, limit = 10) {
+        return await this.usersRepository.findAndCountAll({
+            where: {
+                role: 'user',
+                deleted_on: null,
+            },
+            limit,
+            offset: (page - 1) * limit,
+            attributes: [...users_entity_1.default.attributes(), 'role'],
+        });
+    }
+    async updateUserRole(userId, role) {
+        const user = await this.usersRepository.findOne({
+            where: { id: userId },
+        });
+        if (!user) {
+            return null;
+        }
+        await this.usersRepository.update({ role }, { where: { id: userId } });
+        return this.findOne(userId);
+    }
+    async deleteUser(userId, deletedBy) {
+        return await this.usersRepository.update({
+            deleted_on: new Date(),
+            deleted_by: deletedBy,
+        }, {
+            where: { id: userId },
+        });
+    }
+    async blockUser(userId) {
+        const user = await this.usersRepository.findOne({
+            where: { id: userId },
+        });
+        if (!user) {
+            return null;
+        }
+        await this.usersRepository.update({ is_active: false }, { where: { id: userId } });
+        return this.findOne(userId);
+    }
+    async unblockUser(userId) {
+        const user = await this.usersRepository.findOne({
+            where: { id: userId },
+        });
+        if (!user) {
+            return null;
+        }
+        await this.usersRepository.update({ is_active: true }, { where: { id: userId } });
+        return this.findOne(userId);
     }
 };
 exports.UsersService = UsersService;

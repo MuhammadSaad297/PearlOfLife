@@ -53,7 +53,7 @@ let AuthController = class AuthController {
                 error: 'Unauthorized',
             }, common_1.HttpStatus.UNAUTHORIZED);
         }
-        const token = this.jwtHelper.generateToken(user.id);
+        const token = this.jwtHelper.generateToken(user.id, false, user.role);
         request.res.setHeader(constants_1.X_ACCESS_TOKEN, token.access_token);
         return user;
     }

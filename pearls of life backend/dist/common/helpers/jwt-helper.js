@@ -14,19 +14,20 @@ const crypto_1 = require("crypto");
 const config = (0, app_config_1.default)();
 const jwt = new jwt_1.JwtService({ secret: config.JWT.SECRET });
 let JwtHelper = class JwtHelper {
-    generateToken(user_id, is_keyholder = false, session_id = (0, crypto_1.randomUUID)()) {
+    generateToken(user_id, is_keyholder = false, role = 'user', session_id = (0, crypto_1.randomUUID)()) {
         const payload = {
             user_id,
             session_id,
             version: 1,
-            is_keyholder
+            is_keyholder,
+            role,
         };
         const access_token = jwt.sign(payload, {
             secret: config.JWT.SECRET,
-            expiresIn: config.JWT.ACCESS_TOKEN_EXPIRY
+            expiresIn: config.JWT.ACCESS_TOKEN_EXPIRY,
         });
         return {
-            access_token
+            access_token,
         };
     }
 };
