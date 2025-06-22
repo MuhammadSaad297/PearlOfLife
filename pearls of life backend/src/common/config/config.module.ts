@@ -8,10 +8,10 @@ import database from './db.config';
   imports: [
     NestConfigModule.forRoot({
       isGlobal: true,
-    //   validate,
-      load: [app, database]
-    })
+      //   validate,
+      load: [app, database],
+    }),
   ],
-  exports: []
+  exports: [],
 })
 export class ConfigModule {}

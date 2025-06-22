@@ -77,6 +77,13 @@ const routes: Routes = [
       //   path: 'users',
       //   component: UserManagementComponent,
       // },
+      // {
+      //   path: 'subscriptions',
+      //   loadChildren: () =>
+      //     import('./subscription/subscription.module').then(
+      //       (m) => m.SubscriptionsModule
+      //     ),
+      // },
     ],
   },
 ];

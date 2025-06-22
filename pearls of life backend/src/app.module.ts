@@ -4,7 +4,7 @@ import {
   NestModule,
   forwardRef,
 } from '@nestjs/common';
-import { ConfigModule } from './common/config/config.module';
+import { ConfigModule } from '@nestjs/config';
 import { DataBaseModule } from './core/database/database.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
@@ -18,10 +18,15 @@ import { JwtStrategy } from './modules/auth/strategies/jwt.strategy';
 import { MemoriesModule } from './modules/memories/memories.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ObituaryInfoModule } from './modules/obituary-info/obituary-info.module';
+import { PaymentsModule } from './modules/payment/payment.module';
 
 @Module({
   imports: [
-    ConfigModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+      cache: false,
+    }),
     DataBaseModule,
     // TypeOrmModule.forRoot({
     //   type: 'mssql',
@@ -38,6 +43,7 @@ import { ObituaryInfoModule } from './modules/obituary-info/obituary-info.module
     //   synchronize: false, // or true if you're still prototyping
     // }),
 
+    forwardRef(() => PaymentsModule),
     forwardRef(() => AuthModule),
     forwardRef(() => UsersModule),
     forwardRef(() => NotesModule),

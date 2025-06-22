@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SubscriptionPlansComponent } from './features/subscriptionplan/subscriptionplan.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/features.module').then((m) => m.FeaturesModule),
   },
+  {
+    path: 'subscription-plans',
+    component: SubscriptionPlansComponent,
+  },
+
   {
     path: '**',
     redirectTo: '',

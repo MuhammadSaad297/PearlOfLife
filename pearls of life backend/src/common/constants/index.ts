@@ -13,6 +13,8 @@ export const TABLES = {
   MEMORY_FOLDERS: 'MemoryFolders',
   MEMORIES: 'Memories',
   OBITUARY_INFO: 'ObituaryInfo',
+  SUBSCRIPTION_PLANS: 'SubscriptionPlans',
+  USER_SUBSCRIPTIONS: 'UserSubscriptions',
 };
 
 export const MESSAGE = {

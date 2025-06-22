@@ -48,6 +48,8 @@ import ImageDetails from '../../modules/image-upload/entities/image-details.enti
 import ImageCategories from '../../modules/image-upload/entities/image-categories.entity';
 import Credentials from '../../modules/credentials/entities/credentials.entity';
 import ObituaryInfo from 'src/modules/obituary-info/entities/obituary-info.entity';
+import { SubscriptionPlan } from 'src/modules/payment/entities/Subscription-Plan.entity';
+import { UserSubscription } from 'src/modules/payment/entities/user-subscription.entity';
 
 export const databaseProvider = [
   {
@@ -110,6 +112,8 @@ export const databaseProvider = [
           ImageCategories,
           Credentials,
           ObituaryInfo,
+          SubscriptionPlan,
+          UserSubscription,
         ]);
 
         // Sync without force to preserve data

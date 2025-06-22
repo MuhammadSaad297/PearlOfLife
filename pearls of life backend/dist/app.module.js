@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const config_module_1 = require("./common/config/config.module");
+const config_1 = require("@nestjs/config");
 const database_module_1 = require("./core/database/database.module");
 const users_module_1 = require("./modules/users/users.module");
 const notes_module_1 = require("./modules/notes/notes.module");
@@ -19,14 +19,20 @@ const image_upload_module_1 = require("./modules/image-upload/image-upload.modul
 const key_holders_module_1 = require("./modules/key-holders/key-holders.module");
 const memories_module_1 = require("./modules/memories/memories.module");
 const obituary_info_module_1 = require("./modules/obituary-info/obituary-info.module");
+const payment_module_1 = require("./modules/payment/payment.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            config_module_1.ConfigModule,
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+                envFilePath: '.env',
+                cache: false,
+            }),
             database_module_1.DataBaseModule,
+            (0, common_1.forwardRef)(() => payment_module_1.PaymentsModule),
             (0, common_1.forwardRef)(() => auth_module_1.AuthModule),
             (0, common_1.forwardRef)(() => users_module_1.UsersModule),
             (0, common_1.forwardRef)(() => notes_module_1.NotesModule),

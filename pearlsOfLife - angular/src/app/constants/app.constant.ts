@@ -12,6 +12,12 @@ export const SIDE_NAVIGATION = [
     link: '/key-holders',
   },
   {
+    name: 'Subscription Plans',
+    component: 'subscription-plans',
+    link: '/subscription-plans',
+  },
+
+  {
     name: 'Memories',
     component: 'memories',
     link: '/memories',

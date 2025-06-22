@@ -1,0 +1,15 @@
+<div class="subscriptions-container">
+  <h2>Choose Your Plan</h2>
+  <div class="plans">
+    <button [class.selected]="selectedAmount === 3" (click)="selectPlan(3)">
+      Subscribe for $3
+    </button>
+    <button [class.selected]="selectedAmount === 10" (click)="selectPlan(10)">
+      Subscribe for $10
+    </button>
+    <button [class.selected]="selectedAmount === 20" (click)="selectPlan(20)">
+      Subscribe for $20
+    </button>
+  </div>
+  <div id="paypal-button-container"></div>
+</div>
