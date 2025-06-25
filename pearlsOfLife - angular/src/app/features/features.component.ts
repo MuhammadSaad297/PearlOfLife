@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SIDE_NAVIGATION } from '../constants/app.constant';
+import {
+  ADMIN_SIDE_NAVIGATION,
+  SIDE_NAVIGATION,
+} from '../constants/app.constant';
 import { NavigationEnd, Router } from '@angular/router';
 import { FeaturesService } from './features.service';
 import { SharedService } from '../services/shared.service';
@@ -26,7 +29,45 @@ export class FeaturesComponent implements OnInit {
     this.getUserPlan();
   }
 
+  // getUserPlan() {
+  //   this.featuresService.getUserPlan().subscribe({
+  //     next: (res: any) => {
+  //       if (res?.plan?.screens?.length) {
+  //         this.navList = SIDE_NAVIGATION.filter((x) =>
+  //           res.plan.screens.find((y: any) => y.name == x.name)
+  //         );
+  //         console.log('Filtered navigation list:', this.navList);
+  //       } else {
+  //         console.warn('No screens found in user plan');
+  //         this.navList = SIDE_NAVIGATION; // Fallback to show all navigation items
+  //       }
+  //       this.subscribeToEvent();
+  //       if (this.navList.length && !this.activeItemLink) {
+  //         this.router.navigate([`${this.navList[0]?.link}`]);
+  //       }
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching user plan:', err);
+  //       this.navList = SIDE_NAVIGATION; // Fallback to show all navigation items
+  //       this.sharedService.showToast({
+  //         classname: 'error',
+  //         text: err?.error?.message || 'Error loading navigation',
+  //       });
+  //     },
+  //   });
+  // }
   getUserPlan() {
+    // First check if user is admin or super admin
+    if (this.sharedService.isAdmin() || this.sharedService.isSuperAdmin()) {
+      this.navList = ADMIN_SIDE_NAVIGATION;
+      this.subscribeToEvent();
+      if (this.navList.length && !this.activeItemLink) {
+        this.router.navigate([`${this.navList[0]?.link}`]);
+      }
+      return;
+    }
+
+    // For non-admin users, proceed with the original logic
     this.featuresService.getUserPlan().subscribe({
       next: (res: any) => {
         if (res?.plan?.screens?.length) {

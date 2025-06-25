@@ -30,6 +30,7 @@ import { ManageMemoriesComponent } from './memories/manage-memories/manage-memor
 import { ManageObituaryComponent } from './obituary-info/manage-obituary/manage-obituary.component';
 import { ObituaryByYearComponent } from './obituary-info/obituary-by-year/obituary-by-year.component';
 import { ObituaryCardComponent } from '../shared/obituary-card/obituary-card.component';
+import { LegacyComponent } from './legacy/legacy.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ObituaryCardComponent } from '../shared/obituary-card/obituary-card.com
     ManageMemoriesComponent,
     ManageObituaryComponent,
     ObituaryByYearComponent,
+    LegacyComponent,
   ],
   imports: [
     CommonModule,

@@ -4,21 +4,21 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UserManagementComponent } from './user-management/user-management.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AdminDashboardComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'users',
-        pathMatch: 'full',
-      },
-      {
-        path: 'users',
-        component: UserManagementComponent,
-      },
-    ],
-  },
+  // {
+  //   path: '',
+  //   component: AdminDashboardComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       redirectTo: 'users',
+  //       pathMatch: 'full',
+  //     },
+  //     {
+  //       path: 'users',
+  //       component: UserManagementComponent,
+  //     },
+  //   ],
+  // },
 ];
 
 @NgModule({

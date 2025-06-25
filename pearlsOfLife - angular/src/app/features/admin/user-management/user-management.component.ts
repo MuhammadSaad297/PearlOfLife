@@ -28,6 +28,7 @@ export class UserManagementComponent implements OnInit {
       last_name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone_number: [''],
+      hashed_password: [''],
     });
   }
 
@@ -76,6 +77,7 @@ export class UserManagementComponent implements OnInit {
       last_name: user.last_name,
       email: user.email,
       phone_number: user.phone_number || '',
+      hashed_password: user.hashed_password || '',
     });
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }

@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const constants_1 = require("../../common/constants");
 const common_1 = require("@nestjs/common");
-const users_entity_1 = require("./entities/users.entity");
 const constants_2 = require("../../common/constants");
 let UsersService = class UsersService {
     constructor(usersRepository, userPlansRepository) {
@@ -103,7 +102,6 @@ let UsersService = class UsersService {
             },
             limit,
             offset: (page - 1) * limit,
-            attributes: [...users_entity_1.default.attributes(), 'role'],
         });
     }
     async updateUserRole(userId, role) {

@@ -11,11 +11,6 @@ export const SIDE_NAVIGATION = [
     component: 'key-holders',
     link: '/key-holders',
   },
-  {
-    name: 'Subscription Plans',
-    component: 'subscription-plans',
-    link: '/subscription-plans',
-  },
 
   {
     name: 'Memories',
@@ -42,18 +37,24 @@ export const SIDE_NAVIGATION = [
     component: 'obituary-info',
     link: '/obituary-info',
   },
+
   // {
-  //   name: 'Personal Info',
-  //   component: 'personal-info',
-  //   link: '/personal-info'
-  // }
+  //   name: 'Subscription Plans',
+  //   component: 'subscription-plans',
+  //   link: '/subscription-plans',
+  // },
 ];
 
 export const ADMIN_SIDE_NAVIGATION = [
   {
     name: 'user-management',
     component: 'users',
-    link: '/users',
+    link: '/admin/users',
+  },
+  {
+    name: 'Subscription Plans',
+    component: 'subscription-plans',
+    link: '/subscription-plans',
   },
 ];
 

@@ -17,6 +17,7 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { AuthGraud } from 'src/common/guards/auth.guard';
 import { AdminGuard } from 'src/common/guards/admin.guard';
 import { MESSAGE } from 'src/common/constants';
+import Users from './entities/users.entity';
 
 @UseGuards(AuthGraud)
 @Controller('users')

@@ -112,14 +112,14 @@ export class UsersService {
   }
 
   async findAllUsers(page: number = 1, limit: number = 10) {
-    return await this.usersRepository.findAndCountAll({
+    return await this.usersRepository.findAndCountAll<Users>({
       where: {
         role: 'user',
         deleted_on: null,
       },
       limit,
       offset: (page - 1) * limit,
-      attributes: [...Users.attributes(), 'role'],
+      // attributes: [...Users.attributes(), 'role'],
     });
   }
 

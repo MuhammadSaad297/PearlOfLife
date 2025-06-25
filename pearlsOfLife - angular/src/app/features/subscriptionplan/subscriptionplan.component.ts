@@ -10,40 +10,63 @@ export class SubscriptionPlansComponent implements OnInit {
   plans = [
     {
       id: 'basic',
-      name: 'Basic Plan',
+      name: 'Advanced Auto-Obituary Plan',
       price: 3,
-      description: 'Essential features for getting started',
+      description:
+        'Includes auto-obituary section plus more detailed life information such as achievements, diplomas, friends, employment, etc.',
       featuresList: [
-        'Basic memory storage',
-        'Limited key holders',
-        'Standard support',
+        '•1 picture to be used as funeral program cover photo',
+        '•Grandchildren Names & age • Siblings (Dates & Degrees)',
+        '•Employment (Titles & Dates) ',
+        '•Work Achievements ',
+        '•Education Achievements',
+        '•Special Achievements',
+        '•Club Memberships, Groups, etc',
+        '•When & where you met your spouse',
+        '•Other',
       ],
     },
     {
       id: 'standard',
-      name: 'Standard Plan',
-      price: 10,
-      description: 'Perfect for active users',
+      name: 'Legacy Creation Plan',
+      price: 6.35,
+      description:
+        'Leave the comfort of the sound of your voice. Make a video of you talking/singing etc. (Look in the section for talking topics.) Auto-obituary plan plus video memories, pictures, audio notes and short stories. Highlight your achievements over the years.',
       featuresList: [
-        'Enhanced memory storage',
-        'Multiple key holders',
-        'Priority support',
-        'Advanced features',
+        '•Record up to ten 3-minute videos a year',
+        '•Upload up to 30 pictures w/ audio recorded descriptions.',
+        // 'Priority support',
+        // 'Advanced features',
       ],
     },
     {
       id: 'premium',
-      name: 'Premium Plan',
-      price: 25,
-      description: 'Complete access to all features',
+      name: '	Ultimate Legacy Creation Plan',
+      price: 10.9,
+      description:
+        'Includes legacy creation plan plus additional videos, pictures and audio notes.',
       featuresList: [
-        'Unlimited memory storage',
-        'Unlimited key holders',
-        '24/7 Premium support',
-        'All advanced features',
-        'Custom branding options',
+        '•Records an additional three minute video',
+        '•Show as seen at the end',
+        '•Includes additional 60 pictures & 20 audio notes.',
+        // 'All advanced features',
+        // 'Custom branding options',
       ],
     },
+    // {
+    //   id: 'advance premium',
+    //   name: 'Funeral Home Plan',
+    //   price: 350,
+    //   description:
+    //     'Exclusively for organizations specializing in burial & home going services. Includes access to videos, pictures and obituary information of POML member accounts (When knowledge are inaccessible by purposes of providing a scanned funeral program created by and according to the wishes of the deceased.',
+    //   featuresList: [
+    //     '• Gain access to POML member account of the funeral program information in order to provide a service according to the direct wishes',
+    //     '• Includes Video Link, if chosen in POML account holders account',
+
+    //     // 'All advanced features',
+    //     // 'Custom branding options',
+    //   ],
+    // },
   ];
   private paypalScriptLoaded = false;
 

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeaturesComponent } from './features.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { KeyHoldersComponent } from './key-holders/key-holders.component';
 import { MemoriesComponent } from './memories/memories.component';
@@ -14,6 +13,9 @@ import { KeyHolderDetailsComponent } from './key-holders/key-holder-details/key-
 import { MemoryFolderDetailsComponent } from './memories/memory-folder-details/memory-folder-details.component';
 import { ObituaryByYearComponent } from './obituary-info/obituary-by-year/obituary-by-year.component';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { SubscriptionGuard } from '../guards/subscription.guard';
+import { FeaturesComponent } from './features.component';
+import { LegacyComponent } from './legacy/legacy.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,7 @@ const routes: Routes = [
       {
         path: 'key-holders',
         component: KeyHoldersComponent,
+        canActivate: [SubscriptionGuard],
       },
       {
         path: 'key-holders/:id',
@@ -40,6 +43,7 @@ const routes: Routes = [
       {
         path: 'memories',
         component: MemoriesComponent,
+        canActivate: [SubscriptionGuard],
       },
       {
         path: 'memories/folder/:id',
@@ -48,6 +52,7 @@ const routes: Routes = [
       {
         path: 'notes',
         component: NotesComponent,
+        canActivate: [SubscriptionGuard],
       },
       {
         path: 'notes/:year',
@@ -56,6 +61,7 @@ const routes: Routes = [
       {
         path: 'assets',
         component: AssetsComponent,
+        canActivate: [SubscriptionGuard],
       },
       {
         path: 'passwords',
@@ -73,10 +79,11 @@ const routes: Routes = [
         path: 'obituary-info/:year',
         component: ObituaryByYearComponent,
       },
-      // {
-      //   path: 'users',
-      //   component: UserManagementComponent,
-      // },
+
+      {
+        path: 'admin/users',
+        component: UserManagementComponent,
+      },
       // {
       //   path: 'subscriptions',
       //   loadChildren: () =>
