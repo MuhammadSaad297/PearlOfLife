@@ -31,6 +31,7 @@ import { ManageObituaryComponent } from './obituary-info/manage-obituary/manage-
 import { ObituaryByYearComponent } from './obituary-info/obituary-by-year/obituary-by-year.component';
 import { ObituaryCardComponent } from '../shared/obituary-card/obituary-card.component';
 import { LegacyComponent } from './legacy/legacy.component';
+import { AuthRoutingModule } from '../auth/auth-routing.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,6 @@ import { LegacyComponent } from './legacy/legacy.component';
   ],
   imports: [
     CommonModule,
-    FeaturesRoutingModule,
     SideNavComponent,
     HeaderComponent,
     AddItemsCardComponent,
@@ -67,6 +67,8 @@ import { LegacyComponent } from './legacy/legacy.component';
     ReactiveFormsModule,
     NgbDatepickerModule,
     ConfirmationModalComponent,
+    FeaturesRoutingModule,
+    AuthRoutingModule,
   ],
 })
 export class FeaturesModule {}

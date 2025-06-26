@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-legacy',
@@ -7,14 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./legacy.component.scss'],
 })
 export class LegacyComponent {
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private readonly route: ActivatedRoute
+  ) {}
 
-  goToPage() {
+  goToPage(type: string) {
     // Check for authentication token (adjust key as needed)
     const token = localStorage.getItem('accessToken');
-    if (token) {
-      debugger;
-      this.router.navigate(['/dashboard']);
+    if (token && type === 'dashboard') {
+      // Navigate to dashboard as a child route of the current route (features module)
+      this.router.navigate(['/dashboard'], {
+        relativeTo: this.route.parent,
+      });
+    } else if (type === 'login') {
+      // Navigate to login page
+      this.router.navigate(['/auth/login']);
     } else {
       this.router.navigate(['/auth/login']);
     }

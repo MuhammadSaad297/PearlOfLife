@@ -15,15 +15,15 @@ export class SubscriptionPlansComponent implements OnInit {
       description:
         'Includes auto-obituary section plus more detailed life information such as achievements, diplomas, friends, employment, etc.',
       featuresList: [
-        '•1 picture to be used as funeral program cover photo',
-        '•Grandchildren Names & age • Siblings (Dates & Degrees)',
-        '•Employment (Titles & Dates) ',
-        '•Work Achievements ',
-        '•Education Achievements',
-        '•Special Achievements',
-        '•Club Memberships, Groups, etc',
-        '•When & where you met your spouse',
-        '•Other',
+        '1 picture to be used as funeral program cover photo',
+        'Grandchildren Names & age • Siblings (Dates & Degrees)',
+        'Employment (Titles & Dates) ',
+        'Work Achievements ',
+        'Education Achievements',
+        'Special Achievements',
+        'Club Memberships, Groups, etc',
+        'When & where you met your spouse',
+        'Other',
       ],
     },
     {
@@ -33,8 +33,8 @@ export class SubscriptionPlansComponent implements OnInit {
       description:
         'Leave the comfort of the sound of your voice. Make a video of you talking/singing etc. (Look in the section for talking topics.) Auto-obituary plan plus video memories, pictures, audio notes and short stories. Highlight your achievements over the years.',
       featuresList: [
-        '•Record up to ten 3-minute videos a year',
-        '•Upload up to 30 pictures w/ audio recorded descriptions.',
+        'Record up to ten 3-minute videos a year',
+        'Upload up to 30 pictures w/ audio recorded descriptions.',
         // 'Priority support',
         // 'Advanced features',
       ],
@@ -46,9 +46,9 @@ export class SubscriptionPlansComponent implements OnInit {
       description:
         'Includes legacy creation plan plus additional videos, pictures and audio notes.',
       featuresList: [
-        '•Records an additional three minute video',
-        '•Show as seen at the end',
-        '•Includes additional 60 pictures & 20 audio notes.',
+        'Records an additional three minute video',
+        'Show as seen at the end',
+        'Includes additional 60 pictures & 20 audio notes.',
         // 'All advanced features',
         // 'Custom branding options',
       ],

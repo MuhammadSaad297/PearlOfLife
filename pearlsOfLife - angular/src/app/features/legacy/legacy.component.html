@@ -6,8 +6,10 @@
       class="legacy-logo"
     />
     <div class="legacy-auth-buttons">
-      <button class="legacy-login-btn" routerLink="/auth/login">Login</button>
-      <button class="legacy-signup-btn" routerLink="/auth/register">
+      <button class="legacy-login-btn" [routerLink]="['/auth/login']">
+        Login
+      </button>
+      <button class="legacy-signup-btn" [routerLink]="['/auth/register']">
         Sign Up
       </button>
     </div>
@@ -20,7 +22,7 @@
       The Gift of Your Life's Moments is Your Legacy
     </p>
     <div class="legacy-main-btn-wrapper">
-      <button class="legacy-main-btn" routerLink="/dashboard">
+      <button class="legacy-main-btn" (click)="goToPage('dashboard')">
         <span class="legacy-main-btn-inner-text">
           Start your free auto-obituary here
         </span>

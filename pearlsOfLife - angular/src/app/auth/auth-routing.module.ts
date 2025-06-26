@@ -10,7 +10,7 @@ import { LegacyComponent } from '../features/legacy/legacy.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'auth',
     component: AuthComponent,
     children: [
       {
