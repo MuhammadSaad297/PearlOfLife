@@ -61,27 +61,53 @@ import { Logger } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+// export const DB_CONFIG = {
+//   dialect: 'mssql',
+//   database: process.env.DB_NAME,
+//   dialectModule: require('tedious'),
+
+//   dialectOptions: {
+//     options: {
+//       useUTC: false,
+//       dateFirst: 1,
+//       encrypt: false,
+//       trustServerCertificate: true,
+//       integratedSecurity: true,
+//       trustedConnection: true,
+//       enableArithAbort: true,
+//       instanceName: 'SQLEXPRESS',
+//       server: 'SAAD',
+//       port: 1433,
+//       database: process.env.DB_NAME,
+//       requestTimeout: 30000,
+//       connectTimeout: 30000,
+//       rowCollectionOnRequestCompletion: true,
+//     },
+//   },
+
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000,
+//   },
+// };
 export const DB_CONFIG = {
   dialect: 'mssql',
-  database: process.env.DB_NAME,
+  host: process.env.DB_HOST || '192.168.100.80', // ✅ Use IP, not instance name
+  port: parseInt(process.env.DB_PORT || '1433', 10),
+  username: process.env.DB_USERNAME || 'sa',
+  password: process.env.DB_PASSWORD || 'bnmbnm',
+  database: process.env.DB_NAME || 'PearlsOfLife',
   dialectModule: require('tedious'),
 
   dialectOptions: {
     options: {
-      useUTC: false,
-      dateFirst: 1,
       encrypt: false,
       trustServerCertificate: true,
-      integratedSecurity: true,
-      trustedConnection: true,
       enableArithAbort: true,
-      instanceName: 'SQLEXPRESS',
-      server: 'SAAD',
-      port: 1433,
-      database: process.env.DB_NAME,
       requestTimeout: 30000,
       connectTimeout: 30000,
-      rowCollectionOnRequestCompletion: true,
     },
   },
 
@@ -91,6 +117,8 @@ export const DB_CONFIG = {
     acquire: 30000,
     idle: 10000,
   },
+
+  logging: (str) => Logger.debug(str),
 };
 
 export default registerAs('database', () => DB_CONFIG);
