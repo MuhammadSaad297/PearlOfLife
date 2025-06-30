@@ -9,13 +9,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataBaseModule = void 0;
 const common_1 = require("@nestjs/common");
 const database_provider_1 = require("./database.provider");
+const sequelize_1 = require("@nestjs/sequelize");
+const database_config_1 = require("./database.config");
 let DataBaseModule = class DataBaseModule {
 };
 exports.DataBaseModule = DataBaseModule;
 exports.DataBaseModule = DataBaseModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            sequelize_1.SequelizeModule.forRoot({
+                ...database_config_1.databaseConfig,
+                autoLoadModels: true,
+                synchronize: true,
+            }),
+        ],
         providers: [...database_provider_1.databaseProvider],
-        exports: [...database_provider_1.databaseProvider]
+        exports: [...database_provider_1.databaseProvider],
     })
 ], DataBaseModule);
 //# sourceMappingURL=database.module.js.map

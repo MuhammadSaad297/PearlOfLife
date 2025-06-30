@@ -80,7 +80,7 @@ export const databaseProvider = [
         dialect: 'mssql',
         dialectOptions: {
           options: {
-            encrypt: false,
+            encrypt: true,
             trustServerCertificate: true,
             enableArithAbort: true,
             instanceName: 'SQLEXPRESS',
