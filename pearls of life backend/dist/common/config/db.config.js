@@ -18,7 +18,7 @@ exports.DB_CONFIG = {
             trustedConnection: true,
             enableArithAbort: true,
             instanceName: 'SQLEXPRESS',
-            server: 'SAAD',
+            server: '192.168.100.80',
             port: 1433,
             database: process.env.DB_NAME,
             requestTimeout: 30000,
