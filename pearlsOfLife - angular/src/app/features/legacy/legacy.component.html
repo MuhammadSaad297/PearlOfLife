@@ -6,7 +6,7 @@
       class="legacy-logo"
     />
     <div class="legacy-auth-buttons">
-      <button class="legacy-login-btn" [routerLink]="['/auth/login']">
+      <button class="legacy-login-btn" (click)="goToLogin()">
         Login
       </button>
       <button class="legacy-signup-btn" [routerLink]="['/auth/register']">

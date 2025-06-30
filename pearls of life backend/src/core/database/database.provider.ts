@@ -71,44 +71,18 @@ export const databaseProvider = [
       });
 
       // Create Sequelize instance
-      // const sequelize = new Sequelize({
-      //   host: 'localhost',
-      //   database: 'PearlsOfLife',
-      //   username: 'sa',
-      //   password: 'bnmbnm',
-      //   dialect: 'mssql',
-      //   dialectOptions: {
-      //     options: {
-      //       encrypt: false,
-      //       trustServerCertificate: true,
-      //       enableArithAbort: true,
-      //       instanceName: 'SQLEXPRESS',
-      //     },
-      //   },
-      //   pool: {
-      //     max: 5,
-      //     min: 0,
-      //     acquire: 30000,
-      //     idle: 10000,
-      //   },
-      //   logging: console.log,
-      // });
       const sequelize = new Sequelize({
-        host,
-        database,
-        username,
-        password,
-        port,
-        dialect: dialect as any,
-        dialectModule: require('tedious'),
+        host: 'localhost',
+        database: 'PearlsOfLife',
+        username: 'sa',
+        password: 'pakistan1@',
+        dialect: 'mssql',
         dialectOptions: {
           options: {
             encrypt: false,
             trustServerCertificate: true,
             enableArithAbort: true,
-            connectTimeout: 30000,
-            requestTimeout: 30000,
-            // Remove instanceName if you're using direct IP
+            instanceName: 'SQLEXPRESS',
           },
         },
         pool: {

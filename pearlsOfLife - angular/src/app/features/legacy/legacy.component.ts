@@ -27,4 +27,11 @@ export class LegacyComponent {
       this.router.navigate(['/auth/login']);
     }
   }
+  goToLogin() {
+    // Navigate to login page
+    const token = localStorage.getItem('accessToken');
+    if (!token) {
+      this.router.navigate(['/auth/login']);
+    }
+  }
 }

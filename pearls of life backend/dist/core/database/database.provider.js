@@ -34,20 +34,17 @@ exports.databaseProvider = [
                 dialect,
             });
             const sequelize = new sequelize_typescript_1.Sequelize({
-                host,
-                database,
-                username,
-                password,
-                port,
-                dialect: dialect,
-                dialectModule: require('tedious'),
+                host: 'localhost',
+                database: 'PearlsOfLife',
+                username: 'sa',
+                password: 'pakistan1@',
+                dialect: 'mssql',
                 dialectOptions: {
                     options: {
                         encrypt: false,
                         trustServerCertificate: true,
                         enableArithAbort: true,
-                        connectTimeout: 30000,
-                        requestTimeout: 30000,
+                        instanceName: 'SQLEXPRESS',
                     },
                 },
                 pool: {
