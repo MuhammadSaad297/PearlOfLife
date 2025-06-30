@@ -32,6 +32,7 @@ exports.databaseProvider = [
                 username,
                 port,
                 dialect,
+                password,
             });
             const sequelize = new sequelize_typescript_1.Sequelize({
                 host: 'localhost',

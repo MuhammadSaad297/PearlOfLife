@@ -68,6 +68,7 @@ export const databaseProvider = [
         username,
         port,
         dialect,
+        password,
       });
 
       // Create Sequelize instance
