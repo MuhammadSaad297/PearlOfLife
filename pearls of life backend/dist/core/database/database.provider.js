@@ -35,7 +35,7 @@ exports.databaseProvider = [
                 password,
             });
             const sequelize = new sequelize_typescript_1.Sequelize({
-                host: '13.51.178.43',
+                host: '192.168.100.80',
                 database: 'PearlsOfLife',
                 username: 'sa',
                 password: 'pakistan1@',
@@ -46,13 +46,15 @@ exports.databaseProvider = [
                         trustServerCertificate: true,
                         enableArithAbort: true,
                         instanceName: 'SQLEXPRESS',
+                        connectTimeout: 30000,
+                        requestTimeout: 30000,
                     },
                 },
                 pool: {
                     max: 5,
                     min: 0,
-                    acquire: 30000,
-                    idle: 10000,
+                    acquire: 60000,
+                    idle: 30000,
                 },
                 logging: console.log,
             });

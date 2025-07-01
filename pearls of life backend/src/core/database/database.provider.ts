@@ -73,7 +73,7 @@ export const databaseProvider = [
 
       // Create Sequelize instance
       const sequelize = new Sequelize({
-        host: '13.51.178.43',
+        host: '192.168.100.80',
         database: 'PearlsOfLife',
         username: 'sa',
         password: 'pakistan1@',
@@ -84,13 +84,15 @@ export const databaseProvider = [
             trustServerCertificate: true,
             enableArithAbort: true,
             instanceName: 'SQLEXPRESS',
+            connectTimeout: 30000, // Increased from default 15000ms to 30000ms
+            requestTimeout: 30000, // Increased request timeout
           },
         },
         pool: {
           max: 5,
           min: 0,
-          acquire: 30000,
-          idle: 10000,
+          acquire: 60000, // Increased from 30000 to 60000
+          idle: 30000, // Increased from 10000 to 30000
         },
         logging: console.log,
       });

@@ -29,8 +29,8 @@ exports.DB_CONFIG = {
     pool: {
         max: 5,
         min: 0,
-        acquire: 30000,
-        idle: 10000,
+        acquire: 60000,
+        idle: 30000,
     },
 };
 exports.default = (0, config_1.registerAs)('database', () => exports.DB_CONFIG);
