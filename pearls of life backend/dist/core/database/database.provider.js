@@ -42,7 +42,7 @@ exports.databaseProvider = [
                 dialect: 'mssql',
                 dialectOptions: {
                     options: {
-                        encrypt: true,
+                        encrypt: false,
                         trustServerCertificate: true,
                         enableArithAbort: true,
                         instanceName: 'SQLEXPRESS',
