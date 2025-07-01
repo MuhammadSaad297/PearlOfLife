@@ -45,7 +45,6 @@ exports.databaseProvider = [
                         encrypt: false,
                         trustServerCertificate: true,
                         enableArithAbort: true,
-                        instanceName: 'SQLEXPRESS',
                         connectTimeout: 30000,
                         requestTimeout: 30000,
                     },

@@ -17,8 +17,6 @@ exports.DB_CONFIG = {
             integratedSecurity: true,
             trustedConnection: true,
             enableArithAbort: true,
-            instanceName: 'SQLEXPRESS',
-            server: '119.160.215.177',
             port: 1433,
             database: process.env.DB_NAME,
             requestTimeout: 30000,

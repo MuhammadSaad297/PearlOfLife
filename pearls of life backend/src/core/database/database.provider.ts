@@ -83,7 +83,7 @@ export const databaseProvider = [
             encrypt: false,
             trustServerCertificate: true,
             enableArithAbort: true,
-            instanceName: 'SQLEXPRESS',
+            // instanceName: 'SQLEXPRESS',
             connectTimeout: 30000, // Increased from default 15000ms to 30000ms
             requestTimeout: 30000, // Increased request timeout
           },

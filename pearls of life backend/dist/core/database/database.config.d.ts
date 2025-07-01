@@ -12,8 +12,6 @@ export declare const databaseConfig: {
                 integratedSecurity: boolean;
                 trustedConnection: boolean;
                 enableArithAbort: boolean;
-                instanceName: string;
-                server: string;
                 port: number;
                 database: string;
                 requestTimeout: number;
@@ -41,8 +39,6 @@ export declare const databaseConfig: {
                 integratedSecurity: boolean;
                 trustedConnection: boolean;
                 enableArithAbort: boolean;
-                instanceName: string;
-                server: string;
                 port: number;
                 database: string;
                 requestTimeout: number;
@@ -70,8 +66,6 @@ export declare const databaseConfig: {
                 integratedSecurity: boolean;
                 trustedConnection: boolean;
                 enableArithAbort: boolean;
-                instanceName: string;
-                server: string;
                 port: number;
                 database: string;
                 requestTimeout: number;
