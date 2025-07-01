@@ -74,6 +74,7 @@ export const databaseProvider = [
       // Create Sequelize instance
       const sequelize = new Sequelize({
         host: '192.168.100.80',
+        port: 1433,
         database: 'PearlsOfLife',
         username: 'sa',
         password: 'pakistan1@',
