@@ -1,22 +1,18 @@
 export declare const databaseConfig: {
     development: {
         dialect: string;
+        host: string;
         database: string;
-        dialectModule: any;
+        username: string;
+        password: string;
+        port: number;
         dialectOptions: {
             options: {
-                useUTC: boolean;
-                dateFirst: number;
                 encrypt: boolean;
                 trustServerCertificate: boolean;
-                integratedSecurity: boolean;
-                trustedConnection: boolean;
                 enableArithAbort: boolean;
-                port: number;
-                database: string;
-                requestTimeout: number;
                 connectTimeout: number;
-                rowCollectionOnRequestCompletion: boolean;
+                requestTimeout: number;
             };
         };
         pool: {
@@ -24,26 +20,26 @@ export declare const databaseConfig: {
             min: number;
             acquire: number;
             idle: number;
+        };
+        logging: boolean | {
+            (...data: any[]): void;
+            (message?: any, ...optionalParams: any[]): void;
         };
     };
     test: {
         dialect: string;
+        host: string;
         database: string;
-        dialectModule: any;
+        username: string;
+        password: string;
+        port: number;
         dialectOptions: {
             options: {
-                useUTC: boolean;
-                dateFirst: number;
                 encrypt: boolean;
                 trustServerCertificate: boolean;
-                integratedSecurity: boolean;
-                trustedConnection: boolean;
                 enableArithAbort: boolean;
-                port: number;
-                database: string;
-                requestTimeout: number;
                 connectTimeout: number;
-                rowCollectionOnRequestCompletion: boolean;
+                requestTimeout: number;
             };
         };
         pool: {
@@ -51,26 +47,26 @@ export declare const databaseConfig: {
             min: number;
             acquire: number;
             idle: number;
+        };
+        logging: boolean | {
+            (...data: any[]): void;
+            (message?: any, ...optionalParams: any[]): void;
         };
     };
     production: {
         dialect: string;
+        host: string;
         database: string;
-        dialectModule: any;
+        username: string;
+        password: string;
+        port: number;
         dialectOptions: {
             options: {
-                useUTC: boolean;
-                dateFirst: number;
                 encrypt: boolean;
                 trustServerCertificate: boolean;
-                integratedSecurity: boolean;
-                trustedConnection: boolean;
                 enableArithAbort: boolean;
-                port: number;
-                database: string;
-                requestTimeout: number;
                 connectTimeout: number;
-                rowCollectionOnRequestCompletion: boolean;
+                requestTimeout: number;
             };
         };
         pool: {
@@ -78,6 +74,10 @@ export declare const databaseConfig: {
             min: number;
             acquire: number;
             idle: number;
+        };
+        logging: boolean | {
+            (...data: any[]): void;
+            (message?: any, ...optionalParams: any[]): void;
         };
     };
 };

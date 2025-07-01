@@ -1,21 +1,17 @@
 export declare const DB_CONFIG: {
     dialect: string;
+    host: string;
     database: string;
-    dialectModule: any;
+    username: string;
+    password: string;
+    port: number;
     dialectOptions: {
         options: {
-            useUTC: boolean;
-            dateFirst: number;
             encrypt: boolean;
             trustServerCertificate: boolean;
-            integratedSecurity: boolean;
-            trustedConnection: boolean;
             enableArithAbort: boolean;
-            port: number;
-            database: string;
-            requestTimeout: number;
             connectTimeout: number;
-            rowCollectionOnRequestCompletion: boolean;
+            requestTimeout: number;
         };
     };
     pool: {
@@ -23,26 +19,26 @@ export declare const DB_CONFIG: {
         min: number;
         acquire: number;
         idle: number;
+    };
+    logging: boolean | {
+        (...data: any[]): void;
+        (message?: any, ...optionalParams: any[]): void;
     };
 };
 declare const _default: (() => {
     dialect: string;
+    host: string;
     database: string;
-    dialectModule: any;
+    username: string;
+    password: string;
+    port: number;
     dialectOptions: {
         options: {
-            useUTC: boolean;
-            dateFirst: number;
             encrypt: boolean;
             trustServerCertificate: boolean;
-            integratedSecurity: boolean;
-            trustedConnection: boolean;
             enableArithAbort: boolean;
-            port: number;
-            database: string;
-            requestTimeout: number;
             connectTimeout: number;
-            rowCollectionOnRequestCompletion: boolean;
+            requestTimeout: number;
         };
     };
     pool: {
@@ -50,25 +46,25 @@ declare const _default: (() => {
         min: number;
         acquire: number;
         idle: number;
+    };
+    logging: boolean | {
+        (...data: any[]): void;
+        (message?: any, ...optionalParams: any[]): void;
     };
 }) & import("@nestjs/config").ConfigFactoryKeyHost<{
     dialect: string;
+    host: string;
     database: string;
-    dialectModule: any;
+    username: string;
+    password: string;
+    port: number;
     dialectOptions: {
         options: {
-            useUTC: boolean;
-            dateFirst: number;
             encrypt: boolean;
             trustServerCertificate: boolean;
-            integratedSecurity: boolean;
-            trustedConnection: boolean;
             enableArithAbort: boolean;
-            port: number;
-            database: string;
-            requestTimeout: number;
             connectTimeout: number;
-            rowCollectionOnRequestCompletion: boolean;
+            requestTimeout: number;
         };
     };
     pool: {
@@ -76,6 +72,10 @@ declare const _default: (() => {
         min: number;
         acquire: number;
         idle: number;
+    };
+    logging: boolean | {
+        (...data: any[]): void;
+        (message?: any, ...optionalParams: any[]): void;
     };
 }>;
 export default _default;

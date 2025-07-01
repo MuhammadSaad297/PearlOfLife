@@ -72,30 +72,57 @@ export const databaseProvider = [
       });
 
       // Create Sequelize instance
+      // const sequelize = new Sequelize({
+      //   host: '192.168.100.80',
+      //   port: 1433,
+      //   database: 'PearlsOfLife',
+      //   username: 'sa',
+      //   password: 'pakistan1@',
+      //   dialect: 'mssql',
+      //   dialectOptions: {
+      //     options: {
+      //       encrypt: false,
+      //       trustServerCertificate: true,
+      //       enableArithAbort: true,
+      //       // instanceName: 'SQLEXPRESS',
+      //       connectTimeout: 30000, // Increased from default 15000ms to 30000ms
+      //       requestTimeout: 30000, // Increased request timeout
+      //     },
+      //   },
+      //   pool: {
+      //     max: 5,
+      //     min: 0,
+      //     acquire: 60000, // Increased from 30000 to 60000
+      //     idle: 30000, // Increased from 10000 to 30000
+      //   },
+      //   logging: console.log,
+      // });
       const sequelize = new Sequelize({
-        host: '192.168.100.80',
-        port: 1433,
-        database: 'PearlsOfLife',
-        username: 'sa',
-        password: 'pakistan1@',
+        host: process.env.DB_HOST || 'localhost',
+        port: parseInt(process.env.DB_PORT) || 1433,
+        database: process.env.DB_NAME || 'PearlsOfLife',
+        username: process.env.DB_USERNAME || 'sa',
+        password: process.env.DB_PASSWORD || 'your_secure_password',
         dialect: 'mssql',
+
         dialectOptions: {
           options: {
             encrypt: false,
             trustServerCertificate: true,
             enableArithAbort: true,
-            // instanceName: 'SQLEXPRESS',
-            connectTimeout: 30000, // Increased from default 15000ms to 30000ms
-            requestTimeout: 30000, // Increased request timeout
+            connectTimeout: 30000,
+            requestTimeout: 30000,
           },
         },
+
         pool: {
           max: 5,
           min: 0,
-          acquire: 60000, // Increased from 30000 to 60000
-          idle: 30000, // Increased from 10000 to 30000
+          acquire: 60000,
+          idle: 30000,
         },
-        logging: console.log,
+
+        logging: process.env.NODE_ENV === 'development' ? console.log : false,
       });
 
       // Add models in sequence

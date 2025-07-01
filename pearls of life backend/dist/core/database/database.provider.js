@@ -35,11 +35,11 @@ exports.databaseProvider = [
                 password,
             });
             const sequelize = new sequelize_typescript_1.Sequelize({
-                host: '192.168.100.80',
-                port: 1433,
-                database: 'PearlsOfLife',
-                username: 'sa',
-                password: 'pakistan1@',
+                host: process.env.DB_HOST || 'localhost',
+                port: parseInt(process.env.DB_PORT) || 1433,
+                database: process.env.DB_NAME || 'PearlsOfLife',
+                username: process.env.DB_USERNAME || 'sa',
+                password: process.env.DB_PASSWORD || 'your_secure_password',
                 dialect: 'mssql',
                 dialectOptions: {
                     options: {
@@ -56,7 +56,7 @@ exports.databaseProvider = [
                     acquire: 60000,
                     idle: 30000,
                 },
-                logging: console.log,
+                logging: process.env.NODE_ENV === 'development' ? console.log : false,
             });
             try {
                 await sequelize.authenticate();
