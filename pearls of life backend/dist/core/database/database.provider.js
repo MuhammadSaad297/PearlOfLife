@@ -35,7 +35,7 @@ exports.databaseProvider = [
                 password,
             });
             const sequelize = new sequelize_typescript_1.Sequelize({
-                host: '13.51.178.43',
+                host: '119.160.215.177',
                 database: 'PearlsOfLife',
                 username: 'sa',
                 password: 'pakistan1@',

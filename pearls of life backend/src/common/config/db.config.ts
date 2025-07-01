@@ -76,7 +76,7 @@ export const DB_CONFIG = {
       trustedConnection: true,
       enableArithAbort: true,
       instanceName: 'SQLEXPRESS',
-      server: '13.51.178.43',
+      server: '119.160.215.177',
       port: 1433,
       database: process.env.DB_NAME,
       requestTimeout: 30000,
