@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BE_URL } from 'src/app/constants/app.constant';
 import { BaseService } from 'src/app/services/base.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ObituaryInfoService extends BaseService {
-  private baseUrl = 'http://localhost:3000'; // Replace with your API URL
+  private baseUrl = BE_URL; // Replace with your API URL
 
   getObituaryInfo(optionalParams: any = ''): Observable<any> {
     return this.get(`${this.baseUrl}/obituary-info?${optionalParams}`);
