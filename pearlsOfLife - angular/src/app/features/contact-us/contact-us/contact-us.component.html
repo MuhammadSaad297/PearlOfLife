@@ -1,0 +1,116 @@
+<!-- src/app/pages/contact-us/contact-us.component.html -->
+<div class="page-container">
+  <app-hero title="Contact Us" bgImage="assets/contactus.jpg"> </app-hero>
+  <app-nav-bar></app-nav-bar>
+  <section class="contact-section" @fadeInOnScroll>
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Directly support? Please visit our office</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+
+          <div class="contact-details">
+            <div class="detail">
+              <h3>Email Us</h3>
+              <p>
+                <a [href]="'mailto:POML.Wendy@gmail.com'">
+                  {{ "POML.Wendy@gmail.com" }}
+                </a>
+              </p>
+            </div>
+
+            <div class="detail">
+              <h3>Call Us</h3>
+              <p><a href="tel:9733462740">973-346-2740</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h2>Send us a message</h2>
+          <p>
+            Can't find the answer you're looking for? Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit.
+          </p>
+
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name"
+                [(ngModel)]="contactForm.name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Company"
+                [(ngModel)]="contactForm.company"
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                [(ngModel)]="contactForm.email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                [(ngModel)]="contactForm.subject"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                [(ngModel)]="contactForm.message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-submit">
+              <app-button type="submit" variant="gradient-green"
+                >Submit</app-button
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" @fadeInOnScroll>
+    <div class="overlay"></div>
+    <div class="container">
+      <h2>Get Your Life Journey Now!</h2>
+      <div class="cta-buttons">
+        <app-button variant="gradient-orange">Click Here</app-button>
+        <app-button variant="primary">Sign Up Now</app-button>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

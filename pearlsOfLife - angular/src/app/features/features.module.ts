@@ -16,7 +16,7 @@ import { ObituaryInfoComponent } from './obituary-info/obituary-info.component';
 import { AddItemsCardComponent } from '../shared/add-items-card/add-items-card.component';
 import { NotesCardComponent } from '../shared/notes-card/notes-card.component';
 import { ManageNotesComponent } from './notes/manage-notes/manage-notes.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalComponent } from '../shared/confirmation-modal/confirmation-modal.component';
 import { ManagePasswordComponent } from './passwords/manage-password/manage-password.component';
@@ -32,7 +32,15 @@ import { ObituaryByYearComponent } from './obituary-info/obituary-by-year/obitua
 import { ObituaryCardComponent } from '../shared/obituary-card/obituary-card.component';
 import { LegacyComponent } from './legacy/legacy.component';
 import { AuthRoutingModule } from '../auth/auth-routing.module';
-
+import { ContactUsComponent } from './contact-us/contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us/about-us.component';
+import { PricingComponent } from './pricing/pricing/pricing.component';
+import { OurServiceComponent } from './our-service/our-service/our-service.component';
+import { ButtonComponent } from '../shared/button/button.component';
+import { HeroComponent } from '../components/hero/hero.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer/footer.component';
+import { NavBarComponent } from './navbar/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     FeaturesComponent,
@@ -55,9 +63,18 @@ import { AuthRoutingModule } from '../auth/auth-routing.module';
     ManageObituaryComponent,
     ObituaryByYearComponent,
     LegacyComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    PricingComponent,
+    OurServiceComponent,
+    FooterComponent,
+    NavBarComponent,
+    ButtonComponent,
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    // BrowserAnimationsModule,
     SideNavComponent,
     HeaderComponent,
     AddItemsCardComponent,
@@ -69,6 +86,7 @@ import { AuthRoutingModule } from '../auth/auth-routing.module';
     ConfirmationModalComponent,
     FeaturesRoutingModule,
     AuthRoutingModule,
+    HeroComponent,
   ],
 })
 export class FeaturesModule {}

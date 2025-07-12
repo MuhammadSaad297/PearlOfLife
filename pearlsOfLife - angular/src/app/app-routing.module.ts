@@ -100,6 +100,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SubscriptionPlansComponent } from './features/subscriptionplan/subscriptionplan.component';
 import { LegacyComponent } from './features/legacy/legacy.component';
+import { AboutUsComponent } from './features/about-us/about-us/about-us.component';
+import { PricingComponent } from './features/pricing/pricing/pricing.component';
+import { OurServiceComponent } from './features/our-service/our-service/our-service.component';
+import { ContactUsComponent } from './features/contact-us/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -112,6 +116,23 @@ const routes: Routes = [
   {
     path: 'legacy',
     component: LegacyComponent,
+  },
+
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
+  {
+    path: 'contact-us',
+    component: ContactUsComponent,
+  },
+  {
+    path: 'our-service',
+    component: OurServiceComponent,
+  },
+  {
+    path: 'pricing',
+    component: PricingComponent,
   },
   {
     path: 'auth',

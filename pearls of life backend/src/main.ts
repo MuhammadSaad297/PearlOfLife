@@ -23,6 +23,6 @@ async function bootstrap() {
     credentials: true, // Allow cookies if needed
   });
 
-  await app.listen(process.env.PORT ?? 3001); //pehly yahan 3000 tha, ab 3001 kar diya hai
+  await app.listen(process.env.PORT ?? 3000); //pehly yahan 3000 tha, ab 3001 kar diya hai
 }
 bootstrap();

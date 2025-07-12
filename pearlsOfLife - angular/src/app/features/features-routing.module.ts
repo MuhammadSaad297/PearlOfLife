@@ -118,7 +118,6 @@ import { ObituaryByYearComponent } from './obituary-info/obituary-by-year/obitua
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { SubscriptionGuard } from '../guards/subscription.guard';
 import { FeaturesComponent } from './features.component';
-import { LegacyComponent } from './legacy/legacy.component';
 
 const routes: Routes = [
   {

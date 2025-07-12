@@ -1,4 +1,4 @@
-export const BE_URL = 'http://13.53.106.41:3001';
+export const BE_URL = 'http://localhost:3000';
 
 export const SIDE_NAVIGATION = [
   {
