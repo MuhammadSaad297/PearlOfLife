@@ -5,7 +5,14 @@
       alt="Pearls of Life Logo"
       class="legacy-logo"
     />
-    <div class="nav-buttons">
+
+    <!-- Mobile Hamburger Button -->
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <span class="hamburger-icon">☰</span>
+      <span class="close-icon" style="display: none">✕</span>
+    </button>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons" [class.mobile-active]="isMobileMenuOpen">
       <button class="nav-button" [routerLink]="['/legacy']">Home</button>
       <button class="nav-button" [routerLink]="['/about-us']">About Us</button>
       <button class="nav-button" [routerLink]="['/pricing']">Pricing</button>
@@ -19,6 +26,8 @@
         auto-obituary here
       </button>
     </div>
+
+    <!-- Auth Buttons - Hidden on mobile -->
     <div class="legacy-auth-buttons">
       <button class="legacy-login-btn" [routerLink]="['/auth/login']">
         Login
