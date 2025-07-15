@@ -10,7 +10,6 @@ exports.EmailModule = void 0;
 const common_1 = require("@nestjs/common");
 const email_service_1 = require("./email.service");
 const mailer_1 = require("@nestjs-modules/mailer");
-const nodemailer = require("nodemailer");
 let EmailModule = class EmailModule {
 };
 exports.EmailModule = EmailModule;
@@ -18,27 +17,24 @@ exports.EmailModule = EmailModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mailer_1.MailerModule.forRootAsync({
-                useFactory: async () => {
-                    const testAccount = await nodemailer.createTestAccount();
-                    return {
-                        transport: {
-                            host: testAccount.smtp.host,
-                            port: testAccount.smtp.port,
-                            secure: testAccount.smtp.secure,
-                            auth: {
-                                user: testAccount.user,
-                                pass: testAccount.pass
-                            }
+                useFactory: async () => ({
+                    transport: {
+                        host: process.env.MAIL_HOST,
+                        port: parseInt(process.env.MAIL_PORT, 10),
+                        secure: process.env.MAIL_SECURE === 'true',
+                        auth: {
+                            user: process.env.MAIL_USER,
+                            pass: process.env.MAIL_PASS,
                         },
-                        defaults: {
-                            from: '"DEV Environment" <no-reply@pol.local>'
-                        }
-                    };
-                }
-            })
+                    },
+                    defaults: {
+                        from: process.env.EMAIL_FROM,
+                    },
+                }),
+            }),
         ],
         providers: [email_service_1.EmailService],
-        exports: [email_service_1.EmailService]
+        exports: [email_service_1.EmailService],
     })
 ], EmailModule);
 //# sourceMappingURL=email.module.js.map

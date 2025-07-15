@@ -13,16 +13,56 @@
     </button>
     <!-- Navigation Buttons -->
     <div class="nav-buttons" [class.mobile-active]="isMobileMenuOpen">
-      <button class="nav-button" [routerLink]="['/legacy']">Home</button>
-      <button class="nav-button" [routerLink]="['/about-us']">About Us</button>
-      <button class="nav-button" [routerLink]="['/pricing']">Pricing</button>
-      <button class="nav-button" [routerLink]="['/our-service']">
+      <button
+        class="nav-button"
+        [routerLink]="['/legacy']"
+        routerLinkActive="active"
+      >
+        Home
+      </button>
+      <button
+        class="nav-button"
+        [routerLink]="['/about-us']"
+        routerLinkActive="active"
+      >
+        About Us
+      </button>
+      <button
+        class="nav-button"
+        [routerLink]="['/pricing']"
+        routerLinkActive="active"
+      >
+        Pricing
+      </button>
+      <button
+        class="nav-button"
+        [routerLink]="['/our-service']"
+        routerLinkActive="active"
+      >
         Services
       </button>
-      <button class="nav-button" [routerLink]="['/contact-us']">
+      <!-- <button class="nav-button" routerLink="/legacy" routerLinkActive="active">
+        Legacy
+      </button> -->
+      <!-- <button
+        class="nav-button"
+        routerLink="/auto-obituary1"
+        routerLinkActive="active"
+      >
+        Auto Obituary
+      </button> -->
+      <button
+        class="nav-button"
+        [routerLink]="['/contact-us']"
+        routerLinkActive="active"
+      >
         Contact Us
       </button>
-      <button class="nav-button" [routerLink]="['/legacy']">
+      <button
+        class="nav-button"
+        [routerLink]="['/auto-obituary1']"
+        routerLinkActive="active"
+      >
         auto-obituary here
       </button>
     </div>

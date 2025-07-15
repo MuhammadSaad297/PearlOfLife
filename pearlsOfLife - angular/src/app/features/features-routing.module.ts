@@ -136,7 +136,7 @@ const routes: Routes = [
       {
         path: 'key-holders',
         component: KeyHoldersComponent,
-        canActivate: [SubscriptionGuard],
+        // canActivate: [SubscriptionGuard],
       },
       {
         path: 'key-holders/:id',

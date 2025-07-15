@@ -30,6 +30,7 @@ export class EmailService {
 
   async sendKeyHolderRegistrationEmail(keyHolder: any, userName: string) {
     try {
+      debugger;
       console.log(keyHolder);
       const result = await this.mailerService.sendMail({
         to: keyHolder.email,

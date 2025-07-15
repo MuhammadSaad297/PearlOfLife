@@ -104,6 +104,8 @@ import { AboutUsComponent } from './features/about-us/about-us/about-us.componen
 import { PricingComponent } from './features/pricing/pricing/pricing.component';
 import { OurServiceComponent } from './features/our-service/our-service/our-service.component';
 import { ContactUsComponent } from './features/contact-us/contact-us/contact-us.component';
+import { LegacyNavbarComponent } from './features/legacy in navbar/legacy.component';
+import { AutoObituaryComponent } from './features/auto-obituary/auto-obituary.component';
 
 const routes: Routes = [
   {
@@ -121,18 +123,32 @@ const routes: Routes = [
   {
     path: 'about-us',
     component: AboutUsComponent,
+    data: { animation: 'LegacyPage' },
   },
   {
     path: 'contact-us',
     component: ContactUsComponent,
+    data: { animation: 'LegacyPage' },
   },
   {
     path: 'our-service',
     component: OurServiceComponent,
+    data: { animation: 'LegacyPage' },
   },
   {
     path: 'pricing',
     component: PricingComponent,
+    data: { animation: 'LegacyPage' },
+  },
+  {
+    path: 'legacyNavbar',
+    component: LegacyNavbarComponent,
+    data: { animation: 'LegacyPage' },
+  },
+  {
+    path: 'auto-obituary1',
+    component: AutoObituaryComponent,
+    data: { animation: 'ObituaryPage' },
   },
   {
     path: 'auth',

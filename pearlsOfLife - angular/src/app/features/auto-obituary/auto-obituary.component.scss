@@ -1,0 +1,193 @@
+/* src/app/pages/auto-obituary/auto-obituary.component.scss */
+.page-container {
+    overflow-x: hidden;
+  }
+  
+  .content-section {
+    padding: 4rem 0;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .content-row {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .key-holder-card {
+      background: linear-gradient(135deg, #7928ca, #e95950);
+      border-radius: 16px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 480px;
+      color: white;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      
+      .icon-container {
+        margin-bottom: 1.5rem;
+        
+        img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+      
+      .learn-more {
+        a {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          
+          .icon {
+            margin-left: 5px;
+          }
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    
+    .obituary-plan {
+      background-color: #f05454;
+      padding: 2.5rem;
+      border-radius: 16px;
+      color: white;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      
+      h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.75rem;
+        border-radius: 8px;
+      }
+      
+      .price {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        margin-bottom: 1.5rem;
+        
+        .dollar {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+        
+        .amount {
+          font-size: 4rem;
+          font-weight: bold;
+          line-height: 1;
+        }
+      }
+      
+      p {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      
+      .form-fields {
+        margin-bottom: 2rem;
+        
+        .form-field {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+          
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+      
+      .cta-button {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  
+  .upgrade-section {
+    padding: 2rem 0 5rem;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .upgrade-button-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .content-section .content-row {
+      gap: 2rem;
+    }
+    
+    .content-section .key-holder-card,
+    .content-section .obituary-plan {
+      max-width: 450px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .content-section {
+      padding: 3rem 0;
+    }
+    
+    .content-section .content-row {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .content-section .key-holder-card,
+    .content-section .obituary-plan {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .content-section {
+      padding: 2rem 0;
+    }
+    
+    .content-section .key-holder-card,
+    .content-section .obituary-plan {
+      padding: 1.5rem;
+    }
+    
+    .content-section .key-holder-card h2,
+    .content-section .obituary-plan h2 {
+      font-size: 1.5rem;
+    }
+  }

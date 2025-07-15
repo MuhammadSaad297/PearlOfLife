@@ -1,0 +1,197 @@
+/* src/app/pages/legacy/legacy.component.scss */
+.page-container {
+  overflow-x: hidden;
+}
+
+.legacy-cards-section {
+  padding: 4rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .legacy-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .legacy-card {
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    &.gradient-red-green {
+      background: linear-gradient(135deg, #f05454, #70e000);
+    }
+
+    &.gradient-yellow-green {
+      background: linear-gradient(135deg, #ffbe0b, #3bceac);
+    }
+
+    &.gradient-orange-green {
+      background: linear-gradient(135deg, #ff9e00, #8ac926);
+    }
+
+    &.gradient-red-pink {
+      background: linear-gradient(135deg, #ef476f, #f15bb5);
+    }
+
+    &.gradient-purple-orange {
+      background: linear-gradient(135deg, #7209b7, #f72585);
+    }
+
+    .icon-container {
+      margin-bottom: 1.5rem;
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .learn-more {
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+
+        .icon {
+          margin-left: 5px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.plan-cards-section {
+  padding: 2rem 0 5rem;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .plan-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .plan-card {
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    &.gradient-blue {
+      background-color: #60a5fa;
+    }
+
+    &.gradient-yellow {
+      background-color: #fcd34d;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .price {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+
+      .dollar {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .amount {
+        font-size: 4rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .period {
+        margin-left: 0.5rem;
+        font-size: 1.25rem;
+      }
+    }
+
+    .description {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+
+      li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .cta-button {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .legacy-cards-section,
+  .plan-cards-section {
+    padding: 2rem 1rem;
+  }
+}

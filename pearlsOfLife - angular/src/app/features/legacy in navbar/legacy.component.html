@@ -1,0 +1,52 @@
+<!-- src/app/pages/legacy/legacy.component.html -->
+<div class="page-container">
+  <app-hero title="Legacy" bgImage="/assets/hero_bg_pol.jpg"> </app-hero>
+  <app-nav-bar></app-nav-bar>
+  <section class="legacy-cards-section">
+    <div class="container">
+      <div class="legacy-cards">
+        <div
+          *ngFor="let card of legacyCards"
+          class="legacy-card"
+          [ngClass]="'gradient-' + card.gradient"
+        >
+          <div class="icon-container">
+            <img [src]="card.icon" alt="Feature icon" />
+          </div>
+          <h2>{{ card.title }}</h2>
+          <p>{{ card.description }}</p>
+          <div class="learn-more">
+            <a href="#">Learn more <span class="icon">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan-cards-section">
+    <div class="container">
+      <div class="plan-cards">
+        <div
+          *ngFor="let plan of planCards"
+          class="plan-card"
+          [ngClass]="'gradient-' + plan.gradient"
+        >
+          <h2>{{ plan.title }}</h2>
+          <div class="price">
+            <span class="dollar">$</span>
+            <span class="amount">{{ plan.price }}</span>
+            <span class="period">Monthly</span>
+          </div>
+          <p class="description">{{ plan.description }}</p>
+          <ul class="features">
+            <li *ngFor="let feature of plan.features">{{ feature }}</li>
+          </ul>
+          <div class="cta-button">
+            <app-button variant="primary">Get It Now!</app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

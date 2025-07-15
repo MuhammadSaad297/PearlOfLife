@@ -41,6 +41,9 @@ import { HeroComponent } from '../components/hero/hero.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer/footer.component';
 import { NavBarComponent } from './navbar/nav-bar/nav-bar.component';
+import { LegacyNavbarComponent } from './legacy in navbar/legacy.component';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { AutoObituaryComponent } from './auto-obituary/auto-obituary.component';
 @NgModule({
   declarations: [
     FeaturesComponent,
@@ -70,6 +73,8 @@ import { NavBarComponent } from './navbar/nav-bar/nav-bar.component';
     FooterComponent,
     NavBarComponent,
     ButtonComponent,
+    LegacyNavbarComponent,
+    AutoObituaryComponent,
   ],
   imports: [
     CommonModule,
@@ -87,6 +92,7 @@ import { NavBarComponent } from './navbar/nav-bar/nav-bar.component';
     FeaturesRoutingModule,
     AuthRoutingModule,
     HeroComponent,
+    NavbarComponent,
   ],
 })
 export class FeaturesModule {}

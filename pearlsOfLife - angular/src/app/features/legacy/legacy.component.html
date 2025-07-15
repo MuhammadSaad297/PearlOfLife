@@ -1,4 +1,18 @@
 <div class="legacy-hero">
+  <video autoplay muted loop playsinline class="legacy-video-bg">
+    <source src="/assets/PearlVideo.mp4" type="video/mp4" />
+    <!-- Fallback image if video doesn't load -->
+  </video>
+
+  <!-- Audio Element (hidden) -->
+  <audio autoplay loop class="legacy-audio-bg">
+    <source src="/assets/PearlAudio.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- Audio Control Button -->
+  <!-- <button class="audio-control" (click)="toggleAudio()">
+    <i class="fas fa-volume-up"></i>
+  </button> -->
   <div class="legacy-header">
     <img
       src="/assets/images/logo.webp"
@@ -50,7 +64,9 @@
       <button class="legacy-nav-btn pricing" [routerLink]="['/pricing']">
         Pricing
       </button>
-      <button class="legacy-nav-btn legacy">Legacy</button>
+      <button class="legacy-nav-btn legacy" [routerLink]="['/legacyNavbar']">
+        Legacy
+      </button>
       <button class="legacy-nav-btn contact" [routerLink]="['/contact-us']">
         Contact Us
       </button>
