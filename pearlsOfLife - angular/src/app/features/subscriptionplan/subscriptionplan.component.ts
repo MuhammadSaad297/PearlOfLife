@@ -11,7 +11,7 @@ export class SubscriptionPlansComponent implements OnInit {
     {
       id: 'basic',
       name: 'Advanced Auto-Obituary Plan',
-      price: 3,
+      price: 1,
       description:
         'Includes auto-obituary section plus more detailed life information such as achievements, diplomas, friends, employment, etc.',
       featuresList: [
