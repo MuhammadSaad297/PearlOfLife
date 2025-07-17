@@ -146,7 +146,7 @@ const routes: Routes = [
     data: { animation: 'LegacyPage' },
   },
   {
-    path: 'auto-obituary1',
+    path: 'obituary',
     component: AutoObituaryComponent,
     data: { animation: 'ObituaryPage' },
   },
