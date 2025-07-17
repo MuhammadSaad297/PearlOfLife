@@ -42,10 +42,10 @@
         gap: 2rem;
 
         .pricing-card {
-            background-color: white;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            padding: 4px;
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
 
@@ -55,89 +55,91 @@
             }
 
             &.featured {
-                border: 2px solid #f39c12;
+                border: none;
                 transform: scale(1.05);
+                background: #36a9e1;
+                /* blue for Legacy Creation Plan */
 
-                &:hover {
-                    transform: scale(1.05) translateY(-10px);
+                .card-header,
+                .card-body,
+                .card-footer {
+                    background: transparent;
                 }
 
                 .ribbon {
-                    position: absolute;
-                    top: 20px;
-                    right: -30px;
-                    transform: rotate(45deg);
-                    background: linear-gradient(90deg, #f39c12, #e67e22);
-                    color: white;
-                    padding: 5px 40px;
-                    font-weight: 600;
-                    font-size: 0.9rem;
-                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                    background: linear-gradient(90deg, #36a9e1, #0099cc);
+                }
+
+                .price .amount {
+                    color: #fff;
+                }
+
+                h3,
+                p,
+                ul li,
+                .price .period {
+                    color: #fff !important;
                 }
             }
 
-            .card-header {
-                background: #f8f8f8;
-                padding: 2rem;
-                text-align: center;
+            &:nth-child(1) {
+                background: #ff5757;
+                /* red for Auto-Obituary Plan */
 
-                h3 {
-                    font-size: 1.5rem;
-                    font-weight: 700;
-                    margin: 0 0 1.5rem;
-                    color: #333;
-                }
-
-                .price {
-                    .amount {
-                        font-size: 2.5rem;
-                        font-weight: 700;
-                        color: #f39c12;
-                    }
-
-                    .period {
-                        font-size: 1rem;
-                        color: #777;
-                        margin-left: 5px;
-                    }
+                h3,
+                .price .amount,
+                p,
+                ul li,
+                .price .period {
+                    color: #fff !important;
                 }
             }
 
-            .card-body {
-                padding: 2rem;
+            &:nth-child(2) {
+                background: #e6a6e6;
+                /* purple/pink for Advanced Plan */
 
-                p {
-                    margin: 0 0 1.5rem;
-                    color: #555;
-                    line-height: 1.6;
-                }
-
-                ul {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-
-                    li {
-                        position: relative;
-                        padding-left: 1.5rem;
-                        margin-bottom: 0.8rem;
-                        color: #555;
-                        line-height: 1.5;
-
-                        &:before {
-                            content: '✓';
-                            position: absolute;
-                            left: 0;
-                            color: #f39c12;
-                            font-weight: bold;
-                        }
-                    }
+                h3,
+                .price .amount,
+                p,
+                ul li,
+                .price .period {
+                    color: #fff !important;
                 }
             }
 
+            &:nth-child(4) {
+                background: #ffcb05;
+                /* yellow for Ultimate Plan */
+
+                h3,
+                .price .amount,
+                p,
+                ul li,
+                .price .period {
+                    color: #f0efef !important;
+                }
+            }
+
+            .card-header,
+            .card-body,
             .card-footer {
-                padding: 0 2rem 2rem;
-                text-align: center;
+                background: transparent;
+            }
+
+            .card-footer app-button,
+            .card-footer button {
+                background: #181818;
+                color: #fff;
+                border-radius: 2em;
+                font-size: 1.2rem;
+                font-weight: 500;
+                padding: 0.7em 2.5em;
+                margin: 1.2em auto 0 auto;
+                display: block;
+                border: none;
+                box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
+                transition: transform 0.2s, box-shadow 0.2s;
             }
         }
     }
@@ -160,8 +162,8 @@
             flex: 1 1 400px;
 
             h3 {
-                font-size: 1.8rem;
-                font-weight: 700;
+                font-size: 1.2rem;
+                font-weight: 400;
                 margin: 0 0 1rem;
                 color: #333;
             }
@@ -211,15 +213,15 @@
             flex: 1 1 500px;
 
             .funeral-home-plan {
-                background-color: white;
+                background-color: rgb(204, 243, 161);
                 padding: 2rem;
                 border-radius: 10px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 border: 2px solid #2ecc71;
 
                 h3 {
-                    font-size: 1.8rem;
-                    font-weight: 700;
+                    font-size: 1.2rem;
+                    font-weight: 500;
                     margin: 0 0 1rem;
                     color: #333;
                 }
@@ -300,4 +302,18 @@
     .additional-fees {
         padding: 3rem 0;
     }
+}
+
+.plan-cta button {
+    background: #181818;
+    color: #fff;
+    border-radius: 2em;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.7em 2.5em;
+    margin: 1.2em auto 0 auto;
+    display: block;
+    border: none;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
+    transition: transform 0.2s, box-shadow 0.2s;
 }

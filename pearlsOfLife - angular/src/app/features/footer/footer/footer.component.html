@@ -1,8 +1,17 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
+      <!-- Logo Column -->
+      <div class="footer-column footer-logo-column">
+        <img
+          src="/assets/images/logo.webp"
+          alt="Pearls of Life Logo"
+          style="max-width: 140px; display: block; margin: 0 auto"
+        />
+      </div>
+
       <!-- Company Column -->
-      <div class="footer-column">
+      <div class="footer-column company">
         <h3 class="footer-heading">Company</h3>
         <ul class="footer-links">
           <li><a href="/about">About Us</a></li>
@@ -26,7 +35,7 @@
       </div>
 
       <!-- Featured Column -->
-      <div class="footer-column">
+      <div class="footer-column Featured">
         <h3 class="footer-heading">Featured</h3>
         <ul class="footer-links">
           <li><a href="/payments">Payment Methods</a></li>
@@ -50,19 +59,28 @@
     </div>
 
     <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <div class="legal-links">
+    <div
+      class="footer-bottom"
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      "
+    >
+      <div class="legal-links" style="margin-bottom: 0">
         <a href="/terms">Term of use</a>
-        <span>|</span>
+        <span></span>
         <a href="/privacy">Privacy Policy</a>
-        <span>|</span>
+        <span></span>
         <a href="/cookies">Cookie Policy</a>
-        <span>|</span>
+        <span></span>
         <a href="/donotsell">Do Not Sell My Personal Information</a>
       </div>
-      <div class="copyright">
+      <div class="copyright" style="margin-top: 0">
         Copyright © 2024 Pearl of my life. All rights reserved. Powered by
-        Sergei Lobby.
+        Script Lobby.
       </div>
     </div>
   </div>

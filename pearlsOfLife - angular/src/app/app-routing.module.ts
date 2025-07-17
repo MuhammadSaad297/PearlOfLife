@@ -141,7 +141,7 @@ const routes: Routes = [
     data: { animation: 'LegacyPage' },
   },
   {
-    path: 'legacyNavbar',
+    path: 'legacy',
     component: LegacyNavbarComponent,
     data: { animation: 'LegacyPage' },
   },

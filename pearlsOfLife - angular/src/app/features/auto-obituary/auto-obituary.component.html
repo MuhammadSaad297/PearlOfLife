@@ -1,11 +1,10 @@
 <!-- src/app/pages/auto-obituary/auto-obituary.component.html -->
 <div class="page-container">
-  <app-hero title="Auto Obituary" bgImage="assets/hero_bg_pol_3.jpg">
-  </app-hero>
+  <app-hero title="Auto Obituary" bgImage="assets/hero_bg_pol_3.jpg"></app-hero>
   <app-nav-bar></app-nav-bar>
   <section class="content-section" @fadeInOnScroll>
     <div class="container">
-      <div class="content-row">
+      <div class="key-holder-row">
         <div class="key-holder-card">
           <div class="icon-container">
             <img
@@ -22,7 +21,8 @@
             <a href="#">Learn more <span class="icon">↗</span></a>
           </div>
         </div>
-
+      </div>
+      <div class="form-plan-row">
         <div class="obituary-plan">
           <h2>Auto-Obituary Plan</h2>
           <div class="price">
@@ -33,7 +33,6 @@
             Includes basic obituary information to be place in your funeral
             program.
           </p>
-
           <div class="form-fields">
             <div class="form-field">Birth Name</div>
             <div class="form-field">Married Name</div>
@@ -45,22 +44,36 @@
             <div class="form-field">Child(rens) Names Date of Birth</div>
             <div class="form-field">Name of Siblings (Alive/Deceased)</div>
           </div>
-
           <div class="cta-button">
-            <app-button variant="primary">Get It Now!</app-button>
+            <button class="black-btn">Get It Now!</button>
           </div>
+        </div>
+        <div class="obituary-form">
+          <h2>Auto-Obituary Form</h2>
+          <form>
+            <input type="text" placeholder="Birth Name" />
+            <input type="text" placeholder="Married Name" />
+            <input type="text" placeholder="Current Name" />
+            <input type="text" placeholder="Birth Date" />
+            <input type="text" placeholder="Parents Name" />
+            <input type="text" placeholder="Spouse Name" />
+            <input type="text" placeholder="Child(ren) Name" />
+            <input
+              type="text"
+              placeholder="Name of Siblings (Alive/Deceased)"
+            />
+            <button type="submit" class="gradient-green">Get It Now!</button>
+          </form>
         </div>
       </div>
     </div>
   </section>
-
   <section class="upgrade-section" @fadeInOnScroll>
     <div class="container">
       <div class="upgrade-button-container">
-        <app-button variant="gradient-orange">Upgrade Your Plan</app-button>
+        <button class="gradient-orange">Upgrade Your Plan</button>
       </div>
     </div>
   </section>
 </div>
-
 <app-footer></app-footer>

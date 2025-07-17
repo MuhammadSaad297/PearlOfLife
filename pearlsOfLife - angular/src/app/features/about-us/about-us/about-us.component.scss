@@ -11,7 +11,7 @@
 
 
 .about-section {
-    padding: 5rem 0;
+    padding: 2rem 0 2rem 0;
     background-color: white;
     opacity: 1;
     transform: none;
@@ -19,32 +19,40 @@
 
     .section-title {
         text-align: center;
-        font-size: 2.2rem;
+        font-size: 3.2rem;
         font-weight: 700;
-        margin-bottom: 2.5rem;
+        color: #181818;
+        margin-bottom: 3.5rem;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
         position: relative;
+        text-transform: uppercase;
 
         &:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -18px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #f39c12, #e67e22);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #8000FF 0%, #181818 100%);
         }
     }
 
     .content-wrapper {
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 1200px;
+        // margin: 0 auto;
+        text-align: center;
 
         p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #555;
+            display: block;
+            margin-block-start: 1em;
+            font-size: 18px;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            unicode-bidi: isolate;
 
             &:last-child {
                 margin-bottom: 0;
@@ -129,7 +137,7 @@
             margin-bottom: 2rem;
 
             .info-image {
-                flex: 0 1 350px;
+                flex: 0 1 600px;
 
                 img {
                     width: 100%;
@@ -188,4 +196,24 @@
             }
         }
     }
+}
+
+.gradient-orange {
+    width: 100%;
+    max-width: 650px;
+    height: 60px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(90deg, #6a1b9a 0%, #000 100%);
+    border: none;
+    margin: 2rem auto 1.5rem auto;
+    display: block;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    padding: 0 1.2rem;
 }
