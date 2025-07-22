@@ -20,4 +20,7 @@ export class PricingComponent {
         return '#4CAF50'; // Default Green
     }
   }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

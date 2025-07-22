@@ -1,6 +1,6 @@
 <!-- src/app/pages/auto-obituary/auto-obituary.component.html -->
 <div class="page-container">
-  <app-hero title="Auto Obituary" bgImage="assets/hero_bg_pol_3.jpg"></app-hero>
+  <app-hero title="Auto-Obituary" bgImage="assets/about.jpg"></app-hero>
   <app-nav-bar></app-nav-bar>
   <section class="content-section" @fadeInOnScroll>
     <div class="container">
@@ -45,7 +45,9 @@
             <div class="form-field">Name of Siblings (Alive/Deceased)</div>
           </div>
           <div class="cta-button">
-            <button class="black-btn">Get It Now!</button>
+            <button class="black-btn" (click)="scrollToTop()">
+              Get It Now!
+            </button>
           </div>
         </div>
         <div class="obituary-form">
@@ -62,7 +64,13 @@
               type="text"
               placeholder="Name of Siblings (Alive/Deceased)"
             />
-            <button type="submit" class="gradient-green">Get It Now!</button>
+            <button
+              type="submit"
+              class="gradient-green"
+              (click)="scrollToTop()"
+            >
+              Get It Now!
+            </button>
           </form>
         </div>
       </div>
@@ -71,7 +79,9 @@
   <section class="upgrade-section" @fadeInOnScroll>
     <div class="container">
       <div class="upgrade-button-container">
-        <button class="gradient-orange">Upgrade Your Plan</button>
+        <button class="gradient-orange" [routerLink]="'/pricing'">
+          Upgrade Your Plan
+        </button>
       </div>
     </div>
   </section>

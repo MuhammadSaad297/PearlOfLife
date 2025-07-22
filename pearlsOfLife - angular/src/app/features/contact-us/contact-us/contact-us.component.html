@@ -1,6 +1,11 @@
 <!-- src/app/pages/contact-us/contact-us.component.html -->
 <div class="page-container">
-  <app-hero title="Contact Us" bgImage="assets/contactus.jpg"> </app-hero>
+  <app-hero
+    title="Contact Us"
+    bgImage="assets/about.jpg"
+    subtitle="Here is what you want family members to know before you graduate into eternity"
+  >
+  </app-hero>
   <app-nav-bar></app-nav-bar>
   <section class="contact-section" @fadeInOnScroll>
     <div class="container">
@@ -109,10 +114,14 @@
     />
     <div class="overlay"></div>
     <div class="container">
-      <h2>Get Your Life Journey Now!</h2>
+      <h2>Get Your Lyfe Journey Now!</h2>
       <div class="cta-buttons">
-        <app-button variant="gradient-orange">Click Here</app-button>
-        <app-button variant="primary">Sign Up Now</app-button>
+        <button (click)="scrollToTop()" class="cta-btn outline">
+          Click Here
+        </button>
+        <button (click)="scrollToTop()" class="cta-btn solid">
+          Sign Up Now
+        </button>
       </div>
     </div>
   </section>

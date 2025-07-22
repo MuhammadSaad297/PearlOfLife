@@ -16,7 +16,7 @@
   <div class="legacy-header">
     <img
       src="/assets/images/logo.webp"
-      alt="Pearls of Life Logo"
+      alt="Pearls of Lyfe Logo"
       class="legacy-logo"
     />
     <!-- <div class="nav-buttons">
@@ -43,9 +43,9 @@
 
   <div class="legacy-title-group">
     <h2 class="legacy-welcome">WELCOME TO PEARLS OF MY LYFE</h2>
-    <h1 class="legacy-title">LEAVE YOUR LEGACY HERE</h1>
+    <h1 class="legacy-title">Reimagining How We Leave Our Legacy</h1>
     <p class="legacy-subtitle">
-      The Gift of Your Life's Moments is Your Legacy
+      The Gift of Your Lyfe's Moments is Your Legacy
     </p>
     <div class="legacy-main-btn-wrapper">
       <button class="legacy-main-btn" (click)="goToPage('dashboard')">
@@ -64,7 +64,7 @@
       <button class="legacy-nav-btn pricing" [routerLink]="['/pricing']">
         Pricing
       </button>
-      <button class="legacy-nav-btn legacy" [routerLink]="['/legacyNavbar']">
+      <button class="legacy-nav-btn legacy" [routerLink]="['/legacy']">
         Legacy
       </button>
       <button class="legacy-nav-btn contact" [routerLink]="['/contact-us']">
@@ -94,11 +94,26 @@
     Start your free account here. Leave your accurate life story starting with
     basic info for an obituary.
   </h2>
+  <!-- <img
+    src="assets/contact-us.jpg"
+    alt="Call to Action Background"
+    class="cta-bg-img"
+  /> -->
   <div class="legacy-cta-buttons">
-    <button class="legacy-cta-btn outline" routerLink="/obituary-info">
+    <button
+      class="legacy-cta-btn outline"
+      routerLink=""
+      fragment="top"
+      (click)="scrollToTop()"
+    >
       Click Here
     </button>
-    <button class="legacy-cta-btn solid" routerLink="/auth/register">
+    <button
+      class="legacy-cta-btn solid"
+      routerLink=""
+      fragment="top"
+      (click)="scrollToTop()"
+    >
       Sign Up Now
     </button>
   </div>

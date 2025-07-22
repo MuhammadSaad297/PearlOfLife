@@ -320,3 +320,40 @@ cta-section img {
     flex-direction: column;
     align-items: center;
 }
+
+
+.cta-btn {
+    min-width: 300px;
+    height: 50px;
+    border-radius: 40px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0 2.5rem;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-btn.outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.cta-btn.outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.cta-btn.solid {
+    background: linear-gradient(90deg, #ffd600 0%, #388e00 100%);
+    color: #fff;
+    border: none;
+}
+
+.cta-btn.solid:hover {
+    background: linear-gradient(90deg, #ffd600 0%, #388e00 100%);
+}

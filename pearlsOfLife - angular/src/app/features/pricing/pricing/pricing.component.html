@@ -1,5 +1,9 @@
 <div class="page-container">
-  <app-hero title="Pricing Plans" bgImage="/assets/services_1_Pol.webp">
+  <app-hero
+    title="PEARLS OF MY LYFE"
+    bgImage="/assets/Pricing_cta.webp"
+    subtitle="Creation Plans"
+  >
   </app-hero>
 
   <app-nav-bar></app-nav-bar>
@@ -9,7 +13,7 @@
       <!-- <h2 class="section-title">Choose the Perfect Plan for You</h2> -->
 
       <div class="pricing-cards">
-        <div class="pricing-card">
+        <div class="pricing-card basic">
           <div class="card-header">
             <h3>Auto-Obituary Plan</h3>
             <div class="price">
@@ -64,7 +68,9 @@
             </ul>
           </div>
           <div class="card-footer">
-            <button variant="gradient-orange">Get It Now</button>
+            <button variant="gradient-orange" (click)="scrollToTop()">
+              Get It Now
+            </button>
           </div>
         </div>
 
@@ -97,11 +103,13 @@
             </ul>
           </div>
           <div class="card-footer">
-            <button variant="gradient-orange">Get It Now</button>
+            <button variant="gradient-orange" (click)="scrollToTop()">
+              Get It Now
+            </button>
           </div>
         </div>
 
-        <div class="pricing-card">
+        <div class="pricing-card ultimate">
           <div class="card-header">
             <h3>Ultimate Legacy Creation Plan</h3>
             <div class="price">
@@ -120,7 +128,9 @@
             </ul>
           </div>
           <div class="card-footer">
-            <button variant="gradient-orange">Get It Now</button>
+            <button variant="gradient-orange" (click)="scrollToTop()">
+              Get It Now
+            </button>
           </div>
         </div>
       </div>
@@ -183,7 +193,9 @@
               <li>Includes Video Link, if chosen my POML account holder.</li>
             </ul>
             <div class="plan-cta">
-              <button class="gradient-orange">Get It Now</button>
+              <button class="gradient-orange" (click)="scrollToTop()">
+                Get It Now
+              </button>
             </div>
           </div>
         </div>

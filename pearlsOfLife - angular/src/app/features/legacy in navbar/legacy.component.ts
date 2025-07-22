@@ -29,6 +29,8 @@ interface PlanCard {
   // animations: [fadeInOnScroll],
 })
 export class LegacyNavbarComponent implements OnInit {
+  showMomentsModal = false;
+
   legacyCards: LegacyCard[] = [
     {
       title: 'Memories',
@@ -114,5 +116,16 @@ export class LegacyNavbarComponent implements OnInit {
         .querySelectorAll('.legacy-cards-section, .plan-cards-section')
         .forEach((section) => observer.observe(section));
     }, 100);
+  }
+
+  openMomentsModal() {
+    this.showMomentsModal = true;
+  }
+
+  closeMomentsModal() {
+    this.showMomentsModal = false;
+  }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

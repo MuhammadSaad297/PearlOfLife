@@ -1,6 +1,10 @@
 <!-- src/app/pages/services/services.component.html -->
 <div class="page-container">
-  <app-hero title="Our Services" bgImage="/assets/hero_bg_pol_3.jpg">
+  <app-hero
+    title="Services"
+    bgImage="/assets/about.jpg"
+    subtitle="Here is what you want family members to know before you graduate into eternity"
+  >
   </app-hero>
   <app-nav-bar></app-nav-bar>
   <section class="services-section">
@@ -8,7 +12,7 @@
       <div class="services-content">
         <div class="services-text">
           <p>
-            PEARLS OF MY LIFE are the things that I have cherished the most.
+            PEARLS OF MY LYFE are the things that I have cherished the most.
             There are many experiences that bring us joy and we wish to share
             with family. Things like the old neighborhood, spending time with
             grandparents, old friends, old hangout places, the way things used
@@ -22,7 +26,7 @@
           </p>
 
           <p>
-            What if PEARLS OF MY LIFE existed in the past? You could click a
+            What if PEARLS OF MY LYFE existed in the past? You could click a
             place in this website and see an old family member talking to you
             about the things they cherished the most and want to leave the
             memory behind for you to have (smile); or what if they left behind
@@ -35,7 +39,7 @@
             ones. Some relationships are estranged and it’s hard to communicate.
             You still care about them and have value to give them. Now, you can
             take your time, think about what this life and your loved ones have
-            meant to you; and leave it all in your PEARLS OF MY LIFE account.
+            meant to you; and leave it all in your PEARLS OF MY LYFE account.
           </p>
           <p>
             If you don’t know where to start and need help. Visit the “moments
@@ -43,15 +47,23 @@
           </p>
 
           <div class="services-cta">
-            <button class="gradient-orange">Get Your Obituary Now</button>
+            <button class="gradient-orange" [routerLink]="'/pricing'">
+              Get Your Obituary Now
+            </button>
           </div>
         </div>
 
-        <div class="services-image">
-          <img src="assets/services_1_Pol.webp" alt="Creating a legacy" />
-        </div>
-        <div class="services-image2">
-          <img src="assets/Services_2_Pol.webp" alt="Creating a legacy" />
+        <div class="services-image-container">
+          <img
+            class="services-image"
+            src="assets/services_1_Pol.webp"
+            alt="Creating a legacy"
+          />
+          <img
+            class="services-image"
+            src="assets/Services_2_Pol.webp"
+            alt="Creating a legacy"
+          />
         </div>
       </div>
     </div>

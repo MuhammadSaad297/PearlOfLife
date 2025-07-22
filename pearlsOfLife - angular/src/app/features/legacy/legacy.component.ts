@@ -11,7 +11,9 @@ export class LegacyComponent {
     private readonly router: Router,
     private readonly route: ActivatedRoute
   ) {}
-
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   goToPage(type: string) {
     // Check for authentication token (adjust key as needed)
     const token = localStorage.getItem('accessToken');
@@ -32,6 +34,8 @@ export class LegacyComponent {
     const token = localStorage.getItem('accessToken');
     if (!token) {
       this.router.navigate(['/auth/login']);
+    } else {
+      this.router.navigate(['/dashboard']);
     }
   }
 }

@@ -21,8 +21,8 @@ let EmailService = class EmailService {
         try {
             const result = await this.mailerService.sendMail({
                 to: user.email,
-                subject: 'Welcome to the Pearls of Life!',
-                text: `Hello, ${user.first_name} ${user.last_name}! This is a welcome email from Pearls of Life. `,
+                subject: 'Welcome to the Pearls of Lyfe!',
+                text: `Hello, ${user.first_name} ${user.last_name}! This is a welcome email from Pearls of Lyfe. `,
             });
             console.log('Preview URL:', nodemailer.getTestMessageUrl(result));
             return nodemailer.getTestMessageUrl(result);
@@ -34,11 +34,10 @@ let EmailService = class EmailService {
     }
     async sendKeyHolderRegistrationEmail(keyHolder, userName) {
         try {
-            debugger;
             console.log(keyHolder);
             const result = await this.mailerService.sendMail({
                 to: keyHolder.email,
-                subject: 'Welcome to the Pearls of Life!',
+                subject: 'Welcome to the Pearls of Lyfe!',
                 text: `Hello, ${keyHolder.first_name} ${keyHolder.last_name}! 
                     You have been registered as key holder by ${userName}, 
                     please click here to login '${process.env.BASEURL ?? 'http://localhost'}:${process.env.PORT ?? 3000}/auth/keyholder/${keyHolder.token_url}'. 
@@ -58,7 +57,7 @@ let EmailService = class EmailService {
         const mailOptions = {
             from: process.env.EMAIL_FROM,
             to: user.email,
-            subject: 'Reset Your Password - Pearls of Life',
+            subject: 'Reset Your Password - Pearls of Lyfe',
             html: `
                 <h1>Password Reset Request</h1>
                 <p>Hello ${user.first_name},</p>
@@ -66,7 +65,7 @@ let EmailService = class EmailService {
                 <p><a href="${resetLink}">Reset Password</a></p>
                 <p>This link will expire in 24 hours.</p>
                 <p>If you didn't request this, you can safely ignore this email.</p>
-                <p>Best regards,<br>Pearls of Life Team</p>
+                <p>Best regards,<br>Pearls of Lyfe Team</p>
             `,
         };
         try {

@@ -10,7 +10,7 @@ async function bootstrap() {
         whitelist: true,
     }));
     app.enableCors({
-        origin: ['http://localhost:4200'],
+        origin: ['http://localhost:4200', 'http://56.228.6.77'],
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
         allowedHeaders: ['Content-Type', 'Authorization'],
         exposedHeaders: ['Authorization'],

@@ -110,13 +110,13 @@ import { AutoObituaryComponent } from './features/auto-obituary/auto-obituary.co
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'legacy',
+    redirectTo: 'home',
     pathMatch: 'full',
 
     // pathMatch: 'full',
   },
   {
-    path: 'legacy',
+    path: 'home',
     component: LegacyComponent,
   },
 

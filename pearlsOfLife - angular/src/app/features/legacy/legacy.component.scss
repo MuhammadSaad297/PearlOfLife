@@ -53,7 +53,7 @@ body {
 }
 
 .legacy-logo {
-    height: 70px;
+    height: 100px;
     width: auto;
 }
 
@@ -98,13 +98,13 @@ body {
 }
 
 .legacy-title-group {
-    // margin-top: 20px;
+    margin-top: 150px;
     padding: 0 10px;
 }
 
 .legacy-welcome {
     color: white;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 500;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -121,7 +121,7 @@ body {
 
 .legacy-subtitle {
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
@@ -132,14 +132,14 @@ body {
     min-width: 0;
     width: 70%;
     max-width: 300px;
-    height: 80px;
+    height: 50px;
     border-radius: 50px;
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
     color: #fff;
     background: linear-gradient(90deg, #6a1b9a 0%, #000 100%);
     border: none;
-    margin: 2rem auto 1.5rem auto;
+    margin: 0.2rem auto 1.5rem auto;
     display: block;
     box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
     transition: transform 0.2s, box-shadow 0.2s;
@@ -154,6 +154,12 @@ body {
     box-shadow: 0 6px 20px rgba(161, 0, 255, 0.6);
 }
 
+.legacy-nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(161, 0, 255, 0.6);
+}
+
+
 /* CTA Section for Hero Area */
 .legacy-cta-section {
     background: linear-gradient(180deg, #a16ae0 0%, #cf631f 100%);
@@ -163,6 +169,7 @@ body {
     justify-content: center;
     padding: 4rem 0 2.5rem 0;
     // margin: 3rem 0 2rem 0;
+    height: 400px;
     width: 100%;
 }
 
@@ -424,10 +431,10 @@ body {
 
 .legacy-nav-btn {
     min-width: 100px;
-    height: 80px;
+    height: 50px;
     border: none;
     border-radius: 50px;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #fff;
     // margin: 0 0.5rem;
@@ -453,34 +460,34 @@ body {
 }
 
 .legacy-nav-btn.legacy {
-    background: linear-gradient(90deg, #2632c2 0%, #000 100%);
+    background: linear-gradient(90deg, #050a42 0%, #000 100%);
 }
 
 .legacy-nav-btn.contact {
-    background: linear-gradient(90deg, #6a1b9a 0%, #000 100%);
+    background: linear-gradient(90deg, #510e7b 0%, #000 100%);
 }
 
-.legacy-main-btn {
-    min-width: 500px;
-    height: 80px;
-    border-radius: 50px;
-    font-size: 2rem;
-    font-weight: 500;
-    color: #fff;
-    background: linear-gradient(90deg, #6a1b9a 0%, #000 100%);
-    border: none;
-    margin: 2rem auto 1.5rem auto;
-    display: block;
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+// .legacy-main-btn {
+//     min-width: 500px;
+//     height: 80px;
+//     border-radius: 50px;
+//     font-size: 2rem;
+//     font-weight: 500;
+//     color: #fff;
+//     background: linear-gradient(90deg, #6a1b9a 0%, #000 100%);
+//     border: none;
+//     margin: 2rem auto 1.5rem auto;
+//     display: block;
+//     box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
+//     transition: transform 0.2s, box-shadow 0.2s;
+// }
 
 .legacy-main-btn-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    margin-left: 8px;
+    // width: 100%;
+    // margin-left: 8px;
 }
 
 @media (max-width: 900px) {
@@ -513,13 +520,12 @@ body {
 
 @media (max-width: 600px) {
     .legacy-nav-btns {
-        flex-direction: column !important;
+        flex-direction: column;
         gap: 1rem;
         width: 100%;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
-        overflow-x: visible;
-        margin-bottom: 2rem;
+        // margin-bottom: 2rem;
     }
 
     .legacy-nav-btn,
@@ -528,9 +534,11 @@ body {
         width: 100%;
         font-size: 1rem;
         height: 44px;
-        padding: 0 0.5rem;
+        // padding: 0 0.5rem;
         border-radius: 2em;
         white-space: normal;
+        margin: 0;
+        box-sizing: border-box;
     }
 
     .legacy-main-btn {
@@ -541,12 +549,11 @@ body {
 
 @media (max-width: 480px) {
     .legacy-nav-btns {
-        flex-direction: column !important;
+        flex-direction: column;
         gap: 0.7rem;
         width: 100%;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
-        overflow-x: visible;
         margin-bottom: 1.2rem;
     }
 
@@ -556,9 +563,11 @@ body {
         width: 100%;
         font-size: 0.95rem;
         height: 38px;
-        padding: 0 0.3rem;
+        // padding: 0 0.3rem;
         border-radius: 2em;
         white-space: normal;
+        margin: 0;
+        box-sizing: border-box;
     }
 
     .legacy-main-btn {
@@ -604,14 +613,14 @@ body {
     }
 
     .legacy-main-btn {
-        padding: 0.8rem 1.5rem;
+        // padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
 
     .legacy-nav-btns {
         display: flex;
         flex-direction: row;
-        overflow-x: auto;
+        overflow: auto;
         gap: 1rem;
         justify-content: center;
         align-items: center;
@@ -846,3 +855,9 @@ body {
 //     position: relative;
 //     z-index: 1;
 // }
+.features-grid.legacy-cta-section {
+    // background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/homepage_CTA.webp') center/cover no-repeat;
+    position: relative;
+    background: linear-gradient(120deg, rgba(161, 106, 224, 0.7) 0%, rgba(207, 99, 31, 0.5) 100%), url('/assets/homepage_CTA.webp') center 5%/cover no-repeat;
+
+}

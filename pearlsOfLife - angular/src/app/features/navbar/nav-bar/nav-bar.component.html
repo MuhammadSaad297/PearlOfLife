@@ -2,7 +2,7 @@
   <div class="legacy-header">
     <img
       src="/assets/images/logo.webp"
-      alt="Pearls of Life Logo"
+      alt="Pearls of Lyfe Logo"
       class="legacy-logo"
     />
 
@@ -15,8 +15,9 @@
     <div class="nav-buttons" [class.mobile-active]="isMobileMenuOpen">
       <button
         class="nav-button"
-        [routerLink]="['/legacy']"
+        [routerLink]="['/home']"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         Home
       </button>
@@ -24,6 +25,7 @@
         class="nav-button"
         [routerLink]="['/about-us']"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         About Us
       </button>
@@ -31,6 +33,7 @@
         class="nav-button"
         [routerLink]="['/pricing']"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         Pricing
       </button>
@@ -38,6 +41,7 @@
         class="nav-button"
         [routerLink]="['/our-service']"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         Services
       </button>
@@ -55,6 +59,7 @@
         class="nav-button"
         [routerLink]="['/contact-us']"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         Contact Us
       </button>
@@ -62,6 +67,7 @@
         class="nav-button"
         [routerLink]="['/obituary']"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         auto-obituary here
       </button>

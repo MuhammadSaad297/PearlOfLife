@@ -18,6 +18,9 @@ interface ContactForm {
   styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent implements OnInit {
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   contactForm: ContactForm = {
     name: '',
     company: '',

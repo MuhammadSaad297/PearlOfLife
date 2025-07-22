@@ -39,4 +39,7 @@ export class AutoObituaryComponent implements OnInit {
         .forEach((section) => observer.observe(section));
     }, 100);
   }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

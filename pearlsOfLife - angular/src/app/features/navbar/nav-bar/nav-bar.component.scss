@@ -65,7 +65,7 @@
 }
 
 .legacy-logo {
-    height: 70px;
+    height: 80px;
     width: auto;
 }
 
@@ -221,4 +221,13 @@
         display: block;
         /* Show only on mobile */
     }
+}
+
+.nav-button:hover {
+    // transform: translateY(-3px);
+    color: #135bb8;
+}
+
+.active {
+    color: #fff;
 }

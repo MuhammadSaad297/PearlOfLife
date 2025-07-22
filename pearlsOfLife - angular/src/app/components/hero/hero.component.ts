@@ -10,10 +10,12 @@ import { titleAnimation } from 'src/app/services/animations';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
   animations: [titleAnimation],
+  imports: [CommonModule],
 })
 export class HeroComponent implements OnInit {
   @Input() title: string = '';
   @Input() bgImage: string = 'assets/hero_bg_pol.jpg';
+  @Input() subtitle: string = '';
 
   ngOnInit() {
     // Default background if none provided
