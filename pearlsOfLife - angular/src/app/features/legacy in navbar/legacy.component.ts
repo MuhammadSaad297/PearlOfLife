@@ -53,13 +53,7 @@ export class LegacyNavbarComponent implements OnInit {
       icon: 'assets/icons/side-bar/assets.svg',
       gradient: 'orange-green',
     },
-    {
-      title: 'Personal Info',
-      description:
-        'Metus ridiculus maximus est facilisi dolor ante penatibus cursus litora',
-      icon: 'assets/icons/side-bar/personal-info.svg',
-      gradient: 'red-pink',
-    },
+
     {
       title: 'Moments to Share',
       description:
@@ -67,12 +61,40 @@ export class LegacyNavbarComponent implements OnInit {
       icon: 'assets/icons/side-bar/passwords.svg',
       gradient: 'purple-orange',
     },
+    {
+      title: 'Other',
+      description: 'Write anything you want to say in this section.',
+      icon: 'assets/icons/side-bar/personal-info.svg',
+      gradient: 'red-pink',
+    },
   ];
 
   planCards: PlanCard[] = [
     {
+      title: 'Auto Obituary Plan',
+      price: 0,
+      description:
+        'This plan allows you to create an obituary that will be automatically generated based on the information you provide. It includes basic details about your life, achievements, and family.',
+      features: [
+        'Create a basic obituary with essential details.',
+        'Includes family information and achievements.',
+      ],
+      gradient: 'yellow',
+    },
+    {
+      title: 'Advanced Auto-Obituary Plan',
+      price: 3,
+      description:
+        'Leave the comfort of the sound of your voice. Make a video of you talking singing etc. (Look in the Moments to share section for talking topics). Includes the auto-obituary plan plus video memories, picture stories, audio notes.',
+      features: [
+        'Record up to five – 3 minute videos per year.',
+        'Show up to 10 family pictures w/ audio recorded descriptions.',
+      ],
+      gradient: 'blue',
+    },
+    {
       title: 'Legacy Creation Plan',
-      price: 6.35,
+      price: 7,
       description:
         'Leave the comfort of the sound of your voice. Make a video of you talking singing etc. (Look in the Moments to share section for talking topics). Includes the advanced auto-obituary plan plus video memories, picture stories, audio notes. Highlight your significant moments in past, present & future years.',
       features: [
@@ -83,7 +105,7 @@ export class LegacyNavbarComponent implements OnInit {
     },
     {
       title: 'Ultimate Legacy Creation Plan',
-      price: 10.9,
+      price: 11,
       description:
         'Includes legacy creation plan plus additional videos, pictures and audio notes.',
       features: [
