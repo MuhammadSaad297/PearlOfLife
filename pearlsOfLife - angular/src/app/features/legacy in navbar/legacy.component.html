@@ -15,8 +15,19 @@
           </div>
           <h2>{{ card.title }}</h2>
           <p>{{ card.description }}</p>
-          <div class="learn-more">
+          <!-- <div class="learn-more">
             <a href="#">Learn more <span class="icon">↗</span></a>
+          </div> -->
+          <div class="learn-more">
+            <a
+              routerLink="/legacy"
+              (click)="
+                card.title === 'Moments to Share'
+                  ? handleMomentsToShareClick($event)
+                  : handleDefaultLearnMore($event)
+              "
+              >Learn more <span class="icon">↗</span></a
+            >
           </div>
         </div>
       </div>
@@ -49,12 +60,56 @@
         </div>
       </div>
     </div>
-    <div class="moments-to-share-btn-wrapper">
+    <!-- <div class="moments-to-share-btn-wrapper">
       <button class="moments-to-share-btn" (click)="openMomentsModal()">
         Moments To Share
       </button>
-    </div>
+    </div> -->
     <div class="moments-description">
+      <!-- <div class="modal-content">
+        <h2>Moments to Share Suggestion</h2>
+        <p>
+          Below are some examples of memories you can share when leaving the
+          details of the life your living. Remember…Your whole life is your
+          legacy. The experiences, laughter, lessons, etc. Let’s get started!
+        </p>
+        <ul>
+          <li>Favorite memories about your friends (childhood, adulthood)</li>
+          <li>
+            Family pictures. Explain who the people are in the picture; where
+            and when that picture was taken; who took the picture; what led up
+            to the event that day, etc.
+          </li>
+          <li>
+            Explain some of the best foods you’ve ever tasted; where you tasted;
+            who made it; who makes it best in your opinion; why you are partial
+            to this/these foods.
+          </li>
+          <li>List some of your favorite places to visit, and why.</li>
+          <li>
+            Reminisce about some of your favorite childhood games; how to play
+            them; why you enjoyed them.
+          </li>
+          <li>
+            Something learned/remembered in church, at a friend’s house, in
+            school, by a stranger, by a famous person.
+          </li>
+          <li>
+            Talk to your family and share a life lesson you’ve come to
+            understand; or one you are struggling to get. (It’s OK to be
+            vulnerable)
+          </li>
+          <li>
+            Talk about a favorite song to share and who, what or where it
+            reminds you of.
+          </li>
+          <li>Send a loving message to someone specific.</li>
+        </ul>
+        <p>
+          There are many more subjects you can pick from life’s journey to leave
+          for relatives to enjoy and remember you.
+        </p>
+      </div> -->
       <p>
         PEARLS OF MY LYFE are the things that I have cherished the most. There
         are many experiences that bring us joy and we wish to share with family.

@@ -33,24 +33,24 @@ export class LegacyNavbarComponent implements OnInit {
 
   legacyCards: LegacyCard[] = [
     {
-      title: 'Memories',
+      title: 'Video Box',
       description:
-        'Metus ridiculus maximus est facilisi dolor ante penatibus cursus litora',
+        'Click here to begin a video of your talking to your loved ones.',
       icon: 'assets/icons/side-bar/memories.svg',
       gradient: 'red-green',
     },
     {
-      title: 'Assests',
+      title: 'Written Notes',
       description:
-        'Metus ridiculus maximus est facilisi dolor ante penatibus cursus litora',
-      icon: 'assets/icons/side-bar/assets.svg',
+        'Click this box to title and begin journaling your memories to share. You can attached photos.',
+      icon: 'assets/icons/side-bar/notes.svg ',
       gradient: 'yellow-green',
     },
     {
-      title: 'Notes',
+      title: 'Audio Box',
       description:
-        'Metus ridiculus maximus est facilisi dolor ante penatibus cursus litora',
-      icon: 'assets/icons/side-bar/notes.svg',
+        'Click this box to begin leaving audio of your memories. You can attached photos.',
+      icon: 'assets/icons/side-bar/assets.svg',
       gradient: 'orange-green',
     },
     {
@@ -61,9 +61,9 @@ export class LegacyNavbarComponent implements OnInit {
       gradient: 'red-pink',
     },
     {
-      title: 'Secure Passwords',
+      title: 'Moments to Share',
       description:
-        'Metus ridiculus maximus est facilisi dolor ante penatibus cursus litora',
+        'Click this box to view suggestions on moments you can share. This section list some ideas that will hopefully jumpstart your memory allowing you to leave the kind of video, audio or note you desire.',
       icon: 'assets/icons/side-bar/passwords.svg',
       gradient: 'purple-orange',
     },
@@ -127,5 +127,16 @@ export class LegacyNavbarComponent implements OnInit {
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  handleMomentsToShareClick(event: Event) {
+    debugger;
+    this.showMomentsModal = true;
+    event.preventDefault();
+    // Your specific logic for Moments to Share
+  }
+
+  handleDefaultLearnMore(event: Event) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Default handling for other cards
   }
 }
