@@ -36,7 +36,7 @@ export class EmailService {
         subject: 'Welcome to the Pearls of Lyfe!',
         text: `Hello, ${keyHolder.first_name} ${keyHolder.last_name}! 
                     You have been registered as key holder by ${userName}, 
-                    please click here to login '${process.env.BASEURL ?? 'http://56.228.6.77/'}:${process.env.PORT ?? 3000}/auth/keyholder/${keyHolder.token_url}'. 
+                    please click here to login '${process.env.BASEURL}/auth/keyholder/${keyHolder.token_url}'. 
                     Your login PIN will be ${keyHolder.pin}. 
                     NOTE! Please do not share these credentials`,
       });
