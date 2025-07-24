@@ -3,7 +3,6 @@ import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ObituaryInfoService } from '../obituary-info.service';
 import { SharedService } from 'src/app/services/shared.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-manage-obituary',
@@ -18,8 +17,7 @@ export class ManageObituaryComponent implements OnInit {
     private readonly activeModal: NgbActiveModal,
     private readonly formBuilder: UntypedFormBuilder,
     private readonly obituaryService: ObituaryInfoService,
-    private readonly sharedService: SharedService,
-    private datePipe: DatePipe
+    private readonly sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -39,9 +37,7 @@ export class ManageObituaryComponent implements OnInit {
       this.patchForm();
     }
   }
-  formatDateForInput(date: Date | string): string {
-    return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
-  }
+
   patchForm() {
     debugger;
     this.obituaryForm.patchValue({
