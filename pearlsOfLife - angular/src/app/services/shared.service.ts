@@ -49,7 +49,7 @@ export class SharedService extends BaseService {
 
   public logout(): void {
     this.clearUserData();
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/home']);
     this.showToast({
       classname: 'success',
       text: 'You have been successfully logged out!',

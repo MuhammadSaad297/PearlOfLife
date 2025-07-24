@@ -11,7 +11,7 @@ export class SubscriptionPlansComponent implements OnInit {
     {
       id: 'basic',
       name: 'Advanced Auto-Obituary Plan',
-      price: 1,
+      price: 3,
       description:
         'Includes auto-obituary section plus more detailed life information such as achievements, diplomas, friends, employment, etc.',
       featuresList: [
@@ -29,7 +29,7 @@ export class SubscriptionPlansComponent implements OnInit {
     {
       id: 'standard',
       name: 'Legacy Creation Plan',
-      price: 6.35,
+      price: 7,
       description:
         'Leave the comfort of the sound of your voice. Make a video of you talking/singing etc. (Look in the section for talking topics.) Auto-obituary plan plus video memories, pictures, audio notes and short stories. Highlight your achievements over the years.',
       featuresList: [
@@ -42,7 +42,7 @@ export class SubscriptionPlansComponent implements OnInit {
     {
       id: 'premium',
       name: '	Ultimate Legacy Creation Plan',
-      price: 10.9,
+      price: 11,
       description:
         'Includes legacy creation plan plus additional videos, pictures and audio notes.',
       featuresList: [

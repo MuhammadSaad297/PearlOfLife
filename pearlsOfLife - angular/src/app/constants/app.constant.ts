@@ -1,4 +1,5 @@
 export const BE_URL = 'http://56.228.6.77:3000';
+// export const BE_URL = 'http://localhost:3000';
 export const SIDE_NAVIGATION = [
   {
     name: 'All Items',

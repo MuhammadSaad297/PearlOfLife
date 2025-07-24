@@ -3,6 +3,7 @@ import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ObituaryInfoService } from '../obituary-info.service';
 import { SharedService } from 'src/app/services/shared.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-manage-obituary',
@@ -17,7 +18,8 @@ export class ManageObituaryComponent implements OnInit {
     private readonly activeModal: NgbActiveModal,
     private readonly formBuilder: UntypedFormBuilder,
     private readonly obituaryService: ObituaryInfoService,
-    private readonly sharedService: SharedService
+    private readonly sharedService: SharedService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class ManageObituaryComponent implements OnInit {
       birth_name: ['', [Validators.required]],
       married_name: [''],
       current_name: ['', [Validators.required]],
-      birth_date: ['', [Validators.required]],
+      birth_date: [new Date(), [Validators.required]],
       birth_place: ['', [Validators.required]],
       parent_names: ['', [Validators.required]],
       spouse_name: [''],
@@ -37,8 +39,11 @@ export class ManageObituaryComponent implements OnInit {
       this.patchForm();
     }
   }
-
+  formatDateForInput(date: Date | string): string {
+    return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
+  }
   patchForm() {
+    debugger;
     this.obituaryForm.patchValue({
       birth_name: this.data.item.birth_name,
       married_name: this.data.item.married_name,

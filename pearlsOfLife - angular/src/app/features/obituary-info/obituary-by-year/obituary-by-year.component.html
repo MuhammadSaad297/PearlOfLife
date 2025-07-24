@@ -6,7 +6,7 @@
   <ng-container *ngIf="obituaryList?.length; else noRecords">
     <ng-container *ngFor="let monthList of obituaryListByMonths">
       <h6 class="text-secondary m-0 mt-3">
-        {{ monthList[0]?.death_date | date : "MMMM" }}
+        {{ monthList[0]?.birth_date | date : "MMMM" }}
       </h6>
       <app-obituary-card
         [items]="obituaryList"
