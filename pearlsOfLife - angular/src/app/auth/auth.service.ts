@@ -8,6 +8,7 @@ import { BE_URL } from '../constants/app.constant';
 })
 export class AuthService {
   private baseUrl = BE_URL; // Replace with your API URL
+  private BE_URL1 = 'http://56.228.6.77';
   private auth = '/auth';
 
   constructor(private http: HttpClient) {}

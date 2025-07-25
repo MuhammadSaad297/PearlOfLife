@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pricing',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./pricing.component.scss'],
 })
 export class PricingComponent {
+  constructor(private router: Router) {}
   getPlanColor(planName: string): string {
     switch (planName) {
       case 'Auto-Obituary':
@@ -21,6 +23,7 @@ export class PricingComponent {
     }
   }
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.router.navigate(['/auth/login']);
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

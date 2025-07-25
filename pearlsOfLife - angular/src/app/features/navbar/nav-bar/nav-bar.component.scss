@@ -2,7 +2,7 @@
     display: flex;
     gap: 10px;
     /* Adjust spacing between buttons */
-    padding: 10px;
+    padding: 1px;
     /* Optional background for the button container */
 }
 
@@ -13,8 +13,8 @@
     color: #ebf308;
     /* Default text color */
     font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
     transition: color 0.3s ease;
     // text-transform: uppercase;

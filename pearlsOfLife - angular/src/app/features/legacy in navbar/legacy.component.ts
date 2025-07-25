@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { fadeInOnScroll } from '../../services/animations';
 import { ButtonComponent } from 'src/app/shared/button/button.component';
+import { Router } from '@angular/router';
 
 interface LegacyCard {
   title: string;
@@ -30,7 +31,7 @@ interface PlanCard {
 })
 export class LegacyNavbarComponent implements OnInit {
   showMomentsModal = false;
-
+  constructor(private router: Router) {}
   legacyCards: LegacyCard[] = [
     {
       title: 'Video Box',
@@ -70,28 +71,28 @@ export class LegacyNavbarComponent implements OnInit {
   ];
 
   planCards: PlanCard[] = [
-    {
-      title: 'Auto Obituary Plan',
-      price: 0,
-      description:
-        'This plan allows you to create an obituary that will be automatically generated based on the information you provide. It includes basic details about your life, achievements, and family.',
-      features: [
-        'Create a basic obituary with essential details.',
-        'Includes family information and achievements.',
-      ],
-      gradient: 'yellow',
-    },
-    {
-      title: 'Advanced Auto-Obituary Plan',
-      price: 3,
-      description:
-        'Leave the comfort of the sound of your voice. Make a video of you talking singing etc. (Look in the Moments to share section for talking topics). Includes the auto-obituary plan plus video memories, picture stories, audio notes.',
-      features: [
-        'Record up to five – 3 minute videos per year.',
-        'Show up to 10 family pictures w/ audio recorded descriptions.',
-      ],
-      gradient: 'blue',
-    },
+    // {
+    //   title: 'Auto Obituary Plan',
+    //   price: 0,
+    //   description:
+    //     'This plan allows you to create an obituary that will be automatically generated based on the information you provide. It includes basic details about your life, achievements, and family.',
+    //   features: [
+    //     'Create a basic obituary with essential details.',
+    //     'Includes family information and achievements.',
+    //   ],
+    //   gradient: 'yellow',
+    // },
+    // {
+    //   title: 'Advanced Auto-Obituary Plan',
+    //   price: 3,
+    //   description:
+    //     'Leave the comfort of the sound of your voice. Make a video of you talking singing etc. (Look in the Moments to share section for talking topics). Includes the auto-obituary plan plus video memories, picture stories, audio notes.',
+    //   features: [
+    //     'Record up to five – 3 minute videos per year.',
+    //     'Show up to 10 family pictures w/ audio recorded descriptions.',
+    //   ],
+    //   gradient: 'blue',
+    // },
     {
       title: 'Legacy Creation Plan',
       price: 7,
@@ -148,7 +149,8 @@ export class LegacyNavbarComponent implements OnInit {
     this.showMomentsModal = false;
   }
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.router.navigate(['/auth/login']);
   }
   handleMomentsToShareClick(event: Event) {
     debugger;
