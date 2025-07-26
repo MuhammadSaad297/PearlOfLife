@@ -83,6 +83,10 @@ export const ADD_ITEMS_LIST = {
     text: 'Add Key Holder',
     label: 'key-holders',
   },
+  LEGACY: {
+    text: 'Refer a Friend',
+    label: 'key-holders',
+  },
 };
 
 export const RELATION_LIST = [

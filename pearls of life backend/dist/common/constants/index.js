@@ -28,6 +28,7 @@ exports.MESSAGE = {
         USER_REGISTERED: 'User registered successfully',
         KEYHOLDER_REGISTERED: 'Key Holder registered successfully',
         PASSWORD_RESET_EMAIL_SENT: 'Password reset instructions have been sent to your email.',
+        EMAIL_SENT: 'Email sent successfully',
     },
 };
 var ORDER;

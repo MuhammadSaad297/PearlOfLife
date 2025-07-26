@@ -6,6 +6,7 @@ import { ConfirmationModalComponent } from 'src/app/shared/confirmation-modal/co
 import { SharedService } from 'src/app/services/shared.service';
 import { ManageObituaryComponent } from '../manage-obituary/manage-obituary.component';
 import { ObituaryInfoService } from '../obituary-info.service';
+import { SoundService } from 'src/app/services/sound.service';
 
 @Component({
   selector: 'app-obituary-by-year',
@@ -27,7 +28,8 @@ export class ObituaryByYearComponent implements OnInit, OnDestroy {
     private readonly activatedRoute: ActivatedRoute,
     private readonly obituaryInfoService: ObituaryInfoService,
     private readonly ngbModalService: NgbModal,
-    private readonly sharedService: SharedService
+    private readonly sharedService: SharedService,
+    private readonly soundService: SoundService
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +60,7 @@ export class ObituaryByYearComponent implements OnInit, OnDestroy {
   }
 
   getObituariesByYear() {
-    debugger;
+    this.soundService.playClickSound();
     this.pageOptions['year'] = this.year;
     const queryParams = objectToQueryParams(this.pageOptions);
     this.obituaryInfoService.getObituaryInfo(queryParams).subscribe({

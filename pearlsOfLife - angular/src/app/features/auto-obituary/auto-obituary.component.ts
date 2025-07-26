@@ -6,6 +6,8 @@ import { HeroComponent } from '../../components/hero/hero.component';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { CtaComponent } from '../../components/cta/cta.component';
 import { fadeInOnScroll } from '../../services/animations';
+import { SoundService } from 'src/app/services/sound.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auto-obituary',
@@ -16,6 +18,7 @@ import { fadeInOnScroll } from '../../services/animations';
   // animations: [fadeInOnScroll],
 })
 export class AutoObituaryComponent implements OnInit {
+  constructor(private soundService: SoundService, private router: Router) {}
   ngOnInit() {
     this.initScrollAnimation();
   }
@@ -40,6 +43,13 @@ export class AutoObituaryComponent implements OnInit {
     }, 100);
   }
   scrollToTop() {
+    this.soundService.playClickSound();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  goToPage() {
+    this.soundService.playClickSound();
+    this.router.navigate(['/pricing']);
+    // Navigate to the pricing page
+    // this.router.navigate(['/pricing']);
   }
 }

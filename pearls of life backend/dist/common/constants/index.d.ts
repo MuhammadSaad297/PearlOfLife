@@ -25,6 +25,7 @@ export declare const MESSAGE: {
         USER_REGISTERED: string;
         KEYHOLDER_REGISTERED: string;
         PASSWORD_RESET_EMAIL_SENT: string;
+        EMAIL_SENT: string;
     };
 };
 export declare enum ORDER {

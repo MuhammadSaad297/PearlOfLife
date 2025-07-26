@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SoundService } from 'src/app/services/sound.service';
 
 @Component({
   selector: 'app-legacy',
@@ -9,32 +10,58 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LegacyComponent {
   constructor(
     private readonly router: Router,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private soundService: SoundService
   ) {}
   scrollToTop() {
+    this.soundService.playClickSound();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   goToPage(type: string) {
     // Check for authentication token (adjust key as needed)
     const token = localStorage.getItem('accessToken');
     if (token && type === 'dashboard') {
+      this.soundService.playClickSound();
       // Navigate to dashboard as a child route of the current route (features module)
       this.router.navigate(['/dashboard'], {
         relativeTo: this.route.parent,
       });
     } else if (type === 'login') {
       // Navigate to login page
+      this.soundService.playClickSound();
       this.router.navigate(['/auth/login']);
+    } else if (type === 'about-us') {
+      this.soundService.playClickSound();
+      this.router.navigate(['/about-us']);
+    } else if (type === 'our-service') {
+      this.soundService.playClickSound();
+      this.router.navigate(['/our-service']);
+    } else if (type === 'pricing') {
+      this.soundService.playClickSound();
+      this.router.navigate(['/pricing']);
+    } else if (type === 'legacy') {
+      this.soundService.playClickSound();
+      this.router.navigate(['/legacy']);
+    } else if (type === 'contact-us') {
+      this.soundService.playClickSound();
+      this.router.navigate(['/contact-us']);
     } else {
-      this.router.navigate(['/auth/login']);
+      this.soundService.playClickSound();
+      this.router.navigate(['/login']);
     }
   }
-  goToLogin() {
+  goToLogin(type: string) {
     // Navigate to login page
     const token = localStorage.getItem('accessToken');
-    if (!token) {
+    if (!token && type === 'login') {
+      this.soundService.playClickSound();
       this.router.navigate(['/auth/login']);
+    } else if (!token && type === 'signup') {
+      this.soundService.playClickSound();
+      this.router.navigate(['/auth/register']);
     } else {
+      this.soundService.playClickSound();
+      // If the user is already logged in, redirect to the dashboard
       this.router.navigate(['/dashboard']);
     }
   }

@@ -44,6 +44,7 @@ import { NavBarComponent } from './navbar/nav-bar/nav-bar.component';
 import { LegacyNavbarComponent } from './legacy in navbar/legacy.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { AutoObituaryComponent } from './auto-obituary/auto-obituary.component';
+import { ReferFriendModalComponent } from './refer-friend-modal/refer-friend-modal.component';
 @NgModule({
   declarations: [
     FeaturesComponent,
@@ -75,6 +76,7 @@ import { AutoObituaryComponent } from './auto-obituary/auto-obituary.component';
     ButtonComponent,
     LegacyNavbarComponent,
     AutoObituaryComponent,
+    ReferFriendModalComponent,
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
+import { SoundService } from 'src/app/services/sound.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: UntypedFormBuilder,
     private readonly authService: AuthService,
     private readonly router: Router,
-    private readonly sharedService: SharedService
+    private readonly sharedService: SharedService,
+    private soundService: SoundService
   ) {}
 
   ngOnInit(): void {
@@ -28,8 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.soundService.playClickSound(); // Play sound on login button click
     if (this.loginForm.invalid) {
-      console.log(this.loginForm.value);
+      this.sharedService.showToast({
+        classname: 'error',
+        text: 'Invalid Email and Password!',
+      });
       return;
     }
     const form = this.loginForm.value;
@@ -60,5 +66,9 @@ export class LoginComponent implements OnInit {
           });
         },
       });
+  }
+  goToRegister() {
+    this.soundService.playClickSound(); // Play sound on register link click
+    this.router.navigate(['/auth/register']);
   }
 }

@@ -1,3 +1,4 @@
+import { SoundService } from 'src/app/services/sound.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +18,8 @@ export class ManageObituaryComponent implements OnInit {
     private readonly activeModal: NgbActiveModal,
     private readonly formBuilder: UntypedFormBuilder,
     private readonly obituaryService: ObituaryInfoService,
-    private readonly sharedService: SharedService
+    private readonly sharedService: SharedService,
+    private readonly soundService: SoundService
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class ManageObituaryComponent implements OnInit {
   }
 
   patchForm() {
-    debugger;
+    this.soundService.playClickSound();
     this.obituaryForm.patchValue({
       birth_name: this.data.item.birth_name,
       married_name: this.data.item.married_name,
@@ -96,6 +98,7 @@ export class ManageObituaryComponent implements OnInit {
   }
 
   submit() {
+    this.soundService.playClickSound();
     if (this.obituaryForm.invalid) {
       Object.keys(this.obituaryForm.controls).forEach((key) => {
         const control = this.obituaryForm.get(key);

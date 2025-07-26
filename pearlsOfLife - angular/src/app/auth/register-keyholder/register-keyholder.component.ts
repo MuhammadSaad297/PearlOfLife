@@ -8,10 +8,9 @@ import { tap } from 'rxjs';
 @Component({
   selector: 'app-register-keyholder',
   templateUrl: './register-keyholder.component.html',
-  styleUrls: ['./register-keyholder.component.scss']
+  styleUrls: ['./register-keyholder.component.scss'],
 })
 export class RegisterKeyholderComponent implements OnInit {
-
   public loginKeyHolderForm: FormGroup;
   private tokenURL: string | null;
 
@@ -21,11 +20,11 @@ export class RegisterKeyholderComponent implements OnInit {
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly sharedService: SharedService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.loginKeyHolderForm = this.formBuilder.group({
-      pin: ['', Validators.required]
+      pin: ['', Validators.required],
     });
 
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -36,44 +35,46 @@ export class RegisterKeyholderComponent implements OnInit {
 
   getKeyHolder(tokenURL: string) {
     this.authService.getKeyHolder(tokenURL).subscribe({
-      next: (res: any) => {
-      },
+      next: (res: any) => {},
       error: (err) => {
         this.sharedService.showToast({
           classname: 'error',
           text: err?.error?.message,
         });
-      }
+      },
     });
   }
 
   submit() {
     if (this.loginKeyHolderForm.valid) {
-      this.authService.loginKeyHolder({
-        token_url: this.tokenURL,
-        pin: this.loginKeyHolderForm.value.pin
-      }).pipe(
-        tap((response) => {
-          // Authorization
-          const token = response.headers.get('Authorization');
-          this.sharedService.setUserToken(token);
+      this.authService
+        .loginKeyHolder({
+          token_url: this.tokenURL,
+          pin: this.loginKeyHolderForm.value.pin,
         })
-      ).subscribe({
-        next: (res: any) => {
-          this.sharedService.showToast({
-            classname: 'success',
-            text: 'Login successful!',
-          });
-          this.router.navigate(['/dashboard']);
-        },
-        error: (err) => {
-          this.sharedService.showToast({
-            classname: 'error',
-            text: err?.error?.message,
-          });
-        }
-      });
+        .pipe(
+          tap((response) => {
+            // Authorization
+            const token = response.headers.get('Authorization');
+            this.sharedService.setUserToken(token);
+            localStorage.setItem('isKeyHolder', 'true');
+          })
+        )
+        .subscribe({
+          next: (res: any) => {
+            this.sharedService.showToast({
+              classname: 'success',
+              text: 'Login successful!',
+            });
+            this.router.navigate(['/dashboard']);
+          },
+          error: (err) => {
+            this.sharedService.showToast({
+              classname: 'error',
+              text: err?.error?.message,
+            });
+          },
+        });
     }
   }
-
 }

@@ -5,6 +5,8 @@ import { HeroComponent } from '../../components/hero/hero.component';
 import { fadeInOnScroll } from '../../services/animations';
 import { ButtonComponent } from 'src/app/shared/button/button.component';
 import { Router } from '@angular/router';
+import { SoundService } from 'src/app/services/sound.service';
+import { Token } from '@angular/compiler';
 
 interface LegacyCard {
   title: string;
@@ -31,15 +33,16 @@ interface PlanCard {
 })
 export class LegacyNavbarComponent implements OnInit {
   showMomentsModal = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private soundService: SoundService) {}
   legacyCards: LegacyCard[] = [
     {
-      title: 'Video Box',
+      title: 'Moments to Share',
       description:
-        'Click here to begin a video of your talking to your loved ones.',
-      icon: 'assets/icons/side-bar/memories.svg',
+        'Click this box to view suggestions on moments you can share. This section list some ideas that will hopefully jumpstart your memory allowing you to leave the kind of video, audio or note you desire.',
+      icon: 'assets/icons/side-bar/passwords.svg',
       gradient: 'red-green',
     },
+
     {
       title: 'Written Notes',
       description:
@@ -56,10 +59,10 @@ export class LegacyNavbarComponent implements OnInit {
     },
 
     {
-      title: 'Moments to Share',
+      title: 'Video Box',
       description:
-        'Click this box to view suggestions on moments you can share. This section list some ideas that will hopefully jumpstart your memory allowing you to leave the kind of video, audio or note you desire.',
-      icon: 'assets/icons/side-bar/passwords.svg',
+        'Click here to begin a video of your talking to your loved ones.',
+      icon: 'assets/icons/side-bar/memories.svg',
       gradient: 'purple-orange',
     },
     {
@@ -149,17 +152,24 @@ export class LegacyNavbarComponent implements OnInit {
     this.showMomentsModal = false;
   }
   scrollToTop() {
+    this.soundService.playClickSound();
     // window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.router.navigate(['/auth/login']);
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
   }
   handleMomentsToShareClick(event: Event) {
-    debugger;
+    this.soundService.playClickSound();
     this.showMomentsModal = true;
     event.preventDefault();
     // Your specific logic for Moments to Share
   }
 
   handleDefaultLearnMore(event: Event) {
+    this.soundService.playClickSound();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Default handling for other cards
   }

@@ -3,6 +3,7 @@ import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 import { AuthService } from '../auth.service';
+import { SoundService } from 'src/app/services/sound.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -16,7 +17,8 @@ export class ForgetPasswordComponent {
     private formBuilder: UntypedFormBuilder,
     private readonly authService: AuthService,
     private readonly router: Router,
-    private readonly sharedService: SharedService
+    private readonly sharedService: SharedService,
+    private soundService: SoundService
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class ForgetPasswordComponent {
   }
 
   submit() {
+    this.soundService.playClickSound(); // Play sound on submit button click
     if (this.forgetPasswordForm.invalid) {
       this.sharedService.showToast({
         classname: 'error',

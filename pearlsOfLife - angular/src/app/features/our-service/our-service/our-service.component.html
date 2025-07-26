@@ -18,6 +18,39 @@
             grandparents, old friends, old hangout places, the way things used
             to be or older family members who instilled value in you.
           </p>
+          <h4>What Services We Provide</h4>
+
+          <h6>Auto Obituary</h6>
+          <ul>
+            <li>
+              <strong>Capture life stories automatically:</strong> A heartfelt
+              tribute based on memories, values, and experiences.
+            </li>
+            <li>
+              <strong>Time with grandparents and old friends:</strong> Cherished
+              moments that reflect meaningful relationships.
+            </li>
+            <li>
+              <strong>Life lessons and values:</strong> Wisdom passed down from
+              elders to younger generations.
+            </li>
+          </ul>
+
+          <h6>Legacy</h6>
+          <ul>
+            <li>
+              <strong>Preserve family wisdom:</strong> Document values, culture,
+              and emotional heritage for future generations.
+            </li>
+            <li>
+              <strong>Favorite family recipes:</strong> Capture not just the
+              ingredients but the memories they bring.
+            </li>
+            <li>
+              <strong>Lessons from life experiences:</strong> Share what was
+              learned from mistakes and growth.
+            </li>
+          </ul>
 
           <p>
             These are all pearls that each one of us have experienced and know
@@ -47,7 +80,7 @@
           </p>
 
           <div class="services-cta">
-            <button class="gradient-orange" [routerLink]="'/pricing'">
+            <button class="gradient-orange" (click)="scrollToTop()">
               Get Your Obituary Now
             </button>
           </div>
@@ -64,6 +97,33 @@
             src="assets/Services_2_Pol.webp"
             alt="Creating a legacy"
           />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="plan-cards-section">
+    <div class="container">
+      <div class="plan-cards">
+        <div
+          *ngFor="let plan of planCards"
+          class="plan-card"
+          [ngClass]="'gradient-' + plan.gradient"
+        >
+          <h2>{{ plan.title }}</h2>
+          <div class="price">
+            <span class="dollar">$</span>
+            <span class="amount">{{ plan.price }}</span>
+            <span class="period">Monthly</span>
+          </div>
+          <p class="description">{{ plan.description }}</p>
+          <ul class="features">
+            <li *ngFor="let feature of plan.features">{{ feature }}</li>
+          </ul>
+          <div class="cta-button">
+            <app-button (click)="scrollToTop()" variant="primary"
+              >Get It Now!</app-button
+            >
+          </div>
         </div>
       </div>
     </div>

@@ -6,4 +6,12 @@ export declare class EmailService {
     sendRegistrationEmail(user: any): Promise<string | false>;
     sendKeyHolderRegistrationEmail(keyHolder: any, userName: string): Promise<string | false>;
     sendPasswordResetEmail(user: Users, resetToken: string): Promise<void>;
+    sendEmail(options: {
+        to: string;
+        subject: string;
+        text?: string;
+        html?: string;
+        template?: string;
+        context?: Record<string, any>;
+    }): Promise<void>;
 }

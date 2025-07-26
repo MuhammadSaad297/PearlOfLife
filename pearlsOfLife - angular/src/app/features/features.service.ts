@@ -12,4 +12,7 @@ export class FeaturesService extends BaseService {
   getUserPlan(): Observable<any> {
     return this.get(`${this.baseUrl}/users/plan`);
   }
+  sendEmail(email: string): Observable<any> {
+    return this.post(`${this.baseUrl}/auth/send-email`, { email });
+  }
 }

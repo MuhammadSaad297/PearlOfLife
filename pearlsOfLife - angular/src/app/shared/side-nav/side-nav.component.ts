@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { SoundService } from 'src/app/services/sound.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -23,7 +24,8 @@ export class SideNavComponent implements OnChanges {
 
   constructor(
     // private readonly _dataService: DataService
-    private readonly router: Router
+    private readonly router: Router,
+    private soundService: SoundService
   ) {
     console.log('SideNavComponent initialized');
   }
@@ -31,7 +33,7 @@ export class SideNavComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     console.log('Navigation list:', this.navList);
     console.log('Active item:', this.activeItem);
-
+    // this.soundService.playClickSound();
     if (
       this.activeItem &&
       !this.navList?.find((x: any) => x.name == this.activeItem)

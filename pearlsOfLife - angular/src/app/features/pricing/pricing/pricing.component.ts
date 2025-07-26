@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SoundService } from 'src/app/services/sound.service';
 
 @Component({
   selector: 'app-pricing',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./pricing.component.scss'],
 })
 export class PricingComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private soundService: SoundService) {}
   getPlanColor(planName: string): string {
     switch (planName) {
       case 'Auto-Obituary':
@@ -23,7 +24,13 @@ export class PricingComponent {
     }
   }
   scrollToTop() {
-    this.router.navigate(['/auth/login']);
+    this.soundService.playClickSound();
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      this.router.navigate(['/subscription-plans']);
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
     // window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

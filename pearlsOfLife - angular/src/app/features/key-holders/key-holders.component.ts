@@ -5,14 +5,14 @@ import { SharedService } from 'src/app/services/shared.service';
 import { KeyHolderService } from './key-holders.service';
 import { ManageKeyHoldersComponent } from './manage-key-holders/manage-key-holders.component';
 import { BE_URL } from 'src/app/constants/app.constant';
+import { SoundService } from 'src/app/services/sound.service';
 
 @Component({
   selector: 'app-key-holders',
   templateUrl: './key-holders.component.html',
-  styleUrls: ['./key-holders.component.scss']
+  styleUrls: ['./key-holders.component.scss'],
 })
 export class KeyHoldersComponent implements OnInit {
-
   public keyholders: any[] = [];
   public isKeyHolder: boolean = this.sharedService.isKeyHolder();
 
@@ -20,7 +20,8 @@ export class KeyHoldersComponent implements OnInit {
     private readonly keyHolderService: KeyHolderService,
     private readonly ngbModalService: NgbModal,
     private readonly sharedService: SharedService,
-  ) { }
+    private soundService: SoundService
+  ) {}
 
   // public addCardItems: any = [
   //   ADD_ITEMS_LIST.KEY_HOLDERS
@@ -37,9 +38,11 @@ export class KeyHoldersComponent implements OnInit {
           this.keyholders = response.data.map((item: any) => {
             return {
               ...item,
-              image_path: item?.image_path ? BE_URL + item?.image_path?.slice(1) : null
-            }
-          })
+              image_path: item?.image_path
+                ? BE_URL + item?.image_path?.slice(1)
+                : null,
+            };
+          });
         }
       },
       error: (err) => {
@@ -47,11 +50,12 @@ export class KeyHoldersComponent implements OnInit {
           classname: 'error',
           text: err?.error?.message,
         });
-      }
+      },
     });
   }
 
   openKeyHolderPopup(item: any) {
+    this.soundService.playClickSound();
     // Open the modal
     const modalRef = this.ngbModalService.open(ManageKeyHoldersComponent, {
       size: 'lg',
@@ -73,5 +77,4 @@ export class KeyHoldersComponent implements OnInit {
       })
       .catch((error) => console.log(error));
   }
-
 }

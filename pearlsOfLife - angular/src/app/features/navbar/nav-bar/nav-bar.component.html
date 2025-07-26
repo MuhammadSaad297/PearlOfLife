@@ -16,6 +16,7 @@
       <button
         class="nav-button"
         [routerLink]="['/home']"
+        (click)="goToPage('home')"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -23,7 +24,7 @@
       </button>
       <button
         class="nav-button"
-        [routerLink]="['/about-us']"
+        (click)="goToPage('about-us')"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -31,7 +32,7 @@
       </button>
       <button
         class="nav-button"
-        [routerLink]="['/pricing']"
+        (click)="goToPage('pricing')"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -39,7 +40,7 @@
       </button>
       <button
         class="nav-button"
-        [routerLink]="['/our-service']"
+        (click)="goToPage('our-service')"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -57,15 +58,15 @@
       </button> -->
       <button
         class="nav-button"
-        [routerLink]="['/contact-us']"
+        (click)="goToPage('contact-us')"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        Contact Us
+        Contact-Us
       </button>
       <button
         class="nav-button"
-        [routerLink]="['/obituary']"
+        (click)="goToPage('obituary')"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -73,7 +74,7 @@
       </button>
       <button
         class="nav-button"
-        [routerLink]="['/legacy']"
+        (click)="goToPage('legacy')"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -83,10 +84,10 @@
 
     <!-- Auth Buttons - Hidden on mobile -->
     <div class="legacy-auth-buttons">
-      <button class="legacy-login-btn" [routerLink]="['/auth/login']">
+      <button class="legacy-login-btn" (click)="goToPage('auth/login')">
         Login
       </button>
-      <button class="legacy-signup-btn" [routerLink]="['/auth/register']">
+      <button class="legacy-signup-btn" (click)="goToPage('auth/register')">
         Sign Up
       </button>
     </div>

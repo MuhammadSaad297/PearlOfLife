@@ -6,7 +6,7 @@
 
   <!-- Audio Element (hidden) -->
   <audio autoplay loop class="legacy-audio-bg">
-    <source src="/assets/PearlAudio.mp3" type="audio/mp3" />
+    <source src="/assets/updatedAudio.mp3" type="audio/mp3" />
   </audio>
 
   <!-- Audio Control Button -->
@@ -34,8 +34,10 @@
       </button>
     </div> -->
     <div class="legacy-auth-buttons">
-      <button class="legacy-login-btn" (click)="goToLogin()">Login</button>
-      <button class="legacy-signup-btn" [routerLink]="['/auth/register']">
+      <button class="legacy-login-btn" (click)="goToLogin('login')">
+        Login
+      </button>
+      <button class="legacy-signup-btn" (click)="goToLogin('signup')">
         Sign Up
       </button>
     </div>
@@ -55,19 +57,19 @@
       </button>
     </div>
     <div class="legacy-nav-btns">
-      <button class="legacy-nav-btn about" [routerLink]="['/about-us']">
+      <button class="legacy-nav-btn about" (click)="goToPage('about-us')">
         About Us
       </button>
-      <button class="legacy-nav-btn services" [routerLink]="['/our-service']">
+      <button class="legacy-nav-btn services" (click)="goToPage('our-service')">
         Our Services
       </button>
-      <button class="legacy-nav-btn pricing" [routerLink]="['/pricing']">
+      <button class="legacy-nav-btn pricing" (click)="goToPage('pricing')">
         Pricing
       </button>
-      <button class="legacy-nav-btn legacy" [routerLink]="['/legacy']">
+      <button class="legacy-nav-btn legacy" (click)="goToPage('legacy')">
         Legacy
       </button>
-      <button class="legacy-nav-btn contact" [routerLink]="['/contact-us']">
+      <button class="legacy-nav-btn contact" (click)="goToPage('contact-us')">
         Contact Us
       </button>
     </div>

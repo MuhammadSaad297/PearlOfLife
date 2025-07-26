@@ -1,6 +1,28 @@
 /* src/app/pages/contact-us/contact-us.component.scss */
-.page-container {
+
+/* Add to the very top of your SCSS */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    overflow-y: auto;
+}
+
+// .page-container {
+//     overflow-x: hidden;
+// }
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; // Changed from overflow-x: hidden
 }
 
 .container {

@@ -40,8 +40,8 @@ let EmailService = class EmailService {
                 subject: 'Welcome to the Pearls of Lyfe!',
                 text: `Hello, ${keyHolder.first_name} ${keyHolder.last_name}! 
                     You have been registered as key holder by ${userName}, 
-                    please click here to login '${process.env.BASEURL ?? 'http://localhost'}:${process.env.PORT ?? 3000}/auth/keyholder/${keyHolder.token_url}'. 
-                    Your login PIN will be ${keyHolder.pin}. 
+                    please click here to login '${process.env.BASEURL}/auth/keyholder/${keyHolder.token_url}'
+                    Your login PIN will be ${keyHolder.pin}
                     NOTE! Please do not share these credentials`,
             });
             console.log('Preview URL:', nodemailer.getTestMessageUrl(result));
@@ -74,6 +74,26 @@ let EmailService = class EmailService {
         catch (error) {
             console.error('Error sending password reset email:', error);
             throw new Error('Failed to send password reset email');
+        }
+    }
+    async sendEmail(options) {
+        try {
+            const result = await this.mailerService.sendMail({
+                to: options.to,
+                subject: options.subject,
+                text: options.text,
+                html: options.html,
+                template: options.template,
+                context: options.context,
+            });
+            const previewUrl = nodemailer.getTestMessageUrl(result);
+            if (previewUrl) {
+                console.log('Preview URL:', previewUrl);
+            }
+        }
+        catch (error) {
+            console.error(`Failed to send email to ${options.to}:`, error);
+            throw error;
         }
     }
 };

@@ -1,3 +1,4 @@
+import { LegacyComponent } from './../legacy/legacy.component';
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ADD_ITEMS_LIST } from 'src/app/constants/app.constant';
@@ -6,6 +7,8 @@ import { ManagePasswordComponent } from '../passwords/manage-password/manage-pas
 import { ManageMemoriesComponent } from '../memories/manage-memories/manage-memories.component';
 import { SubscriptionGuard } from 'src/app/guards/subscription.guard';
 import { SharedService } from 'src/app/services/shared.service';
+import { SoundService } from 'src/app/services/sound.service';
+import { ReferFriendModalComponent } from '../refer-friend-modal/refer-friend-modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,13 +19,15 @@ export class DashboardComponent {
   constructor(
     private readonly ngbModalService: NgbModal,
     private sharedService: SharedService,
-    private subscriptionGuard: SubscriptionGuard
+    private subscriptionGuard: SubscriptionGuard,
+    private soundService: SoundService
   ) {}
 
   public addCardItems: any = [
     ADD_ITEMS_LIST.MEMORIES,
     ADD_ITEMS_LIST.NOTES,
     ADD_ITEMS_LIST.ASSETS,
+    ADD_ITEMS_LIST.LEGACY,
   ];
 
   public addComponent(event: any) {
@@ -36,6 +41,9 @@ export class DashboardComponent {
         break;
       case ADD_ITEMS_LIST.MEMORIES.label:
         this.addMemories();
+        break;
+      case ADD_ITEMS_LIST.LEGACY.label:
+        this.referFriend();
         break;
       default:
         return;
@@ -65,9 +73,33 @@ export class DashboardComponent {
     window.location.href = '/subscription-plans';
     return false;
   }
+  referFriend() {
+    console.log('Refer a Friend clicked');
+    this.soundService.playClickSound();
+    const modalRef = this.ngbModalService.open(ReferFriendModalComponent, {
+      size: 'md',
+      backdrop: 'static',
+      keyboard: false,
+      centered: false,
+    });
 
+    // Set the modal data
+    modalRef.componentInstance.data = {
+      name: 'Add',
+      item: null,
+    };
+
+    // Handle the modal result
+    modalRef.result
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => console.log(error));
+  }
   addPassword() {
     // Open the modal
+    this.soundService.playClickSound();
+
     const modalRef = this.ngbModalService.open(ManagePasswordComponent, {
       size: 'md',
       backdrop: 'static',
@@ -91,6 +123,8 @@ export class DashboardComponent {
 
   addNote() {
     // Open the modal
+    this.soundService.playClickSound();
+
     if (!this.canActivate()) return;
     const modalRef = this.ngbModalService.open(ManageNotesComponent, {
       size: 'md',
@@ -114,6 +148,7 @@ export class DashboardComponent {
   }
 
   addMemories() {
+    this.soundService.playClickSound(); // Play sound on add memories button click
     if (!this.canActivate()) return;
     // Open the modal
     const modalRef = this.ngbModalService.open(ManageMemoriesComponent, {

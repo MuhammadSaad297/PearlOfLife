@@ -34,9 +34,7 @@
 
   <div class="mt-4 text-center text-white">
     Don't have an Account?
-    <a
-      class="text-yellow text-decoration-none"
-      [routerLink]="['/auth/register']"
+    <a class="text-yellow text-decoration-none" (click)="goToRegister()"
       >Create Account</a
     >
   </div>

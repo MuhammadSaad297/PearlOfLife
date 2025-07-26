@@ -104,6 +104,75 @@ let AuthController = class AuthController {
         await this.emailService.sendPasswordResetEmail(user, resetToken);
         return (0, app_utils_1.SuccessMessageResponse)(constants_1.MESSAGE.ENTITLEMENTS.PASSWORD_RESET_EMAIL_SENT);
     }
+    async sendEmail(body) {
+        try {
+            if (!body.email || !body.email.includes('@')) {
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.BAD_REQUEST,
+                    message: 'Invalid email format',
+                    error: 'Validation Error',
+                }, common_1.HttpStatus.BAD_REQUEST);
+            }
+            await this.emailService.sendEmail({
+                to: body.email,
+                subject: 'Share the Pearls of Lyfe Experience!',
+                text: `Hi there!
+
+      I've been enjoying my experience with Pearls of Lyfe and thought you might love it too!
+
+      Pearls of Lyfe offers [brief description of what makes your service special]. As a special bonus, when you sign up through this referral, you'll get [mention any referral bonus or benefit].
+
+      I'd love for you to join me in this wonderful community. Let me know what you think!
+
+      Warm regards,
+      [Your Name/Sender's Name]
+
+      P.S. If you have any questions about Pearls of Lyfe, I'd be happy to help!`,
+                html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #2c3e50;">Hi there!</h2>
+
+          <p>I've been enjoying my experience with <strong>Pearls of Lyfe</strong> and thought you might love it too!</p>
+
+           <p>I wanted to share something truly special with you - <strong>Pearls of Lyfe</strong>, a meaningful way to preserve your legacy and connect with loved ones, today and beyond.</p>
+
+        <p>Pearls of Lyfe is a secure digital legacy platform where you can:</p>
+        <ul style="line-height: 1.6;">
+          <li>Store important personal information and memories</li>
+          <li>Designate trusted key holders who can access your information</li>
+          <li>Create heartfelt messages, videos, and notes for loved ones</li>
+          <li>Ensure your wishes are known when you're no longer here</li>
+        </ul>
+
+          <p style="text-align: center; margin: 25px 0;">
+            <a href="${'http://56.228.6.77/'}"
+               style="background-color: #3498db; color: white; padding: 12px 25px;
+                      text-decoration: none; border-radius: 4px; font-weight: bold;">
+              Join Pearls of Lyfe
+            </a>
+          </p>
+
+          <p>I'd love for you to join me in this wonderful community. Let me know what you think!</p>
+          <p>This isn't just another website - it's a gift of peace of mind for you and your family. I'd be honored if you joined me in creating something truly meaningful.</p>
+
+          <p>Warm regards,<br>
+          [POML Wendy]</p>
+
+          <p style="font-size: 0.9em; color: #7f8c8d;">
+            <em>P.S. If you have any questions about Pearls of Lyfe, I'd be happy to help!</em>
+          </p>
+        </div>`,
+            });
+            return (0, app_utils_1.SuccessMessageResponse)(constants_1.MESSAGE.ENTITLEMENTS.EMAIL_SENT);
+        }
+        catch (error) {
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                message: 'Failed to send email',
+                error: 'Email Sending Error',
+                details: error.message,
+            }, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 };
 exports.AuthController = AuthController;
 __decorate([
@@ -143,6 +212,13 @@ __decorate([
     __metadata("design:paramtypes", [forgot_password_dto_1.ForgotPasswordDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "forgotPassword", null);
+__decorate([
+    (0, common_1.Post)('send-email'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "sendEmail", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [users_service_1.UsersService,

@@ -19,4 +19,7 @@ export declare class AuthController {
     findKeyHolderByTokenURL(token_URL: string): Promise<ResponseMessageOutput>;
     loginViaKeyHolder(input: KeyHolderLoginDto, request: any): Promise<any>;
     forgotPassword(input: ForgotPasswordDto): Promise<ResponseMessageOutput>;
+    sendEmail(body: {
+        email: string;
+    }): Promise<ResponseMessageOutput>;
 }

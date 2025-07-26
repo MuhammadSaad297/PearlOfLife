@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SoundService } from 'src/app/services/sound.service';
 
 interface ContactForm {
   name: string;
@@ -18,8 +20,11 @@ interface ContactForm {
   styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent implements OnInit {
+  constructor(private soundService: SoundService, private router: Router) {}
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.soundService.playClickSound();
+    this.router.navigate(['/auth/register']);
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   contactForm: ContactForm = {
     name: '',
@@ -35,7 +40,7 @@ export class ContactUsComponent implements OnInit {
 
   onSubmit() {
     console.log('Form submitted:', this.contactForm);
-    // Here you would typically send the form to your backend
+    this.soundService.playClickSound(); // Here you would typically send the form to your backend
     alert('Thank you for your message! We will get back to you soon.');
     this.resetForm();
   }
