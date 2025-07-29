@@ -21,10 +21,18 @@ interface ContactForm {
 })
 export class ContactUsComponent implements OnInit {
   constructor(private soundService: SoundService, private router: Router) {}
-  scrollToTop() {
+  scrollToTop(type: string) {
     this.soundService.playClickSound();
-    this.router.navigate(['/auth/register']);
-    // window.scrollTo({ top: 0, behavior: 'smooth' });
+    const token = localStorage.getItem('accessToken');
+    if (token && type === 'dashboard') {
+      this.router.navigate(['/dashboard']);
+    } else if (type === 'signup' && !token) {
+      this.router.navigate(['/auth/register']);
+    } else {
+      this.router.navigate(['/auth/login']);
+      // this.router.navigate(['/auth/register']);
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
   contactForm: ContactForm = {
     name: '',

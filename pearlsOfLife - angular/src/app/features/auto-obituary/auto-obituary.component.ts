@@ -44,12 +44,20 @@ export class AutoObituaryComponent implements OnInit {
   }
   scrollToTop() {
     this.soundService.playClickSound();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
   }
   goToPage() {
     this.soundService.playClickSound();
-    this.router.navigate(['/pricing']);
-    // Navigate to the pricing page
-    // this.router.navigate(['/pricing']);
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      this.router.navigate(['/subscription-plans']);
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
   }
 }

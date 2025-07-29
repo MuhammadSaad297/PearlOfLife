@@ -5,7 +5,7 @@
   </video>
 
   <!-- Audio Element (hidden) -->
-  <audio autoplay loop class="legacy-audio-bg">
+  <audio autoplay class="legacy-audio-bg">
     <source src="/assets/updatedAudio.mp3" type="audio/mp3" />
   </audio>
 
@@ -106,7 +106,7 @@
       class="legacy-cta-btn outline"
       routerLink=""
       fragment="top"
-      (click)="scrollToTop()"
+      (click)="scrollToTop('dashboard')"
     >
       Click Here
     </button>
@@ -114,7 +114,7 @@
       class="legacy-cta-btn solid"
       routerLink=""
       fragment="top"
-      (click)="scrollToTop()"
+      (click)="scrollToTop('signup')"
     >
       Sign Up Now
     </button>

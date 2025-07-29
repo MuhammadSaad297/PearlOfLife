@@ -13,9 +13,24 @@ export class LegacyComponent {
     private readonly route: ActivatedRoute,
     private soundService: SoundService
   ) {}
-  scrollToTop() {
+  scrollToTop(type: string) {
     this.soundService.playClickSound();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const token = localStorage.getItem('accessToken');
+    if (token && type === 'dashboard') {
+      this.router.navigate(['/dashboard'], { queryParams: { token } });
+    } else if (type === 'signup' && !token) {
+      this.router.navigate(['/auth/register'], { queryParams: { token } });
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
+    //   if (type === 'dashboard') {
+    //     this.router.navigate(['/dashboard']);
+    //   } else if (type === 'signup') {
+    //     this.router.navigate(['/auth/register']);
+    //   }
+    // } else {
+    //   this.router.navigate(['/auth/login']);
+    // }
   }
   goToPage(type: string) {
     // Check for authentication token (adjust key as needed)

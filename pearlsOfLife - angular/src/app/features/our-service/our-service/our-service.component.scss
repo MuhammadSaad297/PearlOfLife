@@ -560,6 +560,11 @@ body {
             }
         }
 
+        .services-cta button:first-child {
+            margin-right: 15px;
+            /* or whatever spacing you prefer */
+        }
+
         .services-image-container {
             flex: 0 1 40%;
             position: relative;

@@ -170,7 +170,11 @@ export class LegacyNavbarComponent implements OnInit {
 
   handleDefaultLearnMore(event: Event) {
     this.soundService.playClickSound();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Default handling for other cards
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
   }
 }
