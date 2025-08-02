@@ -18,6 +18,8 @@ interface LegacyCard {
 interface PlanCard {
   title: string;
   price: number;
+  membership?: string;
+  auto?: string;
   description: string;
   features: string[];
   gradient: string;
@@ -38,7 +40,7 @@ export class LegacyNavbarComponent implements OnInit {
     {
       title: 'Moments to Share',
       description:
-        'Click this box to view suggestions on moments you can share. This section list some ideas that will hopefully jumpstart your memory allowing you to leave the kind of video, audio or note you desire.',
+        'Click this box to view suggestions on moments you can share. This section lists some ideas that will hopefully jumpstart your memory allowing you to leave the kind of video, audio or note you desire.',
       icon: 'assets/icons/side-bar/passwords.svg',
       gradient: 'red-green',
     },
@@ -46,14 +48,14 @@ export class LegacyNavbarComponent implements OnInit {
     {
       title: 'Written Notes',
       description:
-        'Click this box to title and begin journaling your memories to share. You can attached photos.',
+        'Click this box to title and begin journaling your memories to share. You can attach photos and describe the moment for loved ones.',
       icon: 'assets/icons/side-bar/notes.svg ',
       gradient: 'yellow-green',
     },
     {
       title: 'Audio Box',
       description:
-        'Click this box to begin leaving audio of your memories. You can attached photos.',
+        'Click this box to begin leaving audio of your memories.Click here to listen to a sample audio',
       icon: 'assets/icons/side-bar/assets.svg',
       gradient: 'orange-green',
     },
@@ -61,7 +63,7 @@ export class LegacyNavbarComponent implements OnInit {
     {
       title: 'Video Box',
       description:
-        'Click here to begin a video of your talking to your loved ones.',
+        'Click here to begin a video of you talking to your loved ones.Click here to view a sample video',
       icon: 'assets/icons/side-bar/memories.svg',
       gradient: 'purple-orange',
     },
@@ -99,6 +101,8 @@ export class LegacyNavbarComponent implements OnInit {
     {
       title: 'Legacy Creation Plan',
       price: 7,
+      membership: 'One Year Membership $84',
+      auto: 'Automatic Renewal',
       description:
         'Leave the comfort of the sound of your voice. Make a video of you talking singing etc. (Look in the Moments to share section for talking topics). Includes the advanced auto-obituary plan plus video memories, picture stories, audio notes. Highlight your significant moments in past, present & future years.',
       features: [
@@ -110,6 +114,8 @@ export class LegacyNavbarComponent implements OnInit {
     {
       title: 'Ultimate Legacy Creation Plan',
       price: 11,
+      membership: 'One Year Membership $132',
+      auto: 'Automatic Renewal',
       description:
         'Includes legacy creation plan plus additional videos, pictures and audio notes.',
       features: [

@@ -51,8 +51,10 @@
           <div class="price">
             <span class="dollar">$</span>
             <span class="amount">{{ plan.price }}</span>
-            <span class="period">Monthly</span>
+            <span class="period">/Month</span>
           </div>
+          <span class="annual-note">{{ plan.membership }}</span>
+          <span class="auto-renewal">{{ plan.auto }}</span>
           <p class="description">{{ plan.description }}</p>
           <ul class="features">
             <li *ngFor="let feature of plan.features">{{ feature }}</li>

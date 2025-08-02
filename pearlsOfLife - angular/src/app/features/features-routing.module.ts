@@ -117,6 +117,7 @@ import { MemoryFolderDetailsComponent } from './memories/memory-folder-details/m
 import { ObituaryByYearComponent } from './obituary-info/obituary-by-year/obituary-by-year.component';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { SubscriptionGuard } from '../guards/subscription.guard';
+import { keyHolderGuard } from '../guards/key-holder.guard';
 import { FeaturesComponent } from './features.component';
 
 const routes: Routes = [
@@ -134,6 +135,26 @@ const routes: Routes = [
         component: DashboardComponent,
       },
       {
+        path: 'memories',
+        component: MemoriesComponent,
+        canActivate: [keyHolderGuard, SubscriptionGuard],
+      },
+      {
+        path: 'notes',
+        component: NotesComponent,
+        canActivate: [keyHolderGuard, SubscriptionGuard],
+      },
+      {
+        path: 'assets',
+        component: AssetsComponent,
+        canActivate: [keyHolderGuard, SubscriptionGuard],
+      },
+      {
+        path: 'passwords',
+        component: PasswordsComponent,
+        canActivate: [keyHolderGuard],
+      },
+      {
         path: 'key-holders',
         component: KeyHoldersComponent,
         // canActivate: [SubscriptionGuard],
@@ -142,29 +163,26 @@ const routes: Routes = [
         path: 'key-holders/:id',
         component: KeyHolderDetailsComponent,
       },
-      {
-        path: 'memories',
-        component: MemoriesComponent,
-        canActivate: [SubscriptionGuard],
-      },
+      // {
+      //   path: 'memories',
+      //   component: MemoriesComponent,
+      //   canActivate: [keyHolderGuard, SubscriptionGuard],
+      // },
       {
         path: 'memories/folder/:id',
         component: MemoryFolderDetailsComponent,
+        canActivate: [keyHolderGuard],
       },
-      {
-        path: 'notes',
-        component: NotesComponent,
-        canActivate: [SubscriptionGuard],
-      },
+      // {
+      //   path: 'notes',
+      //   component: NotesComponent,
+      //   canActivate: [SubscriptionGuard],
+      // },
       {
         path: 'notes/:year',
         component: NotesByYearComponent,
       },
-      {
-        path: 'assets',
-        component: AssetsComponent,
-        canActivate: [SubscriptionGuard],
-      },
+
       {
         path: 'passwords',
         component: PasswordsComponent,
@@ -176,6 +194,7 @@ const routes: Routes = [
       {
         path: 'obituary-info',
         component: ObituaryInfoComponent,
+        canActivate: [keyHolderGuard],
       },
       {
         path: 'obituary-info/:year',

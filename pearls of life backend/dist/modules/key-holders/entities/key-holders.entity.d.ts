@@ -1,4 +1,4 @@
-import { PaginatedModel } from "src/common/providers/paginated-model.provider";
+import { PaginatedModel } from 'src/common/providers/paginated-model.provider';
 export default class KeyHolders extends PaginatedModel<KeyHolders> {
     id: string;
     user_id: string;
@@ -6,7 +6,10 @@ export default class KeyHolders extends PaginatedModel<KeyHolders> {
     last_name: string;
     email: string;
     phone_number: string;
-    address: string;
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
     relation: string;
     image_path: string;
     token_url: string;

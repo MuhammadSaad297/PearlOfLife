@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedService } from 'src/app/services/shared.service';
 import { Router, RouterModule } from '@angular/router';
 import { SoundService } from 'src/app/services/sound.service';
+import { FileService } from 'src/app/services/file.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +13,21 @@ import { SoundService } from 'src/app/services/sound.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  @Input() activeItem: string;
+  public imageUrl: SafeUrl | null = null;
+
   constructor(
     private readonly sharedService: SharedService,
     private readonly router: Router,
-    private soundService: SoundService
+    private soundService: SoundService,
+    private fileService: FileService,
+    private sanitizer: DomSanitizer
   ) {}
 
-  @Input() activeItem: string;
+  ngOnInit(): void {
+    this.getProfilePic();
+  }
 
   logout() {
     this.soundService.playClickSound();
@@ -36,5 +45,18 @@ export class HeaderComponent {
   openForgotPassword() {
     this.soundService.playClickSound();
     this.router.navigate(['/auth/forget-password']);
+  }
+
+  getProfilePic() {
+    const path = 'personal-info/profile-pic';
+    this.fileService.getFile(path).subscribe({
+      next: (blob) => {
+        const objectURL = URL.createObjectURL(blob);
+        this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+      },
+      error: () => {
+        this.imageUrl = null;
+      },
+    });
   }
 }

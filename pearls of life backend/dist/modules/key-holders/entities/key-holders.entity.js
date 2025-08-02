@@ -18,8 +18,8 @@ let KeyHolders = KeyHolders_1 = class KeyHolders extends paginated_model_provide
     static scopes(scope = null) {
         const scopes = {
             list: {
-                attributes: KeyHolders_1.attributes()
-            }
+                attributes: KeyHolders_1.attributes(),
+            },
         };
         if (scope) {
             return scopes[scope] || {};
@@ -34,13 +34,16 @@ let KeyHolders = KeyHolders_1 = class KeyHolders extends paginated_model_provide
             'last_name',
             'email',
             'phone_number',
-            'address',
+            'street',
+            'city',
+            'state',
+            'zip',
             'relation',
             'image_path',
             'created_on',
             'created_by',
             'updated_by',
-            'updated_on'
+            'updated_on',
         ];
     }
 };
@@ -49,68 +52,86 @@ __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.UUID,
         defaultValue: sequelize_typescript_1.DataType.UUIDV4,
-        allowNull: false
+        allowNull: false,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "id", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.UUID,
-        allowNull: false
+        allowNull: false,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "user_id", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "first_name", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "last_name", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "email", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "phone_number", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
-], KeyHolders.prototype, "address", void 0);
+], KeyHolders.prototype, "street", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
+    }),
+    __metadata("design:type", String)
+], KeyHolders.prototype, "city", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+    }),
+    __metadata("design:type", String)
+], KeyHolders.prototype, "state", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+    }),
+    __metadata("design:type", String)
+], KeyHolders.prototype, "zip", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "relation", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "image_path", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "token_url", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "pin", void 0);
@@ -118,39 +139,39 @@ __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.DATE,
         allowNull: false,
-        defaultValue: sequelize_typescript_1.DataType.NOW
+        defaultValue: sequelize_typescript_1.DataType.NOW,
     }),
     __metadata("design:type", Date)
 ], KeyHolders.prototype, "created_on", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.UUIDV4
+        type: sequelize_typescript_1.DataType.UUIDV4,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "created_by", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.DATE,
-        allowNull: true
+        allowNull: true,
     }),
     __metadata("design:type", Date)
 ], KeyHolders.prototype, "updated_on", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.UUIDV4
+        type: sequelize_typescript_1.DataType.UUIDV4,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "updated_by", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.DATE,
-        allowNull: true
+        allowNull: true,
     }),
     __metadata("design:type", Date)
 ], KeyHolders.prototype, "deleted_on", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.UUIDV4
+        type: sequelize_typescript_1.DataType.UUIDV4,
     }),
     __metadata("design:type", String)
 ], KeyHolders.prototype, "deleted_by", void 0);

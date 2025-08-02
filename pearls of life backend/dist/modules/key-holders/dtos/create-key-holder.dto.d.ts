@@ -5,5 +5,9 @@ export declare class CreateKeyHolderDto {
     last_name: string;
     email: string;
     phone_number?: string;
-    address?: string;
+    street?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+    relation: string;
 }

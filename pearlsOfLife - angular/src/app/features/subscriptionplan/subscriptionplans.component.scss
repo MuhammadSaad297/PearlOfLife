@@ -103,3 +103,40 @@ h2.text-center {
         font-size: 1rem;
     }
 }
+
+.back-home-btn {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    background: linear-gradient(to right, #f9a261, #fcd469);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease;
+    z-index: 1000;
+}
+
+.back-home-btn:hover {
+    background: linear-gradient(to right, #fcb361, #ffd36c);
+    text-decoration: none;
+}
+
+.annual-note {
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.2rem;
+    font-weight: 600;
+}
+
+.auto-renewal {
+    font-size: 0.7rem;
+    color: rgb(212, 22, 22);
+    display: block;
+    margin-top: 5px;
+    margin-left: 15px;
+    font-weight: 600;
+}

@@ -9,7 +9,7 @@ exports.DB_CONFIG = {
     host: process.env.DB_HOST || 'localhost',
     database: process.env.DB_NAME || 'PearlsOfLife',
     username: process.env.DB_USERNAME || 'sa',
-    password: process.env.DB_PASSWORD || 'your_secure_password',
+    password: process.env.DB_PASSWORD || 'pakistan1@',
     port: parseInt(process.env.DB_PORT) || 1433,
     dialectOptions: {
         options: {

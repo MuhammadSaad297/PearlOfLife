@@ -51,7 +51,7 @@
             align-items: center;
             // min-width: 280px;
             // max-width: 370px;
-            height: 1020px;
+            height: 1100px;
             margin: 0 auto;
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
@@ -65,7 +65,7 @@
             &.featured {
                 background: #36a9e1;
                 border: none;
-                height: 840px;
+                height: 880px;
 
                 .card-header,
                 .card-body,
@@ -88,7 +88,7 @@
             &.basic {
                 background: #36a9e1;
                 border: none;
-                height: 800px;
+                height: 840px;
 
                 .card-header,
                 .card-body,
@@ -112,7 +112,7 @@
             &.ultimate {
                 background: #36a9e1;
                 border: none;
-                height: 530px;
+                height: 590px;
 
                 .card-header,
                 .card-body,
@@ -447,4 +447,33 @@
     border: none;
     box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.10);
     transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.period {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.annual-note {
+    font-size: 0.9rem;
+    color: white;
+    display: block;
+    margin-top: 0.2rem;
+    font-weight: 600;
+}
+
+.auto-renewal {
+
+    font-size: 0.6rem;
+    color: #d21c08;
+    display: block;
+    // margin-top: 0.5rem;
+    font-weight: 600;
+    text-align: center;
 }

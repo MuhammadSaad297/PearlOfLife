@@ -1,6 +1,7 @@
 import { LegacyComponent } from './../legacy/legacy.component';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { ADD_ITEMS_LIST } from 'src/app/constants/app.constant';
 import { ManageNotesComponent } from '../notes/manage-notes/manage-notes.component';
 import { ManagePasswordComponent } from '../passwords/manage-password/manage-password.component';
@@ -8,6 +9,7 @@ import { ManageMemoriesComponent } from '../memories/manage-memories/manage-memo
 import { SubscriptionGuard } from 'src/app/guards/subscription.guard';
 import { SharedService } from 'src/app/services/shared.service';
 import { SoundService } from 'src/app/services/sound.service';
+import { KeyHolderService } from '../../services/key-holder.service';
 import { ReferFriendModalComponent } from '../refer-friend-modal/refer-friend-modal.component';
 
 @Component({
@@ -15,23 +17,52 @@ import { ReferFriendModalComponent } from '../refer-friend-modal/refer-friend-mo
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  hasKeyHolders: boolean = false;
+
   constructor(
     private readonly ngbModalService: NgbModal,
     private sharedService: SharedService,
     private subscriptionGuard: SubscriptionGuard,
-    private soundService: SoundService
+    private soundService: SoundService,
+    private router: Router,
+    private keyHolderService: KeyHolderService
   ) {}
+
+  ngOnInit() {
+    this.checkKeyHolders();
+  }
+
+  checkKeyHolders() {
+    debugger;
+    this.keyHolderService.getKeyHolders().subscribe({
+      next: (response: any) => {
+        this.hasKeyHolders = response && response.data.length > 0;
+      },
+      error: () => {
+        this.hasKeyHolders = false;
+      },
+    });
+  }
 
   public addCardItems: any = [
     ADD_ITEMS_LIST.MEMORIES,
     ADD_ITEMS_LIST.NOTES,
-    ADD_ITEMS_LIST.ASSETS,
+    // ADD_ITEMS_LIST.ASSETS,
     ADD_ITEMS_LIST.LEGACY,
   ];
 
   public addComponent(event: any) {
     console.log(event);
+    if (!this.hasKeyHolders) {
+      this.sharedService.showToast({
+        classname: 'warning',
+        text: 'Please assign at least one key holder to access this feature.',
+      });
+      this.router.navigate(['/key-holders']);
+      return;
+    }
+
     switch (event.component) {
       case ADD_ITEMS_LIST.NOTES.label:
         this.addNote();

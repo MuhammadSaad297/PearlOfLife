@@ -35,22 +35,40 @@ export class ManageKeyHoldersComponent {
       last_name: ['', Validators.required],
       email: ['', Validators.required],
       phone_number: [''],
-      address: [''],
       relation: ['', Validators.required],
+      street: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zip: ['', Validators.required],
     });
+
     if (this.data?.item?.id) {
       this.patchForm();
     }
   }
 
+  // patchForm() {
+  //   this.keyHolderForm.patchValue({
+  //     first_name: this.data.item.first_name,
+  //     last_name: this.data.item.last_name,
+  //     email: this.data.item.email,
+  //     phone_number: this.data.item.phone_number,
+  //     address: this.data.item.address,
+  //     relation: this.data.item.relation,
+  //   });
+  //   this.keyHolderForm.updateValueAndValidity();
+  // }
   patchForm() {
     this.keyHolderForm.patchValue({
       first_name: this.data.item.first_name,
       last_name: this.data.item.last_name,
       email: this.data.item.email,
       phone_number: this.data.item.phone_number,
-      address: this.data.item.address,
       relation: this.data.item.relation,
+      street: this.data.item.street,
+      city: this.data.item.city,
+      state: this.data.item.state,
+      zip: this.data.item.zip,
     });
     this.keyHolderForm.updateValueAndValidity();
   }
@@ -59,7 +77,10 @@ export class ManageKeyHoldersComponent {
     this.soundService.playClickSound();
     console.log(this.keyHolderForm);
     if (this.keyHolderForm.invalid) {
-      console.log('Form invalid');
+      this.sharedService.showToast({
+        classname: 'warning',
+        text: 'Please fill all required fields.',
+      });
       return;
     } else {
       const form = this.keyHolderForm.value;
@@ -71,7 +92,10 @@ export class ManageKeyHoldersComponent {
           last_name: form.last_name,
           email: form.email,
           phone_number: form.phone_number,
-          address: form.address,
+          street: form.street,
+          city: form.city,
+          state: form.state,
+          zip: form.zip,
           relation: form.relation,
         })
         .subscribe({
