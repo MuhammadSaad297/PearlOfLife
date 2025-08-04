@@ -6,6 +6,8 @@ export default class Users extends Model {
     last_name: string;
     email: string;
     hashed_password: string;
+    reset_token: string;
+    reset_token_expiry: Date;
     username: string;
     phone_number: string;
     address: string;

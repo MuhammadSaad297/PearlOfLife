@@ -48,6 +48,18 @@ export default class Users extends Model {
 
   @Column({
     type: DataType.STRING,
+    allowNull: true,
+  })
+  reset_token: string;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  reset_token_expiry: Date;
+
+  @Column({
+    type: DataType.STRING,
   })
   username: string;
 

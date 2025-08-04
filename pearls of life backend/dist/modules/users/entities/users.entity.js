@@ -90,6 +90,20 @@ __decorate([
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,
+        allowNull: true,
+    }),
+    __metadata("design:type", String)
+], Users.prototype, "reset_token", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.DATE,
+        allowNull: true,
+    }),
+    __metadata("design:type", Date)
+], Users.prototype, "reset_token_expiry", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], Users.prototype, "username", void 0);

@@ -37,6 +37,7 @@ export const keyHolderGuard: CanActivateFn = (route, state) => {
 
   return keyHolderService.getKeyHolders().pipe(
     map((response: any) => {
+      debugger;
       console.log('Key holders response:', response); // Add logging for debugging
 
       // Handle different response structures
@@ -54,8 +55,9 @@ export const keyHolderGuard: CanActivateFn = (route, state) => {
         classname: 'warning',
         text: 'Please assign at least one key holder to access this feature.',
       });
-      router.navigate(['/key-holders']);
-      return false;
+      return router.parseUrl('/key-holders');
+
+      // return false;
     }),
     catchError((error) => {
       console.error('Error checking key holders:', error); // Debug logging
@@ -63,7 +65,7 @@ export const keyHolderGuard: CanActivateFn = (route, state) => {
         classname: 'error',
         text: 'Error checking key holders. Please try again.',
       });
-      return of(false);
+      return of(router.parseUrl('/key-holders'));
     })
   );
 };

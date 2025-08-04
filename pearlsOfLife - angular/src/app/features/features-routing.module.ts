@@ -119,6 +119,8 @@ import { UserManagementComponent } from './admin/user-management/user-management
 import { SubscriptionGuard } from '../guards/subscription.guard';
 import { keyHolderGuard } from '../guards/key-holder.guard';
 import { FeaturesComponent } from './features.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgetPasswordComponent } from '../auth/forget-password/forget-password.component';
 
 const routes: Routes = [
   {
@@ -142,17 +144,32 @@ const routes: Routes = [
       {
         path: 'notes',
         component: NotesComponent,
-        canActivate: [keyHolderGuard, SubscriptionGuard],
+        canActivate: [keyHolderGuard],
+      },
+      {
+        path: 'notes',
+        component: NotesComponent,
+        canActivate: [SubscriptionGuard],
       },
       {
         path: 'assets',
         component: AssetsComponent,
-        canActivate: [keyHolderGuard, SubscriptionGuard],
+        canActivate: [keyHolderGuard],
+      },
+      {
+        path: 'assets',
+        component: AssetsComponent,
+        canActivate: [SubscriptionGuard],
       },
       {
         path: 'passwords',
         component: PasswordsComponent,
         canActivate: [keyHolderGuard],
+      },
+
+      {
+        path: 'change-password',
+        component: ChangePasswordComponent,
       },
       {
         path: 'key-holders',
@@ -181,6 +198,7 @@ const routes: Routes = [
       {
         path: 'notes/:year',
         component: NotesByYearComponent,
+        canActivate: [keyHolderGuard],
       },
 
       {
@@ -190,15 +208,18 @@ const routes: Routes = [
       {
         path: 'personal-info',
         component: PersonalInfoComponent,
+        canActivate: [keyHolderGuard],
       },
       {
         path: 'obituary-info',
         component: ObituaryInfoComponent,
         canActivate: [keyHolderGuard],
       },
+
       {
         path: 'obituary-info/:year',
         component: ObituaryByYearComponent,
+        canActivate: [keyHolderGuard],
       },
 
       {

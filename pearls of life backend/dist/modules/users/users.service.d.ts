@@ -10,6 +10,9 @@ export declare class UsersService {
     create(input: any): Promise<Users>;
     findAll(): Promise<Users[]>;
     findOne(id: string): Promise<Users>;
+    findOneByResetToken(token: string): Promise<Users>;
+    updatePassword(userId: string, newPassword: string): Promise<void>;
+    validatePassword(password: string, storedPassword: string): Promise<boolean>;
     update(input: UpdateUserDto, id: string, updated_by?: string): Promise<Users>;
     findOneByEmail(email: string): Promise<Users>;
     getPersonalInfo(id: string): Promise<Users>;

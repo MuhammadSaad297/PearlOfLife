@@ -16,6 +16,7 @@ exports.UsersService = void 0;
 const constants_1 = require("../../common/constants");
 const common_1 = require("@nestjs/common");
 const constants_2 = require("../../common/constants");
+const sequelize_1 = require("sequelize");
 let UsersService = class UsersService {
     constructor(usersRepository, userPlansRepository) {
         this.usersRepository = usersRepository;
@@ -50,6 +51,34 @@ let UsersService = class UsersService {
             where: { id },
         });
         return user;
+    }
+    async findOneByResetToken(token) {
+        console.log('Searching for user with reset token:', token);
+        const user = await this.usersRepository.findOne({
+            where: {
+                reset_token: token,
+                reset_token_expiry: {
+                    [sequelize_1.Op.gt]: new Date(),
+                },
+            },
+        });
+        console.log('Query result:', user ? 'User found' : 'No user found');
+        if (user) {
+            console.log('Token expiry:', user.reset_token_expiry);
+        }
+        return user;
+    }
+    async updatePassword(userId, newPassword) {
+        await this.usersRepository.update({
+            hashed_password: newPassword,
+            reset_token: null,
+            reset_token_expiry: null,
+        }, {
+            where: { id: userId },
+        });
+    }
+    async validatePassword(password, storedPassword) {
+        return password === storedPassword;
     }
     async update(input, id, updated_by = null) {
         const user = await this.usersRepository.update({

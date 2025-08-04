@@ -8,6 +8,8 @@ import { EmailService } from '../email/email.service';
 import { KeyHoldersService } from '../key-holders/key-holders.service';
 import { KeyHolderLoginDto } from './dtos/keyholder-login.dto';
 import { ForgotPasswordDto } from './dtos/forgot-password.dto';
+import { ChangePasswordDto } from './dtos/change-password.dto';
+import { ResetPasswordDto } from './dtos/reset-password.dto';
 export declare class AuthController {
     private readonly usersService;
     private readonly jwtHelper;
@@ -22,4 +24,6 @@ export declare class AuthController {
     sendEmail(body: {
         email: string;
     }): Promise<ResponseMessageOutput>;
+    resetPassword(input: ResetPasswordDto): Promise<ResponseMessageOutput>;
+    changePassword(input: ChangePasswordDto, request: any): Promise<ResponseMessageOutput>;
 }

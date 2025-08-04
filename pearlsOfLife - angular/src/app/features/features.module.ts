@@ -45,6 +45,7 @@ import { LegacyNavbarComponent } from './legacy in navbar/legacy.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { AutoObituaryComponent } from './auto-obituary/auto-obituary.component';
 import { ReferFriendModalComponent } from './refer-friend-modal/refer-friend-modal.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [
     FeaturesComponent,
@@ -77,6 +78,7 @@ import { ReferFriendModalComponent } from './refer-friend-modal/refer-friend-mod
     LegacyNavbarComponent,
     AutoObituaryComponent,
     ReferFriendModalComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,

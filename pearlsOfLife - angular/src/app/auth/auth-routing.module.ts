@@ -32,9 +32,11 @@ const routes: Routes = [
         component: ForgetPasswordComponent,
       },
       {
-        path: 'reset-password/:link',
+        path: 'reset-password/:token',
         component: ResetPasswordComponent,
       },
+      // { path: 'reset-password', component: ResetPasswordComponent }, // without :token
+
       {
         path: 'keyholder/:tokenURL',
         component: RegisterKeyholderComponent,

@@ -25,6 +25,8 @@ export declare const MESSAGE: {
         USER_REGISTERED: string;
         KEYHOLDER_REGISTERED: string;
         PASSWORD_RESET_EMAIL_SENT: string;
+        PASSWORD_RESET_SUCCESS: string;
+        PASSWORD_CHANGE_SUCCESS: string;
         EMAIL_SENT: string;
     };
 };

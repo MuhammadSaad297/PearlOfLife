@@ -27,6 +27,8 @@ export const MESSAGE = {
     KEYHOLDER_REGISTERED: 'Key Holder registered successfully',
     PASSWORD_RESET_EMAIL_SENT:
       'Password reset instructions have been sent to your email.',
+    PASSWORD_RESET_SUCCESS: 'Your password has been reset successfully.',
+    PASSWORD_CHANGE_SUCCESS: 'Your password has been changed successfully.',
     EMAIL_SENT: 'Email sent successfully',
   },
 };

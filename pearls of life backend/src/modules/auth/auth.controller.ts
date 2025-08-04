@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import {
   Body,
   Controller,
@@ -7,6 +8,7 @@ import {
   Param,
   Post,
   Req,
+  UseGuards,
 } from '@nestjs/common';
 import Users from '../users/entities/users.entity';
 import { LoginDto } from './dtos/login.dto';
@@ -24,6 +26,8 @@ import { EmailService } from '../email/email.service';
 import { KeyHoldersService } from '../key-holders/key-holders.service';
 import { KeyHolderLoginDto } from './dtos/keyholder-login.dto';
 import { ForgotPasswordDto } from './dtos/forgot-password.dto';
+import { ChangePasswordDto } from './dtos/change-password.dto';
+import { ResetPasswordDto } from './dtos/reset-password.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -309,5 +313,88 @@ export class AuthController {
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
+  }
+  @Post('reset-password')
+  async resetPassword(
+    @Body() input: ResetPasswordDto,
+  ): Promise<ResponseMessageOutput> {
+    console.log('Reset password request received with token:', input.token);
+
+    const user = await this.usersService.findOneByResetToken(input.token);
+    console.log('User found:', user ? 'Yes' : 'No');
+
+    if (!user) {
+      throw new HttpException(
+        {
+          status: HttpStatus.BAD_REQUEST,
+          message: 'Invalid or expired reset token.',
+          error: 'Invalid Token',
+        },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    // Check if token is expired
+    if (
+      user.reset_token_expiry &&
+      new Date(user.reset_token_expiry) < new Date()
+    ) {
+      throw new HttpException(
+        {
+          status: HttpStatus.BAD_REQUEST,
+          message: 'Reset token has expired.',
+          error: 'Token Expired',
+        },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    // Update password and clear reset token
+    await this.usersService.updatePassword(user.id, input.password);
+
+    return SuccessMessageResponse(MESSAGE.ENTITLEMENTS.PASSWORD_RESET_SUCCESS);
+  }
+
+  @Post('change-password')
+  @UseGuards(AuthGuard)
+  async changePassword(
+    @Body() input: ChangePasswordDto,
+    @Req() request: any,
+  ): Promise<ResponseMessageOutput> {
+    const userId = request.user.user_id;
+    const user = await this.usersService.findOne(userId);
+
+    if (!user) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          message: 'User not found.',
+          error: 'Not Found',
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
+
+    // Verify old password
+    const isValidPassword = await this.usersService.validatePassword(
+      input.oldPassword,
+      user.hashed_password,
+    );
+
+    if (!isValidPassword) {
+      throw new HttpException(
+        {
+          status: HttpStatus.BAD_REQUEST,
+          message: 'Current password is incorrect.',
+          error: 'Invalid Password',
+        },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    // Update password
+    await this.usersService.updatePassword(userId, input.newPassword);
+
+    return SuccessMessageResponse(MESSAGE.ENTITLEMENTS.PASSWORD_CHANGE_SUCCESS);
   }
 }

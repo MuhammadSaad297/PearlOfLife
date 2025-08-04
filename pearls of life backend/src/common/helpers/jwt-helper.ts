@@ -8,6 +8,10 @@ const jwt = new JwtService({ secret: config.JWT.SECRET });
 
 @Injectable()
 export class JwtHelper {
+  async verifyToken(token: string): Promise<any> {
+    return jwt.verify(token, { secret: config.JWT.SECRET });
+  }
+
   generateToken(
     user_id: string,
     is_keyholder: boolean = false,

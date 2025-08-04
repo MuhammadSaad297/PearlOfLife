@@ -49,7 +49,7 @@ export class EmailService {
   }
 
   async sendPasswordResetEmail(user: Users, resetToken: string): Promise<void> {
-    const resetLink = `${process.env.FRONTEND_URL}/auth/reset-password?token=${resetToken}`;
+    const resetLink = `${process.env.BASEURL}/auth/reset-password/${resetToken}`;
 
     const mailOptions = {
       from: process.env.EMAIL_FROM,

@@ -5,6 +5,7 @@ import { LoginDto } from '../auth/dtos/login.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import UserPlans from './entities/user-plans.entity';
 import { generateRandom4Digit } from 'src/common/constants';
+import { Op, DataType } from 'sequelize';
 
 @Injectable()
 export class UsersService {
@@ -47,6 +48,43 @@ export class UsersService {
       where: { id },
     });
     return user;
+  }
+
+  async findOneByResetToken(token: string): Promise<Users> {
+    console.log('Searching for user with reset token:', token);
+    const user = await this.usersRepository.findOne<Users>({
+      where: {
+        reset_token: token,
+        reset_token_expiry: {
+          [Op.gt]: new Date(), // Token not expired
+        },
+      },
+    });
+    console.log('Query result:', user ? 'User found' : 'No user found');
+    if (user) {
+      console.log('Token expiry:', user.reset_token_expiry);
+    }
+    return user;
+  }
+
+  async updatePassword(userId: string, newPassword: string): Promise<void> {
+    await this.usersRepository.update(
+      {
+        hashed_password: newPassword,
+        reset_token: null,
+        reset_token_expiry: null,
+      },
+      {
+        where: { id: userId },
+      },
+    );
+  }
+
+  async validatePassword(
+    password: string,
+    storedPassword: string,
+  ): Promise<boolean> {
+    return password === storedPassword;
   }
 
   async update(

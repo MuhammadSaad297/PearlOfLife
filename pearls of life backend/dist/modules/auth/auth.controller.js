@@ -13,6 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
+const auth_guard_1 = require("./auth.guard");
 const common_1 = require("@nestjs/common");
 const login_dto_1 = require("./dtos/login.dto");
 const app_utils_1 = require("../../common/utils/app.utils");
@@ -24,6 +25,8 @@ const email_service_1 = require("../email/email.service");
 const key_holders_service_1 = require("../key-holders/key-holders.service");
 const keyholder_login_dto_1 = require("./dtos/keyholder-login.dto");
 const forgot_password_dto_1 = require("./dtos/forgot-password.dto");
+const change_password_dto_1 = require("./dtos/change-password.dto");
+const reset_password_dto_1 = require("./dtos/reset-password.dto");
 let AuthController = class AuthController {
     constructor(usersService, jwtHelper, emailService, keyHolderService) {
         this.usersService = usersService;
@@ -173,6 +176,49 @@ let AuthController = class AuthController {
             }, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    async resetPassword(input) {
+        console.log('Reset password request received with token:', input.token);
+        const user = await this.usersService.findOneByResetToken(input.token);
+        console.log('User found:', user ? 'Yes' : 'No');
+        if (!user) {
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.BAD_REQUEST,
+                message: 'Invalid or expired reset token.',
+                error: 'Invalid Token',
+            }, common_1.HttpStatus.BAD_REQUEST);
+        }
+        if (user.reset_token_expiry &&
+            new Date(user.reset_token_expiry) < new Date()) {
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.BAD_REQUEST,
+                message: 'Reset token has expired.',
+                error: 'Token Expired',
+            }, common_1.HttpStatus.BAD_REQUEST);
+        }
+        await this.usersService.updatePassword(user.id, input.password);
+        return (0, app_utils_1.SuccessMessageResponse)(constants_1.MESSAGE.ENTITLEMENTS.PASSWORD_RESET_SUCCESS);
+    }
+    async changePassword(input, request) {
+        const userId = request.user.user_id;
+        const user = await this.usersService.findOne(userId);
+        if (!user) {
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.NOT_FOUND,
+                message: 'User not found.',
+                error: 'Not Found',
+            }, common_1.HttpStatus.NOT_FOUND);
+        }
+        const isValidPassword = await this.usersService.validatePassword(input.oldPassword, user.hashed_password);
+        if (!isValidPassword) {
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.BAD_REQUEST,
+                message: 'Current password is incorrect.',
+                error: 'Invalid Password',
+            }, common_1.HttpStatus.BAD_REQUEST);
+        }
+        await this.usersService.updatePassword(userId, input.newPassword);
+        return (0, app_utils_1.SuccessMessageResponse)(constants_1.MESSAGE.ENTITLEMENTS.PASSWORD_CHANGE_SUCCESS);
+    }
 };
 exports.AuthController = AuthController;
 __decorate([
@@ -219,6 +265,22 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "sendEmail", null);
+__decorate([
+    (0, common_1.Post)('reset-password'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [reset_password_dto_1.ResetPasswordDto]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "resetPassword", null);
+__decorate([
+    (0, common_1.Post)('change-password'),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [change_password_dto_1.ChangePasswordDto, Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "changePassword", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [users_service_1.UsersService,

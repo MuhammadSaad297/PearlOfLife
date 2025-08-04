@@ -43,4 +43,18 @@ export class AuthService {
       email,
     });
   }
+
+  resetPassword(token: string, password: string) {
+    return this.http.post(`${this.baseUrl}${this.auth}/reset-password`, {
+      token,
+      password,
+    });
+  }
+
+  changePassword(oldPassword: string, newPassword: string) {
+    return this.http.post(`${this.baseUrl}${this.auth}/change-password`, {
+      oldPassword,
+      newPassword,
+    });
+  }
 }
