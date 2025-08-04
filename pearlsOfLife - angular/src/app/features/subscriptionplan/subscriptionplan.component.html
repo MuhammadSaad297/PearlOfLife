@@ -7,7 +7,9 @@
       <div class="card mb-4">
         <div class="card-body text-center">
           <h3 class="card-title">{{ plan.name }}</h3>
-          <h4 class="card-subtitle mb-2 text-muted">$ {{ plan.price }}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">
+            $ {{ plan.price }}/Month
+          </h4>
           <div class="annual-note">{{ plan.membership }}</div>
           <span class="auto-renewal">{{ plan.auto }}</span>
           <p class="card-text">{{ plan.description }}</p>
