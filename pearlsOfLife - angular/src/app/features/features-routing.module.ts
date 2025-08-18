@@ -121,6 +121,8 @@ import { keyHolderGuard } from '../guards/key-holder.guard';
 import { FeaturesComponent } from './features.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ForgetPasswordComponent } from '../auth/forget-password/forget-password.component';
+import { ReferFriendModalComponent } from './refer-friend-modal/refer-friend-modal.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -135,6 +137,7 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'memories',
@@ -144,23 +147,19 @@ const routes: Routes = [
       {
         path: 'notes',
         component: NotesComponent,
-        canActivate: [keyHolderGuard],
+        canActivate: [keyHolderGuard, SubscriptionGuard],
       },
-      {
-        path: 'notes',
-        component: NotesComponent,
-        canActivate: [SubscriptionGuard],
-      },
+
       {
         path: 'assets',
         component: AssetsComponent,
-        canActivate: [keyHolderGuard],
+        canActivate: [keyHolderGuard, SubscriptionGuard],
       },
-      {
-        path: 'assets',
-        component: AssetsComponent,
-        canActivate: [SubscriptionGuard],
-      },
+      // {
+      //   path: 'assets',
+      //   component: AssetsComponent,
+      //   canActivate: [SubscriptionGuard,],
+      // },
       {
         path: 'passwords',
         component: PasswordsComponent,
@@ -198,7 +197,7 @@ const routes: Routes = [
       {
         path: 'notes/:year',
         component: NotesByYearComponent,
-        canActivate: [keyHolderGuard],
+        canActivate: [keyHolderGuard, SubscriptionGuard],
       },
 
       {

@@ -1,4 +1,4 @@
-export const BE_URL = 'http://56.228.6.77:3000';
+export const BE_URL = 'http://13.233.186.53:3000';
 // export const BE_URL = 'http://localhost:3000';
 export const SIDE_NAVIGATION = [
   {
@@ -22,11 +22,11 @@ export const SIDE_NAVIGATION = [
     component: 'notes',
     link: '/notes',
   },
-  {
-    name: 'Assets',
-    component: 'assets',
-    link: '/assets',
-  },
+  // {
+  //   name: 'Assets',
+  //   component: 'assets',
+  //   link: '/assets',
+  // },
   // {
   //   name: 'Passwords',
   //   component: 'passwords',

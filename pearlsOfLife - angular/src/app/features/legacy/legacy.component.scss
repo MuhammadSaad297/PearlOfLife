@@ -861,3 +861,37 @@ body {
     background: linear-gradient(120deg, rgba(161, 106, 224, 0.7) 0%, rgba(207, 99, 31, 0.5) 100%), url('/assets/homepage_CTA.webp') center 5%/cover no-repeat;
 
 }
+
+
+.audio-control {
+    position: fixed;
+    top: 37px;
+    right: 1050px;
+    border: none;
+    // border-radius: 50%;
+    // padding: 10px;
+    cursor: pointer;
+    // color: white;
+    font-size: 20px;
+    z-index: 999;
+}
+
+.audio-control:hover {
+    // background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .audio-control {
+        font-size: 1.2rem;
+        /* smaller on tablets */
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .audio-control {
+        font-size: 1rem;
+        /* even smaller on phones */
+    }
+}

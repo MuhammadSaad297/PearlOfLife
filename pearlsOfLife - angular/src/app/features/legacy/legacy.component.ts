@@ -80,4 +80,15 @@ export class LegacyComponent {
       this.router.navigate(['/dashboard']);
     }
   }
+  isAudioMuted: boolean = false;
+
+  toggleAudio(audio: HTMLAudioElement) {
+    if (this.isAudioMuted) {
+      audio.muted = false;
+      this.isAudioMuted = false;
+    } else {
+      audio.muted = true;
+      this.isAudioMuted = true;
+    }
+  }
 }

@@ -5,9 +5,21 @@
   </video>
 
   <!-- Audio Element (hidden) -->
-  <audio autoplay class="legacy-audio-bg">
+  <!-- <audio autoplay class="legacy-audio-bg">
+    <source src="/assets/Audio.mp3" type="audio/mp3" />
+  </audio> -->
+
+  <audio autoplay loop #bgAudio>
     <source src="/assets/Audio.mp3" type="audio/mp3" />
   </audio>
+
+  <!-- Audio Control Button -->
+  <button class="audio-control" (click)="toggleAudio(bgAudio)">
+    <i
+      class="fas"
+      [ngClass]="isAudioMuted ? 'fa-volume-mute' : 'fa-volume-up'"
+    ></i>
+  </button>
 
   <!-- Audio Control Button -->
   <!-- <button class="audio-control" (click)="toggleAudio()">
