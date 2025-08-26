@@ -10,7 +10,12 @@ async function bootstrap() {
         whitelist: true,
     }));
     app.enableCors({
-        origin: ['http://localhost:4200', 'http://56.228.6.77'],
+        origin: [
+            'http://localhost:4200',
+            'http://56.228.6.77',
+            'http://13.233.186.53',
+            'http://pearlsofmylife.com',
+        ],
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
         allowedHeaders: ['Content-Type', 'Authorization'],
         exposedHeaders: ['Authorization'],
