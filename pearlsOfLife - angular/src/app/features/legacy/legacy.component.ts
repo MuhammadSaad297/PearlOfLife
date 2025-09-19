@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SoundService } from 'src/app/services/sound.service';
 
@@ -8,11 +8,45 @@ import { SoundService } from 'src/app/services/sound.service';
   styleUrls: ['./legacy.component.scss'],
 })
 export class LegacyComponent {
+  // private audio: HTMLAudioElement | null = null;
+  // private video: HTMLVideoElement | null = null;
+
+  // ngOnDestroy() {
+  //   // Stop media when component is destroyed
+  //   if (this.audio) {
+  //     this.audio.pause();
+  //     this.audio.currentTime = 0;
+  //   }
+  //   if (this.video) {
+  //     this.video.pause();
+  //     this.video.currentTime = 0;
+  //   }
+  // }
   constructor(
     private readonly router: Router,
     private readonly route: ActivatedRoute,
     private soundService: SoundService
   ) {}
+  // ngOnInit() {
+  //   const audio = document.querySelector<HTMLAudioElement>('#bgAudio');
+  //   const video = document.querySelector<HTMLVideoElement>('.legacy-video-bg');
+  //   if (audio && video) {
+  //     // Try to play video immediately
+  //     video.play().catch((error) => {
+  //       console.log('Video autoplay failed:', error);
+  //     });
+
+  //     // Handle user interaction to start both audio and video
+  //     const startMedia = () => {
+  //       video.play().catch((err) => console.log('Video play failed:', err));
+  //       audio.play().catch((err) => console.log('Audio play failed:', err));
+  //       document.removeEventListener('click', startMedia);
+  //     };
+
+  //     document.addEventListener('click', startMedia);
+  //   }
+  // }
+
   scrollToTop(type: string) {
     this.soundService.playClickSound();
     const token = localStorage.getItem('accessToken');
@@ -32,6 +66,7 @@ export class LegacyComponent {
     //   this.router.navigate(['/auth/login']);
     // }
   }
+
   goToPage(type: string) {
     // Check for authentication token (adjust key as needed)
     const token = localStorage.getItem('accessToken');

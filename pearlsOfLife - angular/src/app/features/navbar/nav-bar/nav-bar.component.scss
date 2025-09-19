@@ -1,112 +1,99 @@
-/* Add to the very top of your CSS file */
-html,
-body {
-    margin: 0;
-    padding: 0;
+:host {
+    display: block;
     width: 100%;
-    height: 100%;
-    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-* {
-    box-sizing: border-box;
+.legacy-hero {
+    width: 100%;
+}
+
+/* Header Styles */
+.legacy-header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.legacy-logo {
+    height: 50px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .nav-buttons {
     display: flex;
-    gap: 10px;
-    /* Adjust spacing between buttons */
-    // padding: 1px;
-    /* Optional background for the button container */
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 1rem;
 }
 
 .nav-button {
-    // padding: 8px 16px;
-    background-color: transparent;
+    background: transparent;
     border: none;
     color: #ebf308;
-    /* Default text color */
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: color 0.3s ease;
-    // text-transform: uppercase;
-    /* Makes text uppercase like in the image */
-    letter-spacing: 1px;
-    /* Adds slight spacing between letters */
-}
-
-
-
-
-
-
-/* Base Styles */
-
-
-.mobile-menu-toggle {
-    display: none;
-    /* Hidden by default */
-}
-
-/* Hero Section */
-.legacy-hero {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    transition: all 0.3s ease;
     position: relative;
-    text-align: center;
-    color: var(--light);
-    padding: 10px 20px 0 20px;
-    margin-top: -10px;
-}
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
 
-.legacy-header {
-    // width: 100%;
-    // background: rgba(255, 255, 255, 0.97);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 4rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    z-index: 10;
-    margin-top: -700px;
-}
+    &:hover {
+        color: #fff;
+    }
 
-.legacy-logo {
-    height: 80px;
-    width: auto;
-    cursor: pointer;
+    &.active {
+        color: #fff;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: #ebf308;
+            border-radius: 2px;
+        }
+    }
 }
 
 .legacy-auth-buttons {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .legacy-login-btn {
     background: transparent;
     color: #b85a13;
-    border: 3px solid #b85a13;
+    border: 2px solid #b85a13;
     border-radius: 2rem;
-    padding: 0.7rem 2rem;
-    font-size: 1rem;
-    height: 50px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 10px rgba(184, 90, 19, 0.08);
-}
+    transition: all 0.3s ease;
+    height: 36px;
 
-.legacy-login-btn:hover {
-    background: #b85a13;
-    color: #fff;
+    &:hover {
+        background: #b85a13;
+        color: #fff;
+    }
 }
 
 .legacy-signup-btn {
@@ -114,138 +101,119 @@ body {
     color: #fff;
     border: none;
     border-radius: 2rem;
-    padding: 0.7rem 2rem;
-    height: 50px;
-    font-size: 1rem;
+    padding: 0.4rem 1.2rem;
+    height: 36px;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
-    transition: filter 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(143, 47, 255, 0.10);
+
+    &:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+    }
 }
 
-.legacy-signup-btn:hover {
-    filter: brightness(1.08);
-}
-
-.legacy-title-group {
-    margin-top: 80px;
-    padding: 0 10px;
-}
-
-
-/* Base Navbar Styles */
-.legacy-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    // background: rgba(255, 255, 255, 0.97);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.nav-button {
-    background-color: transparent;
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
     border: none;
     color: #ebf308;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 24px;
     cursor: pointer;
-    transition: color 0.3s ease;
-    letter-spacing: 1px;
-    padding: 8px 12px;
+    padding: 0.5rem;
+    z-index: 1001;
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .legacy-header {
-        padding: 1rem;
-        flex-wrap: wrap;
+        padding: 0.5rem 1rem;
     }
 
-    /* Hide regular nav buttons by default */
+    .mobile-menu-toggle {
+        display: block;
+    }
+
     .nav-buttons {
         display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 70px;
         left: 0;
-        z-index: 1000;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: center;
         padding: 1rem 0;
-        margin-top: 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        gap: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
 
-    /* Show when mobile menu is active */
-    .nav-buttons.mobile-active {
-        display: flex;
+        &.mobile-active {
+            display: flex;
+            animation: slideDown 0.3s ease-out forwards;
+        }
     }
 
     .nav-button {
         width: 100%;
-        text-align: left;
-        padding: 12px 20px;
-        color: white;
+        text-align: center;
+        padding: 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &.active:after {
+            bottom: 0;
+            width: 30px;
+        }
+    }
+}
+
+/* Mobile Specific */
+@media (max-width: 767px) {
+    .legacy-header {
+        padding: 0.5rem;
     }
 
-    /* Hamburger menu button */
-    .mobile-menu-toggle {
-        display: flex;
-        background: transparent;
-        border: none;
-        color: #ebf308;
-        font-size: 28px;
-        cursor: pointer;
-        padding: 5px;
-        margin-left: auto;
-        z-index: 1001;
+    .legacy-logo {
+        height: 40px;
     }
 
-    /* Hide auth buttons on mobile */
     .legacy-auth-buttons {
-        display: none;
+        gap: 0.5rem;
     }
 
-    /* Show close icon when menu is open */
-    .nav-buttons.mobile-active~.mobile-menu-toggle .hamburger-icon {
-        display: none;
+    .legacy-login-btn,
+    .legacy-signup-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+        height: 32px;
     }
 
-    .nav-buttons.mobile-active~.mobile-menu-toggle .close-icon {
-        display: block;
+    .nav-button {
+        font-size: 14px;
+        padding: 0.8rem;
     }
-}
 
-/* Tablet Styles */
-@media (min-width: 481px) and (max-width: 768px) {
-    .nav-buttons.mobile-active {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 768px) {
     .mobile-menu-toggle {
-        display: block;
-        /* Show only on mobile */
+        font-size: 22px;
     }
 }
 
-.nav-button:hover {
-    // transform: translateY(-3px);
-    color: #135bb8;
-}
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 
-.active {
-    color: #fff;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
